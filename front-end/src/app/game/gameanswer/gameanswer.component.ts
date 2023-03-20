@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Answer} from "../../../models/question.model";
 
 @Component({
   selector: 'app-gameanswer',
@@ -8,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class GameanswerComponent implements OnInit {
 
-  constructor() { }
+  @Input() answer!: Answer ;
+  @Output() answerSelected = new EventEmitter<Answer>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onAnswerClick() {
+    this.answerSelected.emit(this.answer);
   }
 }

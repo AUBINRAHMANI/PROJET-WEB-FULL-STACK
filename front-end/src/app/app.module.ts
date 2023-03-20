@@ -10,6 +10,7 @@ import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component"
 import {ResultatComponent} from "./composant/Resultat.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import {MatCardModule} from "@angular/material/card";
     GameanswerComponent,
     GameinstanceComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatGridListModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

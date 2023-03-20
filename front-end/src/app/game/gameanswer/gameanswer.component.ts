@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Answer} from "../../../models/question.model";
 
+
 @Component({
   selector: 'app-gameanswer',
   templateUrl: './gameanswer.component.html',

@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import {GamepageComponent} from "./game/gamepage/gamepage.component";
 import {GamequestionComponent} from "./game/gamequestion/gamequestion.component";
 import {GameanswerComponent} from "./game/gameanswer/gameanswer.component";
-import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component";
+import {GameInstanceComponent} from "./game/gameinstance/game-instance.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component"
     GamepageComponent,
     GamequestionComponent,
     GameanswerComponent,
-    GameinstanceComponent
+    GameInstanceComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

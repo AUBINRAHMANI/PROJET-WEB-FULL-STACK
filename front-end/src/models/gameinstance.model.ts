@@ -1,6 +1,6 @@
 import {Answer} from "./question.model";
 
-export interface Gameinstance{
+export interface GameInstance{
   Id: string;
   quizId:string;
   gameAnswers: Answer[ ];

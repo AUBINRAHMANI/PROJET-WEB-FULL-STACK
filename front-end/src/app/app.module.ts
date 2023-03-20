@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import {GamepageComponent} from "./game/gamepage/gamepage.component";
 import {GamequestionComponent} from "./game/gamequestion/gamequestion.component";
 import {GameanswerComponent} from "./game/gameanswer/gameanswer.component";
+import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     GamepageComponent,
     GamequestionComponent,
-    GameanswerComponent
+    GameanswerComponent,
+    GameinstanceComponent
   ],
   imports: [
     BrowserModule,

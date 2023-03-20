@@ -7,12 +7,14 @@ import {GamepageComponent} from "./game/gamepage/gamepage.component";
 import {GamequestionComponent} from "./game/gamequestion/gamequestion.component";
 import {GameanswerComponent} from "./game/gameanswer/gameanswer.component";
 import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component";
+import {ResultatComponent} from "./composant/Resultat.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
     AppComponent,
+    ResultatComponent,
     GamepageComponent,
     GamequestionComponent,
     GameanswerComponent,
@@ -27,4 +29,5 @@ import {MatCardModule} from "@angular/material/card";
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

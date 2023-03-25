@@ -10,6 +10,7 @@ export class GameAnswerComponent {
 
   @Input() answer!: Answer;
   @Output() answerSelected: EventEmitter<Answer> = new EventEmitter();
+  disabled: any;
 
   constructor() { }
 

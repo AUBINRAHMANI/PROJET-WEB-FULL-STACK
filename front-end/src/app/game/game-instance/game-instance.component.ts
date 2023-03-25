@@ -20,9 +20,14 @@ export class GameInstanceComponent implements OnInit {
     this.quizList$ = this.gameService.getQuizList();
   }
 
-  startQuiz(quiz: Quiz) {
+  selectQuiz(quizId: string): void {
+    this.gameService.selectedQuizId = quizId;
+    this.gameService.startGame();
+    this.quizStarted = true;
+  }
+  /*startQuiz(quiz: Quiz) {
     this.currentQuiz = quiz;
     this.quizStarted = true;
     this.gameService.startGame(quiz.id);
-  }
+  }*/
 }

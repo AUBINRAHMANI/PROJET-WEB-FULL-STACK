@@ -8,7 +8,7 @@ import {GamequestionComponent} from "./game/gamequestion/gamequestion.component"
 import {GameanswerComponent} from "./game/gameanswer/gameanswer.component";
 import {GameInstanceComponent} from "./game/gameinstance/game-instance.component";
 import {HttpClientModule} from "@angular/common/http";
-import {ResultatComponent} from "./composant/Resultat.component";
+import {ResultatComponent} from "./composant/resultat.component";
 
 @NgModule({
   declarations: [

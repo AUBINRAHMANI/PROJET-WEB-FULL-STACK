@@ -1,13 +1,14 @@
-<div class="game-instance">
+<div *ngIf="!quizStarted" class="game-instance">
   <div class="game-menu">
     <h2>Menu principal</h2>
     <ul>
-      <li *ngFor="let quiz of quizList$ | async" (click)="startQuiz(quiz)">
-        {{quiz.name}}
+      <li *ngFor="let quiz of quizList$ | async">
+        {{quiz.name}} <button (click)="selectQuiz(quiz.id)">Jouer</button>
       </li>
     </ul>
   </div>
-  <div class="game-content" *ngIf="quizStarted">
-    <app-game-page></app-game-page>
-  </div>
+</div>
+
+<div *ngIf="quizStarted" class="game-content">
+  <app-game-page></app-game-page>
 </div>

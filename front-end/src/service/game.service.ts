@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {BehaviorSubject, map, Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Quiz } from '../models/quiz.model';
 import { Question } from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
@@ -9,9 +10,9 @@ import { QUIZ_LIST } from "../mocks/quiz-list.mock";
   providedIn: 'root'
 })
 export class GameService {
-  private quizList: Quiz[] = [];
-  private _currentQuizIndex = 0;
-  private _currentQuestionIndex = 0;
+  public quizList: Quiz[] = [];
+  public _currentQuizIndex = 0;
+  public _currentQuestionIndex = 0;
 
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
@@ -20,6 +21,7 @@ export class GameService {
   constructor(private http: HttpClient) {
     this.retrieveQuizList();
   }
+
   get currentQuizIndex(): number {
     return this._currentQuizIndex;
   }
@@ -39,23 +41,18 @@ export class GameService {
     this.currentQuestion$.next(this.quizList[this.currentQuizIndex].questions[this._currentQuestionIndex]);
   }
 
-
   public retrieveQuizList(): void {
     this.quizList = QUIZ_LIST;
     this.quizList$.next(this.quizList);
     this.currentQuizIndex = 0;
-    this.currentQuiz$.next(this.quizList[this.currentQuizIndex]);
     this.currentQuestionIndex = 0;
-    this.currentQuestion$.next(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
   }
 
   retrieveQuestions(quizId: string): void {
     const quiz = this.quizList.find(q => q.id === quizId);
     if (quiz) {
       this.currentQuizIndex = this.quizList.indexOf(quiz);
-      this.currentQuiz$.next(quiz);
       this.currentQuestionIndex = 0;
-      this.currentQuestion$.next(quiz.questions[this.currentQuestionIndex]);
     } else {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }
@@ -64,19 +61,27 @@ export class GameService {
   nextQuestion(): void {
     if (this.currentQuestionIndex < this.quizList[this.currentQuizIndex].questions.length - 1) {
       this.currentQuestionIndex++;
-      this.currentQuestion$.next(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
     } else {
       // si c'est la dernière question du quiz, on passe au quiz suivant
       this.nextQuiz();
     }
   }
 
+  previousQuestion(): void {
+    if (this.currentQuestionIndex > 0) {
+      this.currentQuestionIndex--;
+    }
+  }
+
+  selectAnswer(answerIndex: number): void {
+    this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
+    this.nextQuestion();
+  }
+
   nextQuiz(): void {
     if (this.currentQuizIndex < this.quizList.length - 1) {
       this.currentQuizIndex++;
-      this.currentQuiz$.next(this.quizList[this.currentQuizIndex]);
       this.currentQuestionIndex = 0;
-      this.currentQuestion$.next(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
     } else {
       // si c'est le dernier quiz, on affiche un message de fin de jeu ou on redirige vers la page d'accueil, etc.
       console.log('Fin du jeu');
@@ -86,10 +91,14 @@ export class GameService {
   getQuizList(): Observable<Quiz[]> {
     return this.quizList$;
   }
+
   getQuiz(quizId: string): Observable<Quiz | undefined> {
     return this.quizList$.pipe(
       map((quizList: Quiz[]) => quizList.find((quiz: Quiz) => quiz.id === quizId))
     );
+  }
+  startGame(quizId: string): void {
+    this.retrieveQuestions(quizId);
   }
 
 }

@@ -6,18 +6,22 @@ export const QUESTION_CAPITALES: Question [] = [{
   label: 'Quelle est la capitale de la France ?',
   answers: [
     {
+      answerId : 1,
       value: 'Paris',
       isCorrect: true,
     },
     {
+      answerId : 2,
       value: 'Lyon',
       isCorrect: false,
     },
     {
+      answerId : 3,
       value: 'Nice',
       isCorrect: false,
     },
     {
+      answerId : 4,
       value: 'Marseille',
       isCorrect: false,
     }
@@ -25,18 +29,22 @@ export const QUESTION_CAPITALES: Question [] = [{
 },
   { id: '2', label: 'Quelle est la capitale de l Angleterre ?', answers: [
   {
+    answerId : 1,
     value: 'Oxford',
     isCorrect: false,
   },
   {
+    answerId : 2,
     value: 'Londres',
     isCorrect: true,
   },
   {
+    answerId : 3,
     value: 'Liverpool',
     isCorrect: false,
   },
   {
+    answerId : 4,
     value: 'Bristol',
     isCorrect: false,
   }
@@ -44,18 +52,22 @@ export const QUESTION_CAPITALES: Question [] = [{
 },
   {id: '3', label: 'Quelle est la capitale de l Italie ?', answers: [
       {
+        answerId : 1,
         value: 'Rome',
         isCorrect: true,
       },
       {
+        answerId : 2,
         value: 'Milan',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Venise',
         isCorrect: false,
       },
       {
+        answerId : 4,
         value: 'Turin',
         isCorrect: false,
       }
@@ -70,18 +82,22 @@ const QUESTION_ANIMAUX: Question [] = [
     label: 'Quel est le plus grand mammifère terrestre ?',
     answers: [
       {
+        answerId : 1,
         value: 'L\'éléphant',
         isCorrect: true,
       },
       {
+        answerId : 2,
         value: 'Le lion',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Le rhinocéros',
         isCorrect: false,
       },
       {
+        answerId : 4,
         value: 'Le gorille',
         isCorrect: false,
       }
@@ -92,18 +108,22 @@ const QUESTION_ANIMAUX: Question [] = [
     label: 'Quel est l\'oiseau le plus rapide ?',
     answers: [
       {
+        answerId : 1,
         value: 'Le faucon pèlerin',
         isCorrect: true,
       },
       {
+        answerId : 2,
         value: 'Le condor des Andes',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Le perroquet',
         isCorrect: false,
       },
       {
+        answerId : 4,
         value: 'La cigogne',
         isCorrect: false,
       }
@@ -120,18 +140,22 @@ const QUESTION_MUSIQUE: Question [] = [
     label: 'Quel est le titre de la chanson de Michael Jackson qui est aussi le nom de son album sorti en 1982 ?',
     answers: [
       {
+        answerId : 1,
         value: 'Bad',
         isCorrect: false,
       },
       {
+        answerId : 2,
         value: 'Thriller',
         isCorrect: true,
       },
       {
+        answerId : 3,
         value: 'Off The Wall',
         isCorrect: false,
       },
       {
+        answerId : 4,
         value: 'Dangerous',
         isCorrect: false,
       }
@@ -142,18 +166,22 @@ const QUESTION_MUSIQUE: Question [] = [
     label: 'Quel est le nom de scène de l\'artiste américaine qui a sorti l\'album "Born This Way" en 2011 ?',
     answers: [
       {
+        answerId : 1,
         value: 'Madonna',
         isCorrect: false,
       },
       {
+        answerId : 2,
         value: 'Katy Perry',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Lady Gaga',
         isCorrect: true,
       },
       {
+        answerId : 4,
         value: 'Beyoncé',
         isCorrect: false,
       }
@@ -167,18 +195,22 @@ export const QUESTION_HS_MUSICAL: Question [] = [{
   label: 'Qui joue le personnage de Gabriella Montez dans le film High School Musical ?',
   answers: [
     {
+      answerId : 1,
       value: 'Vanessa Hudgens',
       isCorrect: true,
     },
     {
+      answerId : 2,
       value: 'Ashley Tisdale',
       isCorrect: false,
     },
     {
+      answerId : 3,
       value: 'Monique Coleman',
       isCorrect: false,
     },
     {
+      answerId : 4,
       value: 'Corbin Bleu',
       isCorrect: false,
     }
@@ -186,37 +218,46 @@ export const QUESTION_HS_MUSICAL: Question [] = [{
 },
   { id: '2', label: 'Dans quelle ville se déroule le film High School Musical ?', answers: [
       {
+        answerId : 1,
         value: 'Los Angeles',
         isCorrect: false,
       },
       {
+        answerId : 2,
         value: 'New York',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Albuquerque',
         isCorrect: true,
       },
       {
+        answerId : 4,
         value: 'Chicago',
         isCorrect: false,
       }
     ],
+
   },
   {id: '3', label: 'Quel est le titre de la chanson phare du film High School Musical ?', answers: [
       {
+        answerId : 1,
         value: 'Breaking Free',
         isCorrect: true,
       },
       {
+        answerId : 2,
         value: 'Start of Something New',
         isCorrect: false,
       },
       {
+        answerId : 3,
         value: 'Getcha Head in the Game',
         isCorrect: false,
       },
       {
+        answerId : 4,
         value: "We're All in This Together",
         isCorrect: false,
       }

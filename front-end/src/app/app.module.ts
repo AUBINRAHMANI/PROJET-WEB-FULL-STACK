@@ -3,24 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {GamequestionComponent} from "./game/gamequestion/gamequestion.component";
+import {GameQuestionComponent} from "./game/game-question/gamequestion.component";
 import {ResultatComponent} from "./composant/Resultat.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {HttpClientModule} from "@angular/common/http";
-import {GameInstanceComponent} from "./game/gameinstance/game-instance.component";
-import {GamePageComponent} from "./game/gamepage/gamepage.component";
-import {GameAnswerComponent} from "./game/gameanswer/gameanswer.component";
+import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
+import {GamePageComponent} from "./game/game-page/gamepage.component";
+import {GameAnswerComponent} from "./game/game-answer/gameanswer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultatComponent,
-    GamePageComponent,
-    GamequestionComponent,
+    GameInstanceComponent,
     GameAnswerComponent,
-    GameInstanceComponent
+    GamePageComponent,
+    GameQuestionComponent,
+
   ],
   imports: [
     BrowserModule,

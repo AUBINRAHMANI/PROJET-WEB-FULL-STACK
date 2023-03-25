@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Answer} from "../../../models/question.model";
 
 @Component({
   selector: 'app-gameanswer',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class GameanswerComponent implements OnInit {
+  @Input() answer!: Answer;
 
   constructor() { }
 

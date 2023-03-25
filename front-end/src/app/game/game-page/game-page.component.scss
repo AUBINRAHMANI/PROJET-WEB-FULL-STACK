@@ -1,9 +1,51 @@
-.card{
-  background: lightsteelblue;
-}
 .game-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  padding: 20px;
+
+  .game-info {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .game-question {
+    margin-bottom: 20px;
+  }
+
+  .game-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
 }

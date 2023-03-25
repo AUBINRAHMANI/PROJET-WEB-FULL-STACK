@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {GamepageComponent} from "./game/gamepage/gamepage.component";
+import {GameInstanceComponent} from "./game/gameinstance/game-instance.component";
 
 const routes: Routes = [
-  { path: 'gamepage', component: GamepageComponent },
+  { path: 'gameinstance', component: GameInstanceComponent },
 ];
 
 @NgModule({

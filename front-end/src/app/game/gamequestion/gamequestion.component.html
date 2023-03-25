@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="question-list">
+  <div class="question">
+    <div class="question-label">
+      <h2>{{currentQuestion.label}}</h2>
+      <ul>
+        <li *ngFor="let answer of currentQuestion.answers">
+          <app-gameanswer [answer]="answer"></app-gameanswer>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

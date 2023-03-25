@@ -1,3 +1,4 @@
 
-<button mat-raised-button color="primary" class="answer-button"
-        (click)="onAnswerClick()">{{answer.value}}</button>
+<div class="answer">
+  <button class="btn btn-primary" [disabled]="disabled" (click)="onAnswerClick()">{{answer.value}}</button>
+</div>

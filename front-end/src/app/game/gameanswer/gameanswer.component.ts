@@ -1,23 +1,20 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Answer} from "../../../models/question.model";
-
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Answer } from '../../../models/question.model';
 
 @Component({
-  selector: 'app-gameanswer',
-  templateUrl: './gameanswer.component.html',
-  styleUrls: ['./gameanswer.component.scss']
+  selector: 'app-game-answer',
+  templateUrl: './game-answer.component.html',
+  styleUrls: ['./game-answer.component.scss']
 })
+export class GameAnswerComponent {
 
-export class GameanswerComponent implements OnInit {
+  @Input() answer!: Answer;
+  @Output() answerSelected: EventEmitter<Answer> = new EventEmitter();
 
-  @Input() answer!: Answer ;
-  @Output() answerSelected = new EventEmitter<Answer>();
+  constructor() { }
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  onAnswerClick() {
+  onAnswerSelected(): void {
     this.answerSelected.emit(this.answer);
   }
+
 }

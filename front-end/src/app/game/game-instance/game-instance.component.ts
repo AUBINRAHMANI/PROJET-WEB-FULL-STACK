@@ -10,16 +10,19 @@ import {GameService} from "../../../service/game.service";
   styleUrls: ['./game-instance.component.scss']
 })
 export class GameInstanceComponent implements OnInit {
-
   quizList$: Observable<Quiz[]> = new Observable<Quiz[]>();
+  currentQuiz: Quiz | undefined;
+  quizStarted = false;
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
     this.quizList$ = this.gameService.getQuizList();
-    this.quizList$.subscribe((quizList: Quiz[]) => {
-      // Traiter la valeur de quizList ici
-    });
   }
 
+  startQuiz(quiz: Quiz) {
+    this.currentQuiz = quiz;
+    this.quizStarted = true;
+    this.gameService.startGame(quiz.id);
+  }
 }

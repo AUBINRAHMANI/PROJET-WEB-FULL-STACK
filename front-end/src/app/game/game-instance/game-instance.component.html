@@ -2,12 +2,12 @@
   <div class="game-menu">
     <h2>Menu principal</h2>
     <ul>
-      <li *ngFor="let quiz of quizList" (click)="startQuiz(quiz)">
+      <li *ngFor="let quiz of quizList$ | async" (click)="startQuiz(quiz)">
         {{quiz.name}}
       </li>
     </ul>
   </div>
   <div class="game-content" *ngIf="quizStarted">
-    <app-gamepage [quiz]="currentQuiz"></app-gamepage>
+    <app-game-page></app-game-page>
   </div>
 </div>

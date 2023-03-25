@@ -102,8 +102,11 @@ export class GameService {
       map((quizList: Quiz[]) => quizList.find((quiz: Quiz) => quiz.id === quizId))
     );
   }
-  startGame(quizId: string): void {
-    this.retrieveQuestions(quizId);
+  startGame(): void {
+    if (this.selectedQuizId) {
+      this.retrieveQuestions(this.selectedQuizId);
+    }
   }
+
 
 }

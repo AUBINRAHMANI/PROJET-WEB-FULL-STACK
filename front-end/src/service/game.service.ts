@@ -10,9 +10,10 @@ import { QUIZ_LIST } from "../mocks/quiz-list.mock";
   providedIn: 'root'
 })
 export class GameService {
-  public quizList: Quiz[] = [];
+  public quizList = QUIZ_LIST;
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
+  public selectedQuizId: string | null = null;
 
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
@@ -53,10 +54,14 @@ export class GameService {
     if (quiz) {
       this.currentQuizIndex = this.quizList.indexOf(quiz);
       this.currentQuestionIndex = 0;
+      if (quiz.questions) {
+        this.currentQuestion$.next(quiz.questions[this.currentQuestionIndex]);
+      }
     } else {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }
   }
+
 
   nextQuestion(): void {
     if (this.currentQuestionIndex < this.quizList[this.currentQuizIndex].questions.length - 1) {

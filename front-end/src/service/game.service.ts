@@ -83,6 +83,9 @@ export class GameService {
     }
   }
 
+  getQuizList(): Observable<Quiz[]> {
+    return this.quizList$;
+  }
   getQuiz(quizId: string): Observable<Quiz | undefined> {
     return this.quizList$.pipe(
       map((quizList: Quiz[]) => quizList.find((quiz: Quiz) => quiz.id === quizId))

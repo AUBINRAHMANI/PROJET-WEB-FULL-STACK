@@ -68,7 +68,7 @@ export const QUIZ_LIST: Quiz[] = [
     id: '1',
     name: 'Les Capitales',
     theme: 'Géographie',
-    questions: [],
+    questions: QUESTION_CAPITALES,
   },
   {
     id: '2',

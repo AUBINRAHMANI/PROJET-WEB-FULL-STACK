@@ -1,8 +1,10 @@
-<div>
-  <h2>{{currentQuestion.label}}</h2>
-  <mat-grid-list cols="2" rowHeight="1:1" gutterSize="16px">
-    <mat-grid-tile *ngFor="let answer of currentQuestion.answers">
-      <app-gameanswer [answer]="answer" (answerSelected)="onAnswerSelected($event)"></app-gameanswer>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="question-list">
+  <div class="question" *ngFor="let question of questionlist">
+    <div class="question-label">
+      <h3>{{question.label}}</h3>
+    </div>
+    <div class="question-answers" *ngFor="let answer of question.answers">
+      <p>{{answer.value}}</p>
+    </div>
+  </div>
 </div>

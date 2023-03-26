@@ -16,10 +16,12 @@ export class GameInstanceComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    console.log("GAME-INSTANCE: ngOnInit");
     this.quizList$ = this.gameService.getQuizList();
   }
 
   selectQuiz(quizId: string): void {
+    console.log("GAME-INSTANCE: selectQuiz");
     this.currentQuiz = this.getQuiz(quizId);
     this.gameService.selectedQuizId = quizId;
     this.gameService.startGame(quizId);
@@ -28,6 +30,7 @@ export class GameInstanceComponent implements OnInit {
   }
 
   getQuiz(quizId: string): Observable<Quiz | undefined> {
+    console.log("GAME-INSTANCE: getQuiz");
     return this.gameService.getQuiz(quizId);
   }
 }

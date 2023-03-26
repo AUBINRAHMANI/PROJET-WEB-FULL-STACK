@@ -29,6 +29,7 @@ export class GameService {
   }
 
   set currentQuizIndex(index: number) {
+    console.log("GameService.setCurrentQuizIndex()");
     this._currentQuizIndex = index;
     this.currentQuiz$.next(this.quizList[this._currentQuizIndex]);
     this.currentQuestionIndex = 0;
@@ -39,11 +40,13 @@ export class GameService {
   }
 
   set currentQuestionIndex(index: number) {
+    console.log("GameService.setCurrentQuestionIndex()");
     this._currentQuestionIndex = index;
     this.currentQuestion$.next(this.quizList[this.currentQuizIndex].questions[this._currentQuestionIndex]);
   }
 
   public retrieveQuizList(): void {
+    console.log("GameService.retrieveQuizList()");
     this.quizList = QUIZ_LIST;
     this.quizList$.next(this.quizList);
     this.currentQuizIndex = 0;
@@ -51,6 +54,7 @@ export class GameService {
   }
 
   retrieveQuestions(quizId: string): void {
+    console.log("GameService.retrieveQuestions()");
     const quiz = this.quizList.find(q => q.id === quizId);
     if (quiz) {
       this.currentQuizIndex = this.quizList.indexOf(quiz);
@@ -67,45 +71,52 @@ export class GameService {
 
 
   nextQuestion(): void {
+    console.log("GameService.nextQuestion()");
     if (this.currentQuestionIndex < this.quizList[this.currentQuizIndex].questions.length - 1) {
       this.currentQuestionIndex++;
     } else {
       // si c'est la dernière question du quiz, on passe au quiz suivant
-      this.nextQuiz();
+      console.log('Fin du QUIZ');
     }
   }
 
   previousQuestion(): void {
+    console.log("GameService.previousQuestion()");
     if (this.currentQuestionIndex > 0) {
       this.currentQuestionIndex--;
     }
   }
-
   selectAnswer(answerIndex: number): void {
+    console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
     this.nextQuestion();
   }
 
   nextQuiz(): void {
+    console.log("GameService - nextQuiz");
     if (this.currentQuizIndex < this.quizList.length - 1) {
       this.currentQuizIndex++;
       this.currentQuestionIndex = 0;
     } else {
-      // si c'est le dernier quiz, on affiche un message de fin de jeu ou on redirige vers la page d'accueil, etc.
+// si c'est le dernier quiz, on affiche un message de fin de jeu ou on redirige vers la page d'accueil, etc.
       console.log('Fin du jeu');
     }
   }
 
   getQuizList(): Observable<Quiz[]> {
+    console.log("GameService - getQuizList");
     return this.quizList$;
   }
 
   getQuiz(quizId: string): Observable<Quiz | undefined> {
+    console.log("GameService - getQuiz");
     return this.quizList$.pipe(
       map((quizList: Quiz[]) => quizList.find((quiz: Quiz) => quiz.id === quizId))
     );
   }
+
   startGame(quizId: string): void {
+    console.log("GameService - startGame");
     const quiz = this.quizList.find(q => q.id === quizId);
     if (quiz) {
       this.retrieveQuestions(quiz.id);
@@ -113,6 +124,4 @@ export class GameService {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }
   }
-
-
 }

@@ -14,7 +14,12 @@ export class GameAnswerComponent {
 
   constructor() { }
 
+  ngOnInit(): void {
+    console.log("GameAnswerComponent - ngOnInit()");
+  }
+
   onAnswerSelected(): void {
+    console.log("GameAnswerComponent - onAnswerSelected()");
     this.answerSelected.emit(this.answer);
   }
 

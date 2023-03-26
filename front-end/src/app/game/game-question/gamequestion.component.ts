@@ -13,6 +13,7 @@ export class GameQuestionComponent {
   constructor() {}
 
   onAnswerSelected(question: Question, answer: Answer): void {
+    console.log("GameQuestionComponent.onAnswerSelected");
     this.answerSelected.emit({ question, answer });
   }
 }

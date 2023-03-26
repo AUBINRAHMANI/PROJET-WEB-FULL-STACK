@@ -18,10 +18,12 @@ export class GamePageComponent implements OnInit {
   questions: Question[] = [];
 
   constructor(private route: ActivatedRoute, public gameService: GameService) {
-    this.ngOnInit()
+    console.log("CLASS GamePageComponent");
+    this.ngOnInit();
   }
 
   ngOnInit(): void {
+    console.log("METHOD ngOnInit");
     if (this.quizId) {
       this.quiz = this.gameService.getQuiz(this.quizId);
       this.gameService.retrieveQuestions(this.quizId);
@@ -39,22 +41,27 @@ export class GamePageComponent implements OnInit {
   }
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {
+    console.log("METHOD onAnswerSelected");
     this.gameService.selectAnswer(answer.answer.answerId);
   }
 
   previousQuestion() {
+    console.log("METHOD previousQuestion");
     this.gameService.previousQuestion();
   }
 
   nextQuestion() {
+    console.log("METHOD nextQuestion");
     this.gameService.nextQuestion();
   }
 
   disablePrevious(): boolean {
+    console.log("METHOD disablePrevious");
     return this.gameService.currentQuestionIndex === 0;
   }
 
   disableNext(): boolean {
+    console.log("METHOD disableNext");
     return this.gameService.currentQuestionIndex === this.questions.length - 1;;
   }
 }

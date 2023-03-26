@@ -136,7 +136,7 @@ const QUESTION_ANIMAUX: Question [] = [
 // Mocks pour le quiz sur la musique
 const QUESTION_MUSIQUE: Question [] = [
   {
-    id: '3',
+    id: '1',
     label: 'Quel est le titre de la chanson de Michael Jackson qui est aussi le nom de son album sorti en 1982 ?',
     answers: [
       {
@@ -162,7 +162,7 @@ const QUESTION_MUSIQUE: Question [] = [
     ],
   },
   {
-    id: '4',
+    id: '2',
     label: 'Quel est le nom de scène de l\'artiste américaine qui a sorti l\'album "Born This Way" en 2011 ?',
     answers: [
       {
@@ -301,5 +301,5 @@ export const QUIZ_LIST: Quiz[] = [
   QUIZ_CAPITALE,
   QUIZ_HS_MUSICAL,
   QUIZ_ANIMAUX,
-  QUIZ_MUSIQUE,
+  QUIZ_MUSIQUE
 ];

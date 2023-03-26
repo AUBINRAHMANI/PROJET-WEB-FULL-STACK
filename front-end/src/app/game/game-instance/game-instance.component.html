@@ -10,5 +10,6 @@
 </div>
 
 <div *ngIf="quizStarted" class="game-content">
-  <app-game-page></app-game-page>
+  <app-game-page [quizId]="(currentQuiz | async)?.id"></app-game-page>
 </div>
+

@@ -14,6 +14,7 @@ export class GameService {
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
   public selectedQuizId: string | null = null;
+  public quizQuestionsLength = 0;
 
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
@@ -56,6 +57,8 @@ export class GameService {
       this.currentQuestionIndex = 0;
       if (quiz.questions) {
         this.currentQuestion$.next(quiz.questions[this.currentQuestionIndex]);
+        this.quizQuestionsLength = quiz.questions[0].answers.length;
+        console.log(this.quizQuestionsLength+" size"); // Affiche la longueur de la liste des questions dans la console du navigateur
       }
     } else {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
@@ -102,9 +105,12 @@ export class GameService {
       map((quizList: Quiz[]) => quizList.find((quiz: Quiz) => quiz.id === quizId))
     );
   }
-  startGame(): void {
-    if (this.selectedQuizId) {
-      this.retrieveQuestions(this.selectedQuizId);
+  startGame(quizId: string): void {
+    const quiz = this.quizList.find(q => q.id === quizId);
+    if (quiz) {
+      this.retrieveQuestions(quiz.id);
+    } else {
+      console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }
   }
 

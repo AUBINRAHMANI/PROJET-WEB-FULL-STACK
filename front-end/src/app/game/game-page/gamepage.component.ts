@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from "../../../models/quiz.model";
 import { GameService } from "../../../service/game.service";
@@ -12,23 +12,28 @@ import { Observable } from "rxjs";
 })
 export class GamePageComponent implements OnInit {
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
+
+  @Input() quizId: string | undefined;
   currentQuestion: Question | undefined;
   questions: Question[] = [];
 
-  constructor(private route: ActivatedRoute, public gameService: GameService) {}
+  constructor(private route: ActivatedRoute, public gameService: GameService) {
+    this.ngOnInit()
+  }
 
   ngOnInit(): void {
-    const quizId = this.route.snapshot.paramMap.get('quizId');
-    if (quizId) {
-      this.quiz = this.gameService.getQuiz(quizId);
-      this.gameService.retrieveQuestions(quizId);
+    if (this.quizId) {
+      this.quiz = this.gameService.getQuiz(this.quizId);
+      this.gameService.retrieveQuestions(this.quizId);
       this.gameService.currentQuestion$.subscribe((question: Question) => {
         this.currentQuestion = question;
       });
       this.quiz.subscribe((quiz: Quiz | undefined) => {
+        console.log("dure dure");
         if (quiz) {
           this.questions = quiz.questions;
         }
+        console.log("ouiyutryuilu");
       });
     }
   }

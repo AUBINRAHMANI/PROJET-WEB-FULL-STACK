@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import {Quiz} from "../../../models/quiz.model";
-import {GameService} from "../../../service/game.service";
-
+import { Quiz } from '../../../models/quiz.model';
+import { GameService } from '../../../service/game.service';
 
 @Component({
   selector: 'app-game-instance',
@@ -11,7 +10,7 @@ import {GameService} from "../../../service/game.service";
 })
 export class GameInstanceComponent implements OnInit {
   quizList$: Observable<Quiz[]> = new Observable<Quiz[]>();
-  currentQuiz: Quiz | undefined;
+  currentQuiz: Observable<Quiz | undefined> | undefined;
   quizStarted = false;
 
   constructor(private gameService: GameService) { }
@@ -21,13 +20,14 @@ export class GameInstanceComponent implements OnInit {
   }
 
   selectQuiz(quizId: string): void {
+    this.currentQuiz = this.getQuiz(quizId);
     this.gameService.selectedQuizId = quizId;
-    this.gameService.startGame();
+    this.gameService.startGame(quizId);
     this.quizStarted = true;
+    console.log(quizId);
   }
-  /*startQuiz(quiz: Quiz) {
-    this.currentQuiz = quiz;
-    this.quizStarted = true;
-    this.gameService.startGame(quiz.id);
-  }*/
+
+  getQuiz(quizId: string): Observable<Quiz | undefined> {
+    return this.gameService.getQuiz(quizId);
+  }
 }

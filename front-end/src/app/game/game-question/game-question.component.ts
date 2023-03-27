@@ -4,11 +4,11 @@ import { GameService } from "../../../service/game.service";
 
 @Component({
   selector: 'app-gamequestion',
-  templateUrl: './gamequestion.component.html',
-  styleUrls: ['./gamequestion.component.scss']
+  templateUrl: './game-question.component.html',
+  styleUrls: ['./game-question.component.scss']
 })
 
-export class GamequestionComponent implements OnInit {
+export class GameQuestionComponent implements OnInit {
   questionlist: Question[] = [];
   questionIndex: number = 0;
 

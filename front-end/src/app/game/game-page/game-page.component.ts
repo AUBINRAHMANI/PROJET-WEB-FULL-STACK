@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gamepage',
-  templateUrl: './gamepage.component.html',
-  styleUrls: ['./gamepage.component.scss']
+  templateUrl: './game-page.component.html',
+  styleUrls: ['./game-page.component.scss']
 })
 
-export class GamepageComponent implements OnInit {
+export class GamePageComponent implements OnInit {
 
     constructor() { }
 

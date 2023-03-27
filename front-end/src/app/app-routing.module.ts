@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {GameInstanceComponent} from "./game/gameinstance/game-instance.component";
+import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
 import {AccueilComponent} from "./accueil/accueil.component";
 import {CalibrageComponent} from "./calibrage/calibrage.component";
 

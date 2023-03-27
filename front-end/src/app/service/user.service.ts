@@ -25,7 +25,7 @@ export class UserService {
   }
 
   public deleteUser(user: Utilisateur): void {
-    this.utilisateurs = this.utilisateurs.filter((u: Utilisateur) => u !== user);
+    this.utilisateurs = this.utilisateurs.filter((u: Utilisateur) => u.id !== user.id);
     this.utilisateurs$.next(this.utilisateurs);
   }
 

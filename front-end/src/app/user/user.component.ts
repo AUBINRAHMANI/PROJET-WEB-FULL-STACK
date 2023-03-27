@@ -21,5 +21,6 @@ export class UserComponent implements OnInit {
 
     userDelete(): void {
       this.deleteUser.emit(this.user);
+      console.log("user : ",this.user.id);
     }
 }

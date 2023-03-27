@@ -52,6 +52,7 @@ export class ProfilComponent implements OnInit {
 
   userDelete(): void {
     this.deleteUser.emit(this.user);
+    console.log("profil : ",this.user.id);
   }
 
 

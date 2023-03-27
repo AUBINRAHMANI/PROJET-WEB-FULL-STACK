@@ -24,6 +24,7 @@ export class ConnexionComponents implements OnInit {
 
   deleteUser(user: Utilisateur): void {
     this.userService.deleteUser(user);
+    console.log("connexion : ",user.id);
   }
 }
 

@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {Answer, Question} from "../../../models/question.model";
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Answer, Question } from '../../../models/question.model';
 import { GameService } from "../../../service/game.service";
 
 @Component({
-  selector: 'app-gamequestion',
+  selector: 'app-game-question',
   templateUrl: './game-question.component.html',
   styleUrls: ['./game-question.component.scss']
 })
-
 export class GameQuestionComponent implements OnInit {
   questionlist: Question[] = [];
   questionIndex: number = 0;
+  @Output() answerSelected: EventEmitter<{ question: Question, answer: Answer }> = new EventEmitter();
 
   constructor(public gameservice : GameService) {
     this.gameservice.questions$.subscribe((questions : Question[]) => {
@@ -21,13 +21,13 @@ export class GameQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAnswerSelected(question: Question, answer: Answer): void {
+    console.log("GameQuestionComponent.onAnswerSelected");
+    this.answerSelected.emit({ question, answer });
+  }
+
   get currentQuestion(): Question {
     return this.questionlist[this.questionIndex];
   }
 
-  // onAnswerSelected(answer: Answer) {
-  //   // Logique pour gérer la sélection de la réponse
-  //   // Passer à la question suivante
-  //   this.questionIndex++;
-  // }
 }

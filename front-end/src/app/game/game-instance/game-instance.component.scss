@@ -1,0 +1,149 @@
+.game-instance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+
+  .game-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        button {
+          margin-left: 10px;
+          padding: 10px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          background-color: #007bff;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #0069d9;
+          }
+        }
+      }
+    }
+  }
+
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    app-game-page {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+      height: 100%;
+      background-color: #fff;
+
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      h4 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          font-size: 16px;
+          margin-bottom: 10px;
+          color: #333;
+        }
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0069d9;
+        }
+      }
+
+      .question-wrapper {
+        margin-bottom: 20px;
+
+        h3 {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #333;
+        }
+
+        p {
+          font-size: 16px;
+          margin-bottom: 10px;
+          color: #333;
+        }
+
+        .answer-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            font-size: 16px;
+            color: #333;
+
+            input {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

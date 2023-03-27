@@ -11,6 +11,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {ResultatComponent} from "./composant/resultat.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CalibrageComponent } from './calibrage/calibrage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,9 @@ import { CalibrageComponent } from './calibrage/calibrage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
     HttpClientModule
   ],
   providers: [],

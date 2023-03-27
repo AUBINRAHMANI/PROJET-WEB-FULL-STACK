@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SOLID</title>
+</head>
+
+<body>
+<div class="container">
+  <h2>Creer un nouvel Utilisateur</h2>
+    <form class="profil" [formGroup]="userForm">
+      <label for="nom">
+        Nom <br>
+        <input class="custom" type="text" formControlName="nom" id="nom">
+      </label>
+      <br>
+      <label for="prenom">
+        Prenom <br>
+        <input class="custom" type="text" formControlName="prenom" id="prenom">
+      </label>
+      <br>
+      <label for="id">
+        id <br>
+        <input class="custom" type="text" formControlName="id" id="id">
+      </label>
+      <br>
+
+      <label for="score">
+        Score<br>
+        <input class="custom" type="text" formControlName="score" id="score">
+      </label>
+      <br>
+
+      <label for="stade">
+        Stade<br>
+        <input class="custom" type="text" formControlName="stade" id="stade">
+      </label>
+      <br>
+
+      <button type="submit" class="button" (click)="addUser()" >Creer </button>
+      <button typé="reset" class="button" (click)="userDelete()">Supprimer</button>
+    </form>
+  </div>
+
+</body>
+</html>

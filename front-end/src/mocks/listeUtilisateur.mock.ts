@@ -1,6 +1,6 @@
 import { Utilisateur } from '../models/Utilisateur.model';
 
-export const ListeUtilisateurMock: Utilisateur[] = [
+export const LISTE_UTILISATEUR: Utilisateur[] = [
   {
     id: '1',
     nom: 'Perry',

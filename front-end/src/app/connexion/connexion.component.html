@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SOLID</title>
+</head>
+
+<body>
+<app-profil></app-profil>
+    <h1>CONNEXION</h1>
+    <button onclick="">UTILISATEUR</button>
+    <div class="utilisateur">
+      <div class="utilisateur" *ngFor="let user of listeUtilisateur">
+
+        <app-profil [user]="user" (deleteUser)="deleteUser($event)"></app-profil>
+
+      </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

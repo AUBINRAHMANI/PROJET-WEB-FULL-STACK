@@ -8,6 +8,10 @@ import {GamequestionComponent} from "./game/gamequestion/gamequestion.component"
 import {GameanswerComponent} from "./game/gameanswer/gameanswer.component";
 import {GameinstanceComponent} from "./game/gameinstance/gameinstance.component";
 import {ResultatComponent} from "./composant/Resultat.component";
+import {ConnexionComponents} from "./connexion/connexion.components";
+import {ProfilComponent} from "./profil/profil.component";
+import {ReactiveFormsModule} from "@angular/forms";
+
 
 
 @NgModule({
@@ -17,12 +21,16 @@ import {ResultatComponent} from "./composant/Resultat.component";
     GamepageComponent,
     GamequestionComponent,
     GameanswerComponent,
-    GameinstanceComponent
+    GameinstanceComponent,
+    ConnexionComponents,
+    ProfilComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

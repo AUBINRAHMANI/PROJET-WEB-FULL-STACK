@@ -27,9 +27,21 @@ export class ProfilComponent implements OnInit {
       stade: [''],
     });
 
-    }
+    this.userForm.patchValue({
+      id: this.user?.id ?? '',
+      nom: this.user?.nom ?? '',
+      prenom: this.user?.prenom ?? '',
+      score: this.user?.score ?? '',
+      stade: this.user?.stade ?? '',
+
+    });
+
+    this.userForm.controls['id'].setValue(this.user?.id ?? '');
+
+  }
 
   ngOnInit(): void {
+    console.log('utilisateur', this.user);
   }
 
   addUser(): void {

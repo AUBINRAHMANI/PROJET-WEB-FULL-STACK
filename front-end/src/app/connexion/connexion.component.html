@@ -6,13 +6,13 @@
 </head>
 
 <body>
-<app-profil></app-profil>
     <h1>CONNEXION</h1>
+    <app-profil></app-profil>
     <button onclick="">UTILISATEUR</button>
     <div class="utilisateur">
       <div class="utilisateur" *ngFor="let user of listeUtilisateur">
 
-        <app-profil [user]="user" (deleteUser)="deleteUser($event)"></app-profil>
+        <app-user [user]="user" (deleteUser)="deleteUser($event)"></app-user>
 
       </div>
 

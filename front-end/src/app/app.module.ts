@@ -17,6 +17,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponents} from "./connexion/connexion.components";
 import {ProfilComponent} from "./profil/profil.component";
+import {UserComponent} from "./user/user.component";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {ProfilComponent} from "./profil/profil.component";
     CalibrageComponent,
     ConnexionComponents,
     ProfilComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

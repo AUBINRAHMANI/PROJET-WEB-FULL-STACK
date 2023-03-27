@@ -11,7 +11,7 @@ import {BehaviorSubject} from "rxjs";
 
 export class UserService {
 
-  private utilisateurs : Utilisateur[]= LISTE_UTILISATEUR;
+  public utilisateurs : Utilisateur[]= LISTE_UTILISATEUR;
  // private listeUtilisateur: Utilisateur[] = [];
 
   // Observable containing a list of quizzes, initialized with an empty array.

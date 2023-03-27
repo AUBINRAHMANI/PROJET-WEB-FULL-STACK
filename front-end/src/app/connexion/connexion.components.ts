@@ -13,11 +13,8 @@ export class ConnexionComponents implements OnInit {
   public listeUtilisateur: Utilisateur[] = [];
 
   constructor(public userService: UserService) {
-
-
     this.userService.utilisateurs$.subscribe((utilisateur: Utilisateur[]) => {
       this.listeUtilisateur = utilisateur;
-
     });
   }
 

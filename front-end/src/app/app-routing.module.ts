@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GamepageComponent } from './game/gamepage/gamepage.component';
+import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
+import {AccueilComponent} from "./accueil/accueil.component";
+import {CalibrageComponent} from "./calibrage/calibrage.component";
 import {ConnexionComponents} from "./connexion/connexion.components";
 
 const routes: Routes = [
-  { path: 'gamepage', component: GamepageComponent },
+  { path: '', component: AccueilComponent },
+  { path: 'gameinstance', component: GameInstanceComponent },
+  { path: 'calibrage', component: CalibrageComponent },
   { path: 'connexion', component: ConnexionComponents },
-
 ];
 
 @NgModule({

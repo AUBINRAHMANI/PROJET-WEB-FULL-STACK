@@ -17,13 +17,13 @@ div {
 button {
   background-color: #4CAF50;
   color: white;
-  font-size: 64px;
+  font-size: 20px;
   padding: 16px 32px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin: 128px;
-  min-width: 300px;/*pour que le bouton soit de la même taille que le bouton de la page d'accueil*/
+  //min-width: 300px;/*pour que le bouton soit de la même taille*/
 }
 
 button:hover {

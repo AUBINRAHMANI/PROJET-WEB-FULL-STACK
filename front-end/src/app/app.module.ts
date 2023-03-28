@@ -14,6 +14,8 @@ import { CalibrageComponent } from './calibrage/calibrage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { HeaderComponent } from './header/header.component';
+import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     GameAnswerComponent,
     GameInstanceComponent,
     AccueilComponent,
-    CalibrageComponent
+    CalibrageComponent,
+    HeaderComponent,
+    AdaptButtonSizeDirective,
   ],
   imports: [
     BrowserModule,

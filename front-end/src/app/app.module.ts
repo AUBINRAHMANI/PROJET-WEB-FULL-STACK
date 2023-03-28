@@ -18,6 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponents} from "./connexion/connexion.components";
 import {ProfilComponent} from "./profil/profil.component";
 import {UserComponent} from "./user/user.component";
+import { HeaderComponent } from './header/header.component';
+import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 
 
 @NgModule({
@@ -29,6 +31,9 @@ import {UserComponent} from "./user/user.component";
     GameAnswerComponent,
     GameInstanceComponent,
     AccueilComponent,
+    CalibrageComponent,
+    HeaderComponent,
+    AdaptButtonSizeDirective,
     CalibrageComponent,
     ConnexionComponents,
     ProfilComponent,

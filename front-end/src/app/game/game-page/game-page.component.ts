@@ -65,7 +65,8 @@ export class GamePageComponent implements OnInit {
 
   disableNext(): boolean {
     console.log("METHOD disableNext");
-    return this.gameService.currentQuestionIndex === this.questions.length - 1;;
+    return this.gameService.currentQuestionIndex === this.questions.length - 1;
+    ;
   }
 
   isGameFinished(): boolean {

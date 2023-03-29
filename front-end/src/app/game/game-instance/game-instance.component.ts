@@ -14,7 +14,8 @@ export class GameInstanceComponent implements OnInit {
   currentQuiz: Observable<Quiz | undefined> | undefined;
   quizStarted = false;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService) {
+  }
 
   ngOnInit(): void {
     console.log("GAME-INSTANCE: ngOnInit");

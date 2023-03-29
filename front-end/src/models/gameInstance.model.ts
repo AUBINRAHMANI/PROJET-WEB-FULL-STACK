@@ -1,4 +1,4 @@
-import { Answer } from "./question.model";
+import {Answer, Question} from "./question.model";
 import { Quiz } from "./quiz.model";
 
 export class GameInstance {
@@ -101,5 +101,5 @@ export class GameInstance {
 }
 
 export class AnswerGiven {
-  constructor(public questionId: number, public answer: Answer) {}
+  constructor(public question: Question, public givenAnswer: Answer, correctAnswer: Answer | undefined) {}
 }

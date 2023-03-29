@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Quiz } from '../models/quiz.model';
-import { Question } from "../models/question.model";
+import {Answer, Question} from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
 import {AnswerGiven, GameInstance} from "../models/gameInstance.model";
 import { Router } from '@angular/router';
@@ -104,9 +104,10 @@ export class GameService {
     console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
     let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers[answerIndex-1];
+    let currentValebleQuestion = this.currentQuestion$.getValue();
     console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
     this._gameInstance.updateScore(selectedAnswer);
-    this._gameInstance.addAnswer(new AnswerGiven(this.currentQuestionIndex,selectedAnswer));
+    this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
     console.log("score -------"+this.gameInstance.score)
     this.nextQuestion();
     }else{
@@ -149,5 +150,8 @@ export class GameService {
     } else {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }
+  }
+  findCorrectAnswer(question: Question): Answer | undefined {
+    return question.answers.find(answer => answer.isCorrect);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Quiz } from '../../../models/quiz.model';
 import { GameService } from '../../../service/game.service';
+import {GameInstance} from "../../../models/gameInstance.model";
 
 @Component({
   selector: 'app-game-instance',

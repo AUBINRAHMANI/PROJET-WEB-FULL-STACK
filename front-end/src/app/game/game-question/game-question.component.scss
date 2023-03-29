@@ -1,26 +1,12 @@
-.question-container {
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.grid-item {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
-
-  .question {
-    margin-bottom: 20px;
-
-    h3 {
-      font-size: 24px;
-      font-weight: bold;
-    }
-  }
-
-  .answers {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    app-game-answer {
-      margin-bottom: 10px;
-    }
-  }
 }

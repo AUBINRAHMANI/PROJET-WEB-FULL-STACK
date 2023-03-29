@@ -6,10 +6,14 @@
     <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
     <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
   </div>
-  <div class="game-question">
-    <app-game-question [currentQuestion]="currentQuestion" (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion"></app-game-question>
-    <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
+
+  <div class="question-container">
+    <div class="game-question">
+      <app-game-question [currentQuestion]="currentQuestion" (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion"></app-game-question>
+      <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
+    </div>
   </div>
+
   <div class="game-controls">
     <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === 0" (click)="previousQuestion()">Précédent</button>
     <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === ((quiz | async)?.questions?.length ?? 0) - 1" (click)="nextQuestion()">Suivant</button>

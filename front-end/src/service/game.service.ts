@@ -5,11 +5,20 @@ import { map } from 'rxjs/operators';
 import { Quiz } from '../models/quiz.model';
 import { Question } from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
+import {AnswerGiven, GameInstance} from "../models/gameInstance.model";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
+  get gameInstance(): GameInstance {
+    return this._gameInstance;
+  }
+
+  set gameInstance(value: GameInstance) {
+    this._gameInstance = value;
+  }
   public quizList = QUIZ_LIST;
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
@@ -19,8 +28,9 @@ export class GameService {
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
   public currentQuestion$: BehaviorSubject<Question> = new BehaviorSubject(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
+  private _gameInstance: GameInstance = new GameInstance( new Date(), null);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router) {
     this.retrieveQuizList();
   }
 
@@ -76,7 +86,9 @@ export class GameService {
       this.currentQuestionIndex++;
     } else {
       // si c'est la dernière question du quiz, on passe au quiz suivant
-      console.log('Fin du QUIZ');
+      this._gameInstance.endGame()
+      console.log('Fin du jeu');
+      this.router.navigate(['/game-result']);
     }
   }
 
@@ -87,9 +99,18 @@ export class GameService {
     }
   }
   selectAnswer(answerIndex: number): void {
+    if(!this._gameInstance.isFinished){
     console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
+    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers[answerIndex-1];
+    console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
+    this._gameInstance.updateScore(selectedAnswer);
+    this._gameInstance.addAnswer(new AnswerGiven(this.currentQuestionIndex,selectedAnswer));
+    console.log("score -------"+this.gameInstance.score)
     this.nextQuestion();
+    }
+    this.router.navigate(['/game-result']);
+    console.log("Le jeu est fini");
   }
 
   nextQuiz(): void {
@@ -118,6 +139,8 @@ export class GameService {
   startGame(quizId: string): void {
     console.log("GameService - startGame");
     const quiz = this.quizList.find(q => q.id === quizId);
+    // @ts-ignore
+    this._gameInstance.setQuiz=quiz;
     if (quiz) {
       this.retrieveQuestions(quiz.id);
     } else {

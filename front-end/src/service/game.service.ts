@@ -99,6 +99,7 @@ export class GameService {
     }
   }
   selectAnswer(answerIndex: number): void {
+    console.log(this._gameInstance.isFinished+"yooooooooooooooooazaooooooh");
     if(!this._gameInstance.isFinished){
     console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
@@ -108,9 +109,11 @@ export class GameService {
     this._gameInstance.addAnswer(new AnswerGiven(this.currentQuestionIndex,selectedAnswer));
     console.log("score -------"+this.gameInstance.score)
     this.nextQuestion();
+    }else{
+      console.log("Le jeu est fini noukzaaaaaaa");
+      this.router.navigate(['/game-result']);
     }
-    this.router.navigate(['/game-result']);
-    console.log("Le jeu est fini");
+
   }
 
   nextQuiz(): void {

@@ -7,7 +7,6 @@ import {GameQuestionComponent} from "./game/game-question/game-question.componen
 import {GameAnswerComponent} from "./game/game-answer/game-answer.component";
 import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
 import {HttpClientModule} from "@angular/common/http";
-import {ResultatComponent} from "./composant/resultat.component";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CalibrageComponent } from './calibrage/calibrage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,8 @@ import {ProfilComponent} from "./profil/profil.component";
 import {UserComponent} from "./user/user.component";
 import { HeaderComponent } from './header/header.component';
 import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
+import {GamePageComponent} from "./game/game-page/game-page.component";
+import {GameResultComponent} from "./game/game-result/game-result.component";
 
 
 @NgModule({
@@ -26,11 +27,9 @@ import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
     AppComponent,
     GameInstanceComponent,
     GameAnswerComponent,
-    GameResultComponent,
-    GamePageComponent,
     GameQuestionComponent,
-    GameAnswerComponent,
-    GameInstanceComponent,
+    GamePageComponent,
+    GameResultComponent,
     AccueilComponent,
     CalibrageComponent,
     HeaderComponent,

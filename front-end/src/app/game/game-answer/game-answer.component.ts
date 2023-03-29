@@ -8,7 +8,7 @@ import { Answer } from '../../../models/question.model';
 })
 export class GameAnswerComponent {
 
-  @Input() answer!: Answer;
+  @Input() answer : Answer | undefined;
   @Output() answerSelected: EventEmitter<Answer> = new EventEmitter();
   disabled: any;
 

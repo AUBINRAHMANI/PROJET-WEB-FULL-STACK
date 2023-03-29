@@ -9,9 +9,10 @@ import {GameService} from "../../../service/game.service";
   styleUrls: ['./game-result.component.scss']
 })
 export class GameResultComponent implements OnInit {
-  @Input() gameInstance: GameInstance | undefined;
+  gameInstance: GameInstance | undefined;
 
   constructor(private gameService: GameService) {
+    this.gameInstance=this.gameService.gameInstance;
   }
 
   ngOnInit(): void {

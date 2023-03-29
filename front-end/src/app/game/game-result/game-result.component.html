@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Résultats</h1>
+  <div class="quiz-score">
+    <p>Score total : {{gameInstance?.score}}</p>
+  </div>
+  <div class="quiz-answers">
+    <h2>Réponses données :</h2>
+    <ul>
+      <li *ngFor="let answer of gameInstance?.answersGiven">
+        <p>Question {{answer.questionId}} :</p>
+        <p>Réponse donnée : {{answer.answer.value}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

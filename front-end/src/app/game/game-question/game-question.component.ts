@@ -10,7 +10,7 @@ export class GameQuestionComponent implements OnInit {
   @Input() currentQuestion!: Question;
   @Output() answerSelected: EventEmitter<{ question: Question, answer: Answer }> = new EventEmitter();
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -18,6 +18,10 @@ export class GameQuestionComponent implements OnInit {
   onAnswerSelected(question: Question, answer: Answer): void {
     console.log("GameQuestionComponent.onAnswerSelected");
     this.answerSelected.emit({ question, answer });
+  }
+
+  isAnswerCorrect(answer: Answer): boolean {
+    return answer.isCorrect;
   }
 
 }

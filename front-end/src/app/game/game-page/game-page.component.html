@@ -14,8 +14,8 @@
     </div>
   </div>
 
-  <div class="game-controls">
-    <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === 0" (click)="previousQuestion()">Précédent</button>
-    <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === ((quiz | async)?.questions?.length ?? 0) - 1" (click)="nextQuestion()">Suivant</button>
-  </div>
+  <!--<div class="game-controls">
+    <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === 0" (click)="previousQuestion()" AdaptButtonSize>Précédent</button>
+    <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === ((quiz | async)?.questions?.length ?? 0) - 1" (click)="nextQuestion()" AdaptButtonSize>Suivant</button>
+  </div>-->
 </div>

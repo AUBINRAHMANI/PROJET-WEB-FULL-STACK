@@ -5,7 +5,8 @@
   <div class="answers">
     <div class="grid-container">
       <div *ngFor="let answer of currentQuestion.answers" class="grid-item">
-        <app-game-answer [answer]="answer" (answerSelected)="onAnswerSelected(currentQuestion, answer)" class="answer-btn"></app-game-answer>
+        <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"
+                         (answerSelected)="onAnswerSelected(currentQuestion, answer)" class="answer-btn"></app-game-answer>
       </div>
     </div>
   </div>

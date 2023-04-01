@@ -75,4 +75,5 @@ export class GamePageComponent implements OnInit {
     return currentQuestionIndex === quiz.questions.length - 1;
   }
 
+
 }

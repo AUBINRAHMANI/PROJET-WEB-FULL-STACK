@@ -12,12 +12,96 @@
   text-align: center;
 }
 
+.game-question {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .question-container {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* Ajouté pour positionner les boutons dans les coins */
 }
+@keyframes correct {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes incorrect {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.correct-animation {
+  animation: correct 0.5s ease-in-out;
+}
+
+.incorrect-animation {
+  animation: incorrect 0.5s ease-in-out;
+}
+
+
+.game-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  align-items: center;
+}
+
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:active {
+    background-color: #00468b;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
 
 .game-question {
   max-width: 800px;
@@ -55,36 +139,12 @@
   }
 }
 
-.game-controls {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  align-items: center;
-}
 
-.btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-}
 
-.btn-primary {
-  background-color: #007bff;
+/* ... */
 
-  &:hover {
-    background-color: #0056b3;
-  }
 
-  &:active {
-    background-color: #00468b;
-  }
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
+/* ... */
+
+

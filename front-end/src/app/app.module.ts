@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {GameQuestionComponent} from "./game/game-question/game-question.component";
@@ -20,8 +19,8 @@ import { HeaderComponent } from './header/header.component';
 import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 import {GamePageComponent} from "./game/game-page/game-page.component";
 import {GameResultComponent} from "./game/game-result/game-result.component";
-
-
+/*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
+*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,8 @@ import {GameResultComponent} from "./game/game-result/game-result.component";
     CalibrageComponent,
     ConnexionComponents,
     ProfilComponent,
-    UserComponent
+    UserComponent,
+    /*AdaptCalibrageButtonSizeDirective*/
   ],
   imports: [
     BrowserModule,

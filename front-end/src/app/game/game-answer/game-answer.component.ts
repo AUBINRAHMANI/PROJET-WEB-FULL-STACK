@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Answer } from '../../../models/question.model';
 
 @Component({
@@ -9,11 +9,14 @@ import { Answer } from '../../../models/question.model';
 export class GameAnswerComponent {
 
   @Input() answer: Answer | undefined;
-  @Input() correct = false; // Ajoutez cette ligne
+  @Input() correct = false;
   @Output() answerSelected: EventEmitter<Answer> = new EventEmitter();
   disabled: any;
-  isCorrect: boolean | null = null; // Modifiez cette ligne
+  isCorrect: boolean | null = null;
 
+  // Ajoutez ces lignes pour accéder aux éléments audio
+  @ViewChild('correctAudio') correctAudio: ElementRef<HTMLAudioElement> | undefined;
+  @ViewChild('incorrectAudio') incorrectAudio: ElementRef<HTMLAudioElement> | undefined;
 
   constructor() { }
 
@@ -26,15 +29,16 @@ export class GameAnswerComponent {
     this.isCorrect = this.answer?.isCorrect ?? false;
     if (this.isCorrect) {
       this.applyAnimation(button, 'correct-animation');
+      this.playAudio('correct'); // Ajoutez cette ligne
     } else {
       this.applyAnimation(button, 'incorrect-animation');
+      this.playAudio('incorrect'); // Ajoutez cette ligne
     }
-    // Ajoutez un setTimeout pour retarder l'émission de l'événement
+
     setTimeout(() => {
       this.answerSelected.emit(this.answer);
-    }, 1000); // Ajustez la durée si nécessaire, 500 ms correspond à la durée de l'animation
+    }, 1000);
   }
-
 
   private applyAnimation(button: HTMLElement, animationClass: string): void {
     console.log("XA DERVRAGYFGHJKLKMJKLGHDFSKJLMKJHGFHJKL?MKJCGFXDWCGKJL?M");
@@ -42,5 +46,14 @@ export class GameAnswerComponent {
     setTimeout(() => {
       button.classList.remove(animationClass);
     }, 10000);
+  }
+
+  // Ajoutez cette méthode pour jouer les sons
+  private playAudio(type: 'correct' | 'incorrect'): void {
+    if (type === 'correct' && this.correctAudio) {
+      this.correctAudio.nativeElement.play();
+    } else if (type === 'incorrect' && this. incorrectAudio) {
+      this.incorrectAudio.nativeElement.play();
+    }
   }
 }

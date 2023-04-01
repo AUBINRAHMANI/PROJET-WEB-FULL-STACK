@@ -13,6 +13,10 @@
           [ngClass]="{'correct-animation': isCorrect === true, 'incorrect-animation': isCorrect === false}"
           (click)="onAnswerSelected()" AdaptButtonSize >{{answer?.value}}</button>
 </div>-->
+<audio #correctAudio src="../assets/tada-fanfare-a-6313.mp3" preload="auto"></audio>
+<audio #incorrectAudio src="../assets/negative_beeps-6008.mp3" preload="auto"></audio>
+<!-- Reste du code HTML -->
+
 <div class="answer">
   <button #answerButton class="btn btn-primary btn-large" [disabled]="disabled"
           (click)="onAnswerSelected(answerButton)" AdaptButtonSize >{{answer?.value}}</button>

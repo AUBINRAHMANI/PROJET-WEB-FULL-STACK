@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ConfigurationService, ButtonConfiguration} from "../../service/configuration.service";
+import {ButtonConfiguration, ConfigurationService} from "../../service/configuration.service";
+/*import {ButtonConfiguration} from "../adaptButtonSize/adapt-calibrage-button-size.directive";*/
 
 @Component({
   selector: 'app-header',
@@ -23,4 +24,7 @@ export class HeaderComponent implements OnInit {
   updateButtonConfiguration(newConfiguration: ButtonConfiguration) {
     this.configurationService.updateButtonConfiguration(newConfiguration);
   }
+  /*updateButtonCalConfiguration(num:number|undefined) {
+    this.configurationService.updateButtonCalConfiguration(num);
+  }*/
 }

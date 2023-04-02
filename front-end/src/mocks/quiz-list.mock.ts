@@ -72,7 +72,139 @@ export const QUESTION_CAPITALES: Question [] = [{
         isCorrect: false,
       }
     ],
-}];
+},
+  {
+    id: '4',
+    label: 'Quelle est la capitale de l Espagne ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Barcelone',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Madrid',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Valence',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Séville',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '5',
+    label: 'Quelle est la capitale de l Australie ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Sydney',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Melbourne',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Brisbane',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Canberra',
+        isCorrect: true,
+      }
+    ],
+  },
+  {
+    id: '6',
+    label: 'Quelle est la capitale de la Russie ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Saint-Pétersbourg',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Moscou',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Kazan',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Nijni Novgorod',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '7',
+    label: 'Quelle est la capitale du Canada ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Ottawa',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: 'Toronto',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Montréal',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Québec',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '8',
+    label: 'Quelle est la capitale de l Égypte ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Alexandrie',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Le Caire',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Gizeh',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Assouan',
+        isCorrect: false,
+      }
+    ],
+  },
+];
+
 
 
 // Mocks pour le quiz sur les animaux
@@ -129,6 +261,111 @@ const QUESTION_ANIMAUX: Question [] = [
       }
     ],
   },
+  {
+    id: '3',
+    label: 'Combien de cœurs possède un poulpe ?',
+    answers: [
+      {
+        answerId: 1,
+        value: '1',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: '2',
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: '3',
+        isCorrect: true,
+      },
+      {
+        answerId: 4,
+        value: '4',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: '4',
+    label: 'Quel est le plus gros animal du monde ?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'La baleine bleue',
+        isCorrect: true,
+      },
+      {
+        answerId: 2,
+        value: "L'éléphant",
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: 'Le rhinocéros blanc',
+        isCorrect: false,
+      },
+      {
+        answerId: 4,
+        value: 'Le requin blanc',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: '5',
+    label: "Quel animal est capable de reconstituer sa queue après l'avoir perdue ?",
+      answers: [
+  {
+    answerId: 1,
+    value: 'Le caméléon',
+    isCorrect: false,
+  },
+  {
+    answerId: 2,
+    value: 'Le lézard',
+    isCorrect: true,
+  },
+  {
+    answerId: 3,
+    value: 'La salamandre',
+    isCorrect: false,
+  },
+  {
+    answerId: 4,
+    value: 'Le serpent',
+    isCorrect: false,
+  },
+],
+},
+{
+  id: '6',
+    label: 'Quel animal est capable de voler en arrière ?',
+  answers: [
+  {
+    answerId: 1,
+    value: 'Le colibri',
+    isCorrect: true,
+  },
+  {
+    answerId: 2,
+    value: 'Le faucon',
+    isCorrect: false,
+  },
+  {
+    answerId: 3,
+    value: 'Le corbeau',
+    isCorrect: false,
+  },
+  {
+    answerId: 4,
+    value: 'Le perroquet',
+    isCorrect: false,
+  },
+],
+},
+
 ];
 
 
@@ -187,10 +424,115 @@ const QUESTION_MUSIQUE: Question [] = [
       }
     ],
   },
+  {
+    id: '3',
+    label: 'Quel est le titre de la chanson de Queen qui est devenue un hymne populaire en 1977 ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Bohemian Rhapsody',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: 'Another One Bites the Dust',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'We Will Rock You',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Somebody to Love',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '4',
+    label: 'Quel est le nom de l\'artiste canadien qui a sorti les albums "Views" et "Take Care" ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Justin Bieber',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Drake',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'The Weeknd',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Shawn Mendes',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '5',
+    label: 'Quel est le nom de l\'album de Kendrick Lamar qui a remporté le prix Pulitzer en 2018 ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'good kid, m.A.A.d city',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'To Pimp a Butterfly',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Section.80',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'DAMN.',
+        isCorrect: true,
+      }
+    ],
+  },
+  {
+    id: '6',
+    label: 'Quel est le nom du guitariste légendaire connu pour son jeu de scène excentrique et qui a sorti l\'album "Purple Haze" en 1967 ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Jimi Hendrix',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: 'Eric Clapton',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Jimmy Page',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Keith Richards',
+        isCorrect: false,
+      }
+    ],
+  },
 ];
 
 /*QUESTION HS_ MUSICAL*/
-export const QUESTION_HS_MUSICAL: Question [] = [{
+export const QUESTION_HS_MUSICAL: Question [] = [
+  {
   id: '1',
   label: 'Qui joue le personnage de Gabriella Montez dans le film High School Musical ?',
   answers: [
@@ -262,7 +604,139 @@ export const QUESTION_HS_MUSICAL: Question [] = [{
         isCorrect: false,
       }
     ],
-  }];
+  },
+  {
+    id: '4',
+    label: 'Quel acteur joue le rôle de Troy Bolton dans le film High School Musical ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Zac Efron',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: 'Lucas Grabeel',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Corbin Bleu',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Chris Warren Jr.',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '5',
+    label: 'Quel personnage joue Ashley Tisdale dans le film High School Musical ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Gabriella Montez',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Taylor McKessie',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Sharpay Evans',
+        isCorrect: true,
+      },
+      {
+        answerId : 4,
+        value: 'Chad Danforth',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '6',
+    label: 'Quel est le titre de la chanson chantée par Sharpay Evans dans High School Musical 2 ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Bop to the Top',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Fabulous',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'You Are The Music In Me',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Gotta Go My Own Way',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '7',
+    label: 'Quel est le nom du groupe de musique formé par les personnages dans High School Musical 2 ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'East High Wildcats',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Sharpay and the Sharpettes',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Troy and the Trojans',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Ryan and the Rockets',
+        isCorrect: true,
+      }
+    ],
+  },
+  {
+    id: '8',
+    label: "Quel est le titre de la chanson d'ouverture de High School Musical 3 ?",
+      answers: [
+  {
+    answerId : 1,
+    value: 'Now or Never',
+    isCorrect: true,
+  },
+  {
+    answerId : 2,
+    value: 'The Boys Are Back',
+    isCorrect: false,
+  },
+  {
+    answerId : 3,
+    value: 'High School Musical',
+    isCorrect: false,
+  },
+  {
+    answerId : 4,
+    value: 'Just Getting Started',
+    isCorrect: false,
+  }
+],
+},
+];
+
 
 
 /* LES QUIZ*/

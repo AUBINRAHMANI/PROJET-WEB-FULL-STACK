@@ -23,6 +23,8 @@ export class GameService {
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
   public selectedQuizId: string | null = null;
+
+  public recalibrageEffectue = false;
   public quizQuestionsLength = 0;
 
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
@@ -153,5 +155,9 @@ export class GameService {
   }
   findCorrectAnswer(question: Question): Answer | undefined {
     return question.answers.find(answer => answer.isCorrect);
+  }
+
+  isGameFinished() {
+    return this._gameInstance.isFinished;
   }
 }

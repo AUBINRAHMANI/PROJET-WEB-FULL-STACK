@@ -18,7 +18,15 @@
 <!-- Reste du code HTML -->
 
 <div class="answer">
-  <button #answerButton class="btn btn-primary btn-large" [disabled]="disabled"
-          (click)="onAnswerSelected(answerButton)" AdaptButtonSize >{{answer?.value}}</button>
+  <!--
+  <button #answerButton class="btn btn-primary btn-large enlarged-button" [disabled]="disabled"
+          (click)="onAnswerSelected(answerButton)" AdaptButtonSize
+          [enlargeButtons]="enlargeButtons" >{{answer?.value}}</button>-->
+
+  <button #answerButton class="btn btn-primary btn-large answer-button-selector {{ buttonClass() }}"
+          [disabled]="disabled"
+          (click)="onAnswerSelected(answerButton)">{{ answer?.value }}</button>
+
+
 </div>
 

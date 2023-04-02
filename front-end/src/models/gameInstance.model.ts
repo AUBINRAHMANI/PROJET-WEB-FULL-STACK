@@ -2,6 +2,13 @@ import {Answer, Question} from "./question.model";
 import { Quiz } from "./quiz.model";
 
 export class GameInstance {
+  get recalibrage(): boolean {
+    return this._recalibrage;
+  }
+
+  set recalibrage(value: boolean) {
+    this._recalibrage = value;
+  }
   private _id: number;
   private _score: number = 0;
 
@@ -9,6 +16,8 @@ export class GameInstance {
   private _answersGiven: AnswerGiven[] = [];
 
   private _isfinished : boolean;
+
+  private _recalibrage = false;
 
   static numberOfInstances: number = 0;
 

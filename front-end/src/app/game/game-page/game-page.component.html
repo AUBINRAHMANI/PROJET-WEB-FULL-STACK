@@ -7,9 +7,10 @@
     <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
   </div>
 
-  <div class="question-container">
+  <div class="question-container" (click)="onContainerClick($event)">
     <div class="game-question">
-      <app-game-question [currentQuestion]="currentQuestion" (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion"></app-game-question>
+      <app-game-question [currentQuestion]="currentQuestion" (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion" [enlargeButtons]="enlargeButtons.bind(this)" (containerClick)="containerClick.emit()"
+      ></app-game-question>
       <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
     </div>
   </div>

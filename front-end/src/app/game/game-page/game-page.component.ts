@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from "../../../models/quiz.model";
 import { GameService } from "../../../service/game.service";
 import { Answer, Question } from "../../../models/question.model";
 import { Observable } from "rxjs";
 import {GameInstance} from "../../../models/gameInstance.model";
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-game-page',
@@ -15,11 +16,14 @@ export class GamePageComponent implements OnInit {
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
   gameInstance: GameInstance;
 
+
+
   @Input() quizId: string | undefined;
   currentQuestion: Question | undefined;
   questions: Question[] = [];
+  @Output() containerClick: EventEmitter<void> = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, public gameService: GameService) {
+  constructor(private route: ActivatedRoute, public gameService: GameService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
     this.ngOnInit();
     this.gameInstance = this.gameService.gameInstance;
@@ -76,4 +80,19 @@ export class GamePageComponent implements OnInit {
   }
 
 
+  onContainerClick(event: MouseEvent) {
+    const targetElement = event.target as HTMLElement;
+    if (targetElement.tagName.toLowerCase() !== 'button') {
+      this.gameService.recalibrageEffectue = true;
+      this.containerClick.emit();
+      this.changeDetectorRef.detectChanges();
+    }
+  }
+
+  enlargeButtons() {
+    if (!this.gameService.recalibrageEffectue) {
+      this.gameService.recalibrageEffectue = true;
+      this.containerClick.emit();
+    }
+  }
 }

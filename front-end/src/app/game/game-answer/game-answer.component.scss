@@ -43,6 +43,11 @@
       cursor: not-allowed;
     }
   }
+  .enlarged-button {
+    width: 300px; /* Modifier en fonction de la taille souhaitée */
+    height: 250px; /* Modifier en fonction de la taille souhaitée */
+    transition: all 0.3s ease-in-out; /* Pour animer le changement de taille */
+  }
 }
 
 @keyframes correct {
@@ -80,6 +85,7 @@
     background-color: #007bff; /* couleur initiale du bouton */
   }
 }
+
 
 
 /* ... */

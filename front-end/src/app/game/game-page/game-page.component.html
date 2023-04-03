@@ -1,4 +1,8 @@
 <div class="game-page">
+  <audio id="background-music" loop>
+    <source src="assets/game_sound.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
   <div class="game-info">
     <h2>{{ (quiz | async)?.name }}</h2>
     <h4>{{ (quiz | async)?.theme }}</h4>

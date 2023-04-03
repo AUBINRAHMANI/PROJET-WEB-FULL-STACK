@@ -22,6 +22,7 @@ import {GameResultComponent} from "./game/game-result/game-result.component";
 
 /*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
 */
+
 @NgModule({
   declarations: [
     AppComponent,

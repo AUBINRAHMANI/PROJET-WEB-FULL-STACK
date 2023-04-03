@@ -1,4 +1,99 @@
+
 .answer {
+  margin-bottom: 10px;
+
+  button {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px; /* Modifié pour rendre les boutons circulaires */
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 250px; /* Ajouté pour définir la largeur du bouton */
+    height: 200px; /* Ajouté pour définir la hauteur du bouton */
+    display: flex; /* Ajouté pour centrer le texte du bouton */
+    justify-content: center; /* Ajouté pour centrer le texte du bouton */
+    align-items: center; /* Ajouté pour centrer le texte du bouton */
+
+    /*&.correct-animation {
+      animation: correct 1s linear;
+    }
+
+    &.incorrect-animation {
+      animation: incorrect 1s linear;
+    }*/
+    &.correct-animation {
+      animation: correct 0.5s ease-in-out;
+    }
+
+    &.incorrect-animation {
+      animation: incorrect 0.5s ease-in-out;
+    }
+
+
+    &:hover {
+      background-color: #0069d9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  .enlarged-button {
+    width: 300px; /* Modifier en fonction de la taille souhaitée */
+    height: 250px; /* Modifier en fonction de la taille souhaitée */
+    transition: all 0.3s ease-in-out; /* Pour animer le changement de taille */
+  }
+}
+
+@keyframes correct {
+  0% {
+    transform: scale(1);
+    background-color: #007bff; /* couleur initiale du bouton */
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #28a745; /* couleur de fond verte pour une réponse correcte */
+  }
+  100% {
+    transform: scale(1);
+    background-color: #007bff; /* couleur initiale du bouton */
+  }
+}
+
+@keyframes incorrect {
+  0% {
+    transform: rotate(0deg);
+    background-color: #007bff; /* couleur initiale du bouton */
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+    background-color: #dc3545; /* couleur de fond rouge pour une réponse incorrecte */
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    background-color: #007bff; /* couleur initiale du bouton */
+  }
+}
+
+
+
+/* ... */
+
+
+
+
+/*.answer {
   margin-bottom: 10px;
 
   button {
@@ -19,5 +114,39 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
+    .btn-large {
+      height: 80px;
+      width: 80px;
+      font-size: 24px;
+      background-color: #ff0000;
+    }
+  }
+}*/
+
+/*
+.answer {
+  margin-bottom: 10px;
+
+  button {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background-color: #0069d9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 }
+
+ */

@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="title">Résultats</h1>
+  <div class="quiz-score">
+    <p>Votre score : <span>{{gameInstance?.score}}</span></p>
+  </div>
+  <div class="quiz-answers">
+    <h2>Réponses données</h2>
+    <ul class="answer-list">
+      <li class="answer-item" *ngFor="let answer of gameInstance?.answersGiven">
+        <div class="question-info">
+          <p class="question-id">Question {{answer.question.id}}</p>
+          <p class="question-label">{{answer.question.label}}</p>
+        </div>
+        <div class="answer-info">
+          <p class="answer-value">{{answer.givenAnswer.value}}</p>
+          <div class="answer-status" [ngClass]="{'correct': answer.givenAnswer.isCorrect, 'incorrect': !answer.givenAnswer.isCorrect}">
+            <span class="sr-only">{{answer.givenAnswer.isCorrect ? 'Correcte' : 'Incorrecte'}}</span>
+            <i class="fas fa-check-circle" *ngIf="answer.givenAnswer.isCorrect"></i>
+            <i class="fas fa-times-circle" *ngIf="!answer.givenAnswer.isCorrect"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

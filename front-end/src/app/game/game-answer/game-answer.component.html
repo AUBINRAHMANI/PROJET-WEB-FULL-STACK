@@ -1,4 +1,33 @@
-<div class="answer">
-  <button class="btn btn-primary" [disabled]="disabled"
-          (click)="onAnswerSelected()">{{answer.value}}</button>
+<!--<div class="answer">
+  <button class="btn btn-primary btn-large" [disabled]="disabled"
+          (click)="onAnswerSelected()" AdaptButtonSize >{{answer?.value}}</button>
 </div>
+
+
+<div class="answer">
+  <button class="btn btn-primary btn-large" [disabled]="disabled" [ngClass]="{'correct-animation': isCorrect, 'incorrect-animation': !isCorrect}"
+          (click)="onAnswerSelected()" AdaptButtonSize >{{answer?.value}}</button>
+</div>
+<div class="answer">
+  <button class="btn btn-primary btn-large" [disabled]="disabled"
+          [ngClass]="{'correct-animation': isCorrect === true, 'incorrect-animation': isCorrect === false}"
+          (click)="onAnswerSelected()" AdaptButtonSize >{{answer?.value}}</button>
+</div>-->
+<audio #correctAudio src="../assets/tada-fanfare-a-6313.mp3" preload="auto"></audio>
+<audio #incorrectAudio src="../assets/negative_beeps-6008.mp3" preload="auto"></audio>
+<!-- Reste du code HTML -->
+
+<div class="answer">
+  <!--
+  <button #answerButton class="btn btn-primary btn-large enlarged-button" [disabled]="disabled"
+          (click)="onAnswerSelected(answerButton)" AdaptButtonSize
+          [enlargeButtons]="enlargeButtons" >{{answer?.value}}</button>-->
+
+  <button #answerButton class="btn btn-primary btn-large answer-button-selector {{ buttonClass() }}"
+          [disabled]="disabled"
+          AdaptButtonSize
+          (click)="onAnswerSelected(answerButton)">{{ answer?.value }}</button>
+
+
+</div>
+

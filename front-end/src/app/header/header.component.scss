@@ -10,15 +10,23 @@
 
 .header {
   background: $blue;
-  padding: 0.5em;
+  padding: 1em;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 }
 
-.navigation {
-  font-size: 0.7em;
-  padding-left: 0.5em;
-  color: white;
+.accueil {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.5em;
 }
 
-.btn {
+.accueil:hover {
+  color: $white;
+}
+
+.config {
+  margin-left: 100px;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.5em;
 }

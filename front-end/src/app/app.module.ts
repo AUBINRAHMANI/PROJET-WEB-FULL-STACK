@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 import {GamePageComponent} from "./game/game-page/game-page.component";
 import {GameResultComponent} from "./game/game-result/game-result.component";
+
 /*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
 */
 @NgModule({

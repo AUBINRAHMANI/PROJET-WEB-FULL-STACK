@@ -1,7 +1,7 @@
 @use 'sass:math'; // Ajoutez cette ligne en haut de votre fichier SCSS
 
 // Ajoutez ces lignes en dessous de l'importation du module 'sass:math'
-$n: 8; // Modifiez cette valeur pour refléter le nombre d'éléments dans votre liste de quiz
+$n: 6; // Modifiez cette valeur pour refléter le nombre d'éléments dans votre liste de quiz
 $item-width: 300px; // Largeur des éléments de quiz
 $item-separation: math.div(80px, 2) or calc(80px / 2);
 $viewer-distance: 500px;
@@ -75,12 +75,11 @@ $apothem: math.div($viewer-distance, math.tan(3.141592653589793 / $n));
           transform-origin: 50% 50% (-$apothem);
         }
 
-        @for $i from 2 through $n {
-          &:nth-child(#{$i}) {
-            transform: rotateY(#{($i - 1) * $theta}rad);
+        @for $i from 0 through $n - 1 {
+          &:nth-child(#{$i + 1}) {
+            transform: rotateY(#{$i * $theta}rad);
           }
         }
-
 
 
         button {

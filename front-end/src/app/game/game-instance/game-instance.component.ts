@@ -18,7 +18,7 @@ export class GameInstanceComponent implements OnInit {
   private carousel: HTMLElement | undefined;
   private figure: HTMLElement | undefined;
   private nav: HTMLElement | undefined;
-  private numQuizzes: number | undefined;
+  private numQuizzes: number =0;
   private theta: number | undefined;
   private currQuiz: number =0;
 
@@ -32,6 +32,7 @@ export class GameInstanceComponent implements OnInit {
   ngOnInit(): void {
     console.log("GAME-INSTANCE: ngOnInit");
     this.quizList$ = this.gameService.getQuizList();
+    this.numQuizzes=this.gameService.quizList.length;
   }
 
   ngAfterViewInit(): void {
@@ -40,12 +41,10 @@ export class GameInstanceComponent implements OnInit {
       // @ts-ignore
       this.figure = this.carousel.querySelector('figure');
       // @ts-ignore
+      this.numQuizzes=this.gameService.quizList.length;
+      // @ts-ignore
       this.nav = this.carousel.querySelector('nav');
-      this.numQuizzes = quizList.length;
       this.theta = 2 * Math.PI / this.numQuizzes;
-      this.currQuiz = 0;
-
-
       this.rotateCarouselAutomatically();
     });
   }
@@ -56,27 +55,18 @@ export class GameInstanceComponent implements OnInit {
 
   rotateCarouselAutomatically() {
     let currentIndex = 0;
-
+    // @ts-ignore
+    console.log(this.numQuizzes + " nm quiz\n "+this.currQuiz);
     setInterval(() => {
       // @ts-ignore
-      this.currQuiz = (this.currQuiz + 1) % this.numQuizzes;
       this.onNavClick(1);
     }, 3000); // Changez cette valeur pour ajuster la durée entre les rotations (en millisecondes)
   }
   onClick(direction: number): void {
-    // Add direction to current quiz index
-    this.currQuiz += direction;
 
-    // Ensure current quiz index stays within bounds of quiz list
-    if (this.currQuiz < 0) {
-      // @ts-ignore
-      this.currQuiz = this.numQuizzes - 1;
-    } else { // @ts-ignore
-      if (this.currQuiz >= this.numQuizzes) {
-            this.currQuiz = 0;
-          }
-    }
-
+    // @ts-ignore
+    this.currQuiz = (this.currQuiz += direction) % this.numQuizzes;
+    console.log("thisssss current "+this.currQuiz);
     // Update transform to rotate to new quiz
     // @ts-ignore
     this.figure.style.transform = `rotateY(${-this.currQuiz * this.theta}rad)`;

@@ -736,8 +736,272 @@ export const QUESTION_HS_MUSICAL: Question [] = [
 ],
 },
 ];
+/* QUESTION DESSERT */
+export const QUESTION_DESSERT: Question [] = [
+  {
+    id: '1',
+    label: 'Which dessert originated in France and consists of puff pastry layers filled with pastry cream?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'Macarons',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: 'Croissant',
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: 'Tarte Tatin',
+        isCorrect: false,
+      },
+      {
+        answerId: 4,
+        value: 'Mille-Feuille',
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    id: '2',
+    label: 'What is the main ingredient in the Italian dessert Tiramisu?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'Chocolate',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: 'Coffee',
+        isCorrect: true,
+      },
+      {
+        answerId: 3,
+        value: 'Strawberry',
+        isCorrect: false,
+      },
+      {
+        answerId: 4,
+        value: 'Vanilla',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: '3',
+    label: 'Which of the following desserts is not a type of pie?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'Key Lime Pie',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: 'Peach Cobbler',
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: 'Eclairs',
+        isCorrect: true,
+      },
+      {
+        answerId: 4,
+        value: 'Blueberry Pie',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: '4',
+    label: 'What is the main ingredient in the French dessert crème brûlée?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'Caramel',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: 'Raspberry',
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: 'Chocolate',
+        isCorrect: false,
+      },
+      {
+        answerId: 4,
+        value: 'Vanilla',
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    id: '5',
+    label: 'What is the main ingredient in the Greek dessert baklava?',
+    answers: [
+      {
+        answerId: 1,
+        value: 'Honey',
+        isCorrect: false,
+      },
+      {
+        answerId: 2,
+        value: 'Cinnamon',
+        isCorrect: false,
+      },
+      {
+        answerId: 3,
+        value: 'Walnuts',
+        isCorrect: true,
+      },
+      {
+        answerId: 4,
+        value: 'Lemon',
+        isCorrect: false,
+      },
+    ],
+  },
+];
 
-
+const QUESTION_LANGUES_ETRANGERES: Question [] = [
+  {
+    id: '1',
+    label: 'Comment dit-on "bonjour" en espagnol ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Bonjour',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Hola',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Ciao',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Hello',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '2',
+    label: 'Comment dit-on "merci" en allemand ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Merci',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Danke',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Gracias',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Grazie',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '3',
+    label: 'Comment écrit-on "au revoir" en japonais ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Sayonara',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: 'Konichiwa',
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Arigatou',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Konnichiwa',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '4',
+    label: "Comment dit-on \"je t'aime\" en italien ?",
+    answers: [
+      {
+        answerId : 1,
+        value: 'Ti amo',
+        isCorrect: true,
+      },
+      {
+        answerId : 2,
+        value: "Je t'aime",
+        isCorrect: false,
+      },
+      {
+        answerId : 3,
+        value: 'Te quiero',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Ich liebe dich',
+        isCorrect: false,
+      }
+    ],
+  },
+  {
+    id: '5',
+    label: 'Comment dit-on "bon appétit" en anglais ?',
+    answers: [
+      {
+        answerId : 1,
+        value: 'Good appetite',
+        isCorrect: false,
+      },
+      {
+        answerId : 2,
+        value: 'Enjoy your meal',
+        isCorrect: true,
+      },
+      {
+        answerId : 3,
+        value: 'Bon appétit',
+        isCorrect: false,
+      },
+      {
+        answerId : 4,
+        value: 'Buen provecho',
+        isCorrect: false,
+      }
+    ],
+  },
+];
 
 /* LES QUIZ*/
 
@@ -771,9 +1035,26 @@ const QUIZ_MUSIQUE: Quiz = {
   questions: QUESTION_MUSIQUE,
 };
 
+const QUIZ_DESSERT: Quiz = {
+  id: '5',
+  name: 'Les desserts',
+  theme: 'Nourriture',
+  questions: QUESTION_DESSERT,
+};
+
+const QUIZ_LANGUES_ETRANGERES: Quiz = {
+  id: '6',
+  name: 'Les langues',
+  theme: 'Langues',
+  questions: QUESTION_LANGUES_ETRANGERES,
+};
+
+
 export const QUIZ_LIST: Quiz[] = [
   QUIZ_CAPITALE,
   QUIZ_HS_MUSICAL,
   QUIZ_ANIMAUX,
-  QUIZ_MUSIQUE
+  QUIZ_MUSIQUE,
+  QUIZ_DESSERT,
+  QUIZ_LANGUES_ETRANGERES
 ];

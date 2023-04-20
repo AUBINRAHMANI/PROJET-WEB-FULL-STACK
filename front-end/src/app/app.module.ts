@@ -20,6 +20,7 @@ import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 import {GamePageComponent} from "./game/game-page/game-page.component";
 import {GameResultComponent} from "./game/game-result/game-result.component";
 import {CarouselModule} from "ngx-owl-carousel-o";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 /*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
 */
@@ -50,6 +51,7 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     HttpClientModule,
     ReactiveFormsModule,
     CarouselModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core
 import {Observable, take} from 'rxjs';
 import { Quiz } from '../../../models/quiz.model';
 import { GameService } from '../../../service/game.service';
+import { faCity, faTheaterMasks, faPaw, faMusic, faBirthdayCake, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import {GameInstance} from "../../../models/gameInstance.model";
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -26,6 +27,13 @@ export class GameInstanceComponent implements OnInit {
   @ViewChild('prevButton', { static: true }) prevButton: ElementRef ;
   // @ts-ignore
   @ViewChild('nextButton', { static: true }) nextButton: ElementRef ;
+  // Définissez les icônes que vous souhaitez utiliser
+  faCity = faCity;
+  faTheaterMasks = faTheaterMasks;
+  faPaw = faPaw;
+  faMusic = faMusic;
+  faBirthdayCake = faBirthdayCake;
+  faLanguage = faLanguage;
 
   constructor(private gameService: GameService, private el: ElementRef, private renderer: Renderer2) {}
 
@@ -103,4 +111,23 @@ export class GameInstanceComponent implements OnInit {
     // @ts-ignore
     this.figure.style.transform = `rotateY(${this.currQuiz * -this.theta}rad)`;
   }
+  getIcon(quizId: string) : string {
+    switch (quizId) {
+      case '1':
+        return  "fas fa-city btn-icon";
+      case '2':
+        return "fas fa-theater-masks btn-icon";
+      case '3':
+        return "fas fa-paw btn-icon";
+      case '4':
+        return "fas fa-music btn-icon";
+      case '5':
+        return "fas fa-birthday-cake btn-icon";
+      case '6':
+        return "fas fa-language btn-icon";
+      default:
+        return "fas fa-language btn-icon";
+    }
+  }
+
 }

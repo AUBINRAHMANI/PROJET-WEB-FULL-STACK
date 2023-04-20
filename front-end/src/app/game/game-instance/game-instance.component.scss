@@ -20,6 +20,10 @@ $apothem: math.div($viewer-distance, math.tan(3.141592653589793 / $n));
   min-height: 100vh;
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
+  background-image: url('/assets/accueil_font.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
 
 
   .game-menu {

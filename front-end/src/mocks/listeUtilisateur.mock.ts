@@ -2,6 +2,13 @@ import { Utilisateur } from '../models/Utilisateur.model';
 
 export const LISTE_UTILISATEUR: Utilisateur[] = [
   {
+    id: '-1',
+    nom: 'DEFAULT',
+    prenom: 'user',
+    score: [],
+    stade: 'Niveau 3',
+  },
+  {
     id: '1',
     nom: 'Perry',
     prenom: 'Sandra',

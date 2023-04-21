@@ -1,0 +1,9 @@
+<p>calibrage works! (not really)</p>
+<h2>Calibrage</h2>
+<p>Test de bouton {{ currentLevel + 1 }}</p>
+
+<div class="buttons">
+  <button *ngFor="let level of levels" (click)="onButtonClick(level)">Niveau {{ level }}</button>
+</div>
+
+<app-modal [message]="modalMessage" [show]="showModal" (close)="closeModal()"></app-modal>

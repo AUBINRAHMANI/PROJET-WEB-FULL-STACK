@@ -4,7 +4,7 @@ import {GamePageComponent} from "./game/game-page/game-page.component";
 import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
 import {GameResultComponent} from "./game/game-result/game-result.component";
 import {AccueilComponent} from "./accueil/accueil.component";
-import {CalibrageComponent} from "./calibrage/calibrage.component";
+import {CalibrageComponent} from "./test_de_calibrage/calibrage/calibrage.component";
 import {ConnexionComponents} from "./connexion/connexion.components";
 
 const routes: Routes = [

@@ -6,5 +6,5 @@
       <button *ngIf="showButton" (click)="onButtonClick()" [style.width.px]="buttonSizes[currentLevel]" [style.height.px]="buttonSizes[currentLevel]" [disabled]="buttonDisabled">{{ levels[currentLevel] }}</button>
     </div>
   </div>
-  <app-modal [message]="modalMessage" [show]="showModal" (close)="closeModal()"></app-modal>
+  <app-modal [message]="this.modalMessage[this.currentLevel]" [show]="showModal" (close)="closeModal()"></app-modal>
 </div>

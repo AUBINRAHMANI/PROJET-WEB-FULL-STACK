@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 })
 export class CalibrageService {
   expectedLevel: number = 0; // le niveau attendu de calibrage
+
   currentLevel: BehaviorSubject<number> = new BehaviorSubject<number>(0); // le niveau actuel de calibrage
   levels: number[] = [5, 4, 3, 2, 1]; // les différents niveaux de calibrage
   isCalibrated: boolean = false; // indique si le calibrage est terminé

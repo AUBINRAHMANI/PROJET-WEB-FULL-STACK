@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,20 @@ export class CalibrageService {
   isCalibrated: boolean = false; // indique si le calibrage est terminé
   private calibrationResult: any;
 
-  constructor(private http: HttpClient,private router:Router) {
+  constructor(private http: HttpClient, private router: Router) {
+    console.log('CalibrageService.constructor()');
     this.startCalibration();
   }
 
   startCalibration(): void {
+    console.log('CalibrageService.startCalibration()');
     this.isCalibrated = false;
     this.currentLevel.next(0);
     this.expectedLevel = this.levels[0];
   }
 
   testButton(level: number): boolean {
+    console.log('CalibrageService.testButton()', level);
     if (level === this.expectedLevel) {
       if (this.currentLevel.value === this.levels.length - 1) {
         // Dernier niveau atteint, le calibrage est terminé
@@ -41,7 +44,9 @@ export class CalibrageService {
       return false;
     }
   }
+
   checkCalibration(level: number): boolean {
+    console.log('CalibrageService.checkCalibration()', level);
     if (level === this.expectedLevel) {
       this.currentLevel.next(this.currentLevel.value + 1); // augmenter le niveau actuel
       this.expectedLevel = this.levels[this.currentLevel.value]; // définir le prochain niveau attendu
@@ -50,7 +55,9 @@ export class CalibrageService {
       return false; // retourner faux si le niveau cliqué n'est pas le niveau attendu
     }
   }
+
   endCalibration(): void {
+    console.log('CalibrageService.endCalibration()');
     if (this.calibrationResult) {
       // afficher un modal de confirmation avec un message de réussite
       // et passer au niveau de calibrage suivant si possible
@@ -62,6 +69,4 @@ export class CalibrageService {
       this.router.navigate(['/']);
     }
   }
-
-
 }

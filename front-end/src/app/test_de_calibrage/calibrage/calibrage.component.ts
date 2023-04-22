@@ -18,11 +18,13 @@ export class CalibrageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("Initialisation du calibrage");
     // commencer la calibration avec le premier niveau
     this.calibrageService.startCalibration();
   }
 
   onButtonClick(): void {
+    console.log("Clic sur le bouton");
     // vérifier si le niveau cliqué est le niveau attendu
     const isCalibrated = this.calibrageService.checkCalibration(this.levels[this.currentLevel]);
 
@@ -56,6 +58,7 @@ export class CalibrageComponent implements OnInit {
   }
 
   closeModal(): void {
+    console.log("Fermeture de la modale");
     // fermer la modale
     this.showModal = false;
 
@@ -71,6 +74,7 @@ export class CalibrageComponent implements OnInit {
   }
 
   onButtonClickOutside(event: MouseEvent): void {
+    console.log("Clic en dehors du bouton");
     if ((event.target as HTMLElement).tagName !== 'BUTTON') {
       // L'utilisateur a cliqué en dehors du bouton, afficher un message d'erreur
       this.modalMessage = 'Vous devez cliquer sur le bouton pour calibrer.';

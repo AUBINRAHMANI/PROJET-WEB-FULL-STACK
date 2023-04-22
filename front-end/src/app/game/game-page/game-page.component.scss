@@ -18,12 +18,12 @@
   min-height: 100vh;
   justify-content: space-between;
   background-color: #f5f5f5;
-  background-image: random-background-image();
+  background-image: url('/assets/accueil_font.jpg');
   background-size: cover;
   z-index: -1;
-  @include background-image-transition();
+  //@include background-image-transition();
 
-  animation: change-background 6s infinite alternate;
+  //animation: change-background 6s infinite alternate;
 
   @keyframes change-background {
     0% { opacity: 0; }

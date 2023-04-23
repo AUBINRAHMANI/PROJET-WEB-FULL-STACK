@@ -9,7 +9,7 @@ import {BehaviorSubject} from "rxjs";
 export interface ButtonConfiguration {
   niveau? : number;
   buttonWidth: string;
-  buttonHeight?: string;
+  buttonHeight: string;
   fontSize?: string;
   borderRadius?: string;
   boxShadow?:string;
@@ -21,6 +21,7 @@ export interface ButtonConfiguration {
 }
 const DEFAULT_CONFIG: ButtonConfiguration = {
   buttonWidth: '100px',
+  buttonHeight: '100px',
 }
 
 @Injectable({

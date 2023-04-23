@@ -1,6 +1,6 @@
-<div class="header">test : {{currentPage}} !
-  <button (click)="updateButtonConfiguration({ buttonWidth: '150px'})">+</button>
-  <button (click)="updateButtonConfiguration({buttonWidth: '50px'})">-</button>
-  <button class="btn" AdaptButtonSize>Test Calibrage</button>
+<div class="header">
+  <button class="btn" routerLink="/">Accueil</button>
+  <button class="btn" (click)="updateButtonConfiguration({ buttonWidth: '200px', buttonHeight: '200px'})">200px</button>
+  <button class="btn" (click)="updateButtonConfiguration({ buttonWidth: '300px', buttonHeight: '300px'})">300px</button>
 </div>
 

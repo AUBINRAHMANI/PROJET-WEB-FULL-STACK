@@ -1,9 +1,10 @@
 <div class="homePageBody">
   <h1>Bienvenue sur PolyQuiz</h1>
   <h2>Un jeu de quiz pour les personnes atteintes de la maladie de Parkinson</h2>
+  <label class="Accueil">{{labelMessageAccueil}}</label>
   <ngb-carousel [interval]="3000" [showNavigationIndicators]="false">
     <ng-template ngbSlide>
-      <label>{{ labelMessage1 }}</label>
+      <label class="message">{{ labelMessage1 }}</label>
       <div class="carousel-content">
         <button routerLink="/gameinstance" class="carousel-btn">
           <i class="fas fa-question-circle btn-icon"></i>
@@ -12,7 +13,7 @@
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <label>{{ labelMessage2 }}</label>
+      <label class="message">{{ labelMessage2 }}</label>
       <div class="carousel-content">
         <button routerLink="/calibrage" class="carousel-btn">
           <i class="fas fa-cog btn-icon"></i>

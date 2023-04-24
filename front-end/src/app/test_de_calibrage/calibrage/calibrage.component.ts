@@ -15,10 +15,10 @@ export class CalibrageComponent implements OnInit {
   buttonDisabled: boolean = false; // indique si le bouton doit être désactivé
   buttonSizes: number[][] = [
     [600, 500], // niveau 5
-    [300, 250], // niveau 4
-    [250, 200], // niveau 3
-    [125, 105], // niveau 2
-    [100, 80]   // niveau 1
+    [500, 400], // niveau 4
+    [300, 250], // niveau 3
+    [250, 200], // niveau 2
+    [125, 105]   // niveau 1
   ];
   private modalTimeoutId: number | undefined;
 

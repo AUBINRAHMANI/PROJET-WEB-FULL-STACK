@@ -64,7 +64,7 @@ export class CalibrageService {
 
       // afficher un modal d'erreur avec un message d'échec
       // et retourner au menu principal
-      this.router.navigate(['']);
+      this.router.navigate(['gameinstance']);
 
   }
 }

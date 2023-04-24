@@ -41,6 +41,7 @@ export class CalibrageComponent implements OnInit {
       // afficher un message de succès
       this.modalMessage[this.currentLevel] = 'Calibrage réussi !';
       this.showModal = true;
+      this.calibrageService.setCalibrateResult(this.currentLevel);
 
       // fermer la modale après 3 secondes
       setTimeout(() => {
@@ -87,7 +88,7 @@ export class CalibrageComponent implements OnInit {
     if ((event.target as HTMLElement).tagName !== 'BUTTON') {
       console.log("Clic en dehors du bouton");
       // L'utilisateur a cliqué en dehors du bouton, afficher un message d'erreur
-      this.modalMessage[this.currentLevel] = 'Vous devez cliquer sur le bouton pour calibrer.';
+      this.modalMessage[this.currentLevel] = 'Clic en dehors du bouton. On gardera le calibre precedent';
       this.showModal = true;
       this.buttonDisabled = true;
       const closeModalTimeout = setTimeout(() => {

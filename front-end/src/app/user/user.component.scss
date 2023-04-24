@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+h2 {
+  text-align: center;
+  color: #555;
+}
+#nom, #prenom, #id, #score, #stade {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#profil{
+  display: block;
+  border-right: +1px solid #ccc;
+  justify-content: center;
+}
+
+#nom {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#prenom, #id, #score, #stade {
+  font-size: 1.1em;
+}
+i {
+  font-style: normal;
+  color: #777;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #333;
+}

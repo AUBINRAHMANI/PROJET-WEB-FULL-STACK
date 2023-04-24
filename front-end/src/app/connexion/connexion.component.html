@@ -7,13 +7,19 @@
 
 <body>
 
-
+<section class="background-image-section">
     <header>
       <div id="Connexion">
         <h1>CONNEXION :</h1>
         <!-- <img id='connexion' src="../assets/Connexion.png"  alt="Connexion"> -->
     </div>
     </header>
+
+    <app-profil></app-profil>
+
+    <!-- <div class="test">
+      <p>test</p>
+    </div>  -->
 
     <div class="utilisateur">
       <div class="utilisateur" *ngFor="let user of listeUtilisateur">
@@ -25,8 +31,10 @@
 
     </div>
 
-    <app-profil></app-profil>
 
+</section>
+
+    <app-profil></app-profil>
 
 </body>
 </html>

@@ -26,6 +26,7 @@ import { ModalComponent } from './test_de_calibrage/modal/modal.component';
 
 /*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
 */
+
 @NgModule({
   declarations: [
     AppComponent,

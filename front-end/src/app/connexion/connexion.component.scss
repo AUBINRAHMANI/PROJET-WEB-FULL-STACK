@@ -2,7 +2,12 @@
   display: flex;
 }
 
-
+.background-image-section {
+  //background-image: url("../front-end/src/assets/background.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 #Connexion {
   display: flex;

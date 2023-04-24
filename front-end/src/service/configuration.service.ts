@@ -10,7 +10,7 @@ export interface ButtonConfiguration {
   niveau? : number;
   buttonWidth: string;
   buttonHeight: string;
-  fontSize?: string;
+  fontSize: string;
   borderRadius?: string;
   boxShadow?:string;
   backgroundColor?: string;
@@ -20,8 +20,9 @@ export interface ButtonConfiguration {
   transition ?: string;
 }
 const DEFAULT_CONFIG: ButtonConfiguration = {
-  buttonWidth: '100px',
-  buttonHeight: '100px',
+  buttonWidth: '300px',
+  buttonHeight: '300px',
+  fontSize: '70px',
 }
 
 @Injectable({

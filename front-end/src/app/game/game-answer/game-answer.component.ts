@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild,Renderer2, SimpleChanges  } from '@angular/core';
 import { Answer } from '../../../models/question.model';
 import {GameService} from "../../../service/game.service";
+import {CalibrageService} from "../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-answer',
@@ -23,7 +24,7 @@ export class GameAnswerComponent {
   @ViewChild('incorrectAudio') incorrectAudio: ElementRef<HTMLAudioElement> | undefined;
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2,public gameService: GameService) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2,public gameService: GameService,public calibrageService:CalibrageService) { }
 
   ngOnInit(): void {
     console.log("GameAnswerComponent - ngOnInit()");

@@ -11,8 +11,15 @@ export class CalibrageService {
 
   currentLevel: BehaviorSubject<number> = new BehaviorSubject<number>(0); // le niveau actuel de calibrage
   levels: number[] = [5, 4, 3, 2, 1]; // les différents niveaux de calibrage
+  buttonSizes: number[][] = [
+    [600, 500], // niveau 5
+    [500, 400], // niveau 4
+    [300, 250], // niveau 3
+    [250, 200], // niveau 2
+    [125, 105]   // niveau 1
+  ];
   isCalibrated: boolean = false; // indique si le calibrage est terminé
-  private calibrationResult: any =5;
+  private calibrationResult: number =-1;
 
   constructor(private http: HttpClient, private router: Router) {
     console.log('CalibrageService.constructor()');
@@ -66,5 +73,24 @@ export class CalibrageService {
       // et retourner au menu principal
       this.router.navigate(['gameinstance']);
 
+  }
+
+  getCalibrateLevel():number {
+    return this.calibrationResult;
+  }
+
+  isCalibrate():boolean{
+    return this.calibrationResult!=-1;
+  }
+
+  getCalibrateButtonsSize():number[]{
+    if(this.isCalibrate()){
+      return this.buttonSizes[this.calibrationResult];
+    }
+    return [250,200];
+  }
+
+  setCalibrateResult(level:number):void{
+    this.calibrationResult=level;
   }
 }

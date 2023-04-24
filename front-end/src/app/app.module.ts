@@ -7,7 +7,7 @@ import {GameAnswerComponent} from "./game/game-answer/game-answer.component";
 import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
 import {HttpClientModule} from "@angular/common/http";
 import { AccueilComponent } from './accueil/accueil.component';
-import { CalibrageComponent } from './calibrage/calibrage.component';
+import { CalibrageComponent } from './test_de_calibrage/calibrage/calibrage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -19,6 +19,10 @@ import { HeaderComponent } from './header/header.component';
 import {AdaptButtonSizeDirective} from "./AdaptButtonSize.directive";
 import {GamePageComponent} from "./game/game-page/game-page.component";
 import {GameResultComponent} from "./game/game-result/game-result.component";
+import {CarouselModule} from "ngx-owl-carousel-o";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { ModalComponent } from './test_de_calibrage/modal/modal.component';
 
 /*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
 */
@@ -39,6 +43,7 @@ import {GameResultComponent} from "./game/game-result/game-result.component";
     ConnexionComponents,
     ProfilComponent,
     UserComponent,
+    ModalComponent,
     /*AdaptCalibrageButtonSizeDirective*/
   ],
   imports: [
@@ -48,7 +53,10 @@ import {GameResultComponent} from "./game/game-result/game-result.component";
     MatGridListModule,
     MatCardModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

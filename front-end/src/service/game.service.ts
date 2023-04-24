@@ -7,18 +7,13 @@ import {Answer, Question} from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
 import {AnswerGiven, GameInstance} from "../models/gameInstance.model";
 import { Router } from '@angular/router';
+import { saveAs } from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  get gameInstance(): GameInstance {
-    return this._gameInstance;
-  }
 
-  set gameInstance(value: GameInstance) {
-    this._gameInstance = value;
-  }
   public quizList = QUIZ_LIST;
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
@@ -30,8 +25,9 @@ export class GameService {
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
   public currentQuestion$: BehaviorSubject<Question> = new BehaviorSubject(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
-  private _gameInstance: GameInstance = new GameInstance( new Date(), null);
+  private _gameInstance: GameInstance = new GameInstance( new Date(), null,-1);
 
+  private readonly FILE_NAME = 'Reports/results.json';
   constructor(private http: HttpClient,private router:Router) {
     this.retrieveQuizList();
   }
@@ -39,7 +35,12 @@ export class GameService {
   get currentQuizIndex(): number {
     return this._currentQuizIndex;
   }
-
+  get gameInstance(): GameInstance {
+    return this._gameInstance;
+  }
+  set gameInstance(value: GameInstance) {
+    this._gameInstance = value;
+  }
   set currentQuizIndex(index: number) {
     console.log("GameService.setCurrentQuizIndex()");
     this._currentQuizIndex = index;
@@ -159,5 +160,12 @@ export class GameService {
 
   isGameFinished() {
     return this._gameInstance.isFinished;
+  }
+  saveGameInstanceToFile(gameInstance: GameInstance | undefined): void {
+    if (!gameInstance) return;
+
+    const json = JSON.stringify(gameInstance);
+    const blob = new Blob([json], { type: 'application/json' });
+    saveAs(blob, this.FILE_NAME);
   }
 }

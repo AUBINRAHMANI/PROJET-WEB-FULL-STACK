@@ -1,0 +1,115 @@
+.calibration-wrapper {
+  background-image: url('/assets/accueil_font.jpg'); /* Mettre l'URL de l'image de fond ici */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .calibrage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  button {
+    width: 600px;
+    height: 500px;
+    margin: 0 10px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    animation-duration: 3s;
+    animation-name: button-entrance;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .close {
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .close:hover {
+    color: #555;
+  }
+
+  @keyframes button-entrance {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes success-modal {
+    from {
+      transform: scale(0.5);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes error-modal {
+    from {
+      transform: scale(2);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}

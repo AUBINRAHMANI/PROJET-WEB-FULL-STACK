@@ -1,7 +1,14 @@
 import {Answer, Question} from "./question.model";
 import { Quiz } from "./quiz.model";
+import {Utilisateur} from "./Utilisateur.model";
 
 export class GameInstance {
+  set userId(value: number) {
+    this._userId = value;
+  }
+  get userId(): number {
+    return this._userId;
+  }
   get recalibrage(): boolean {
     return this._recalibrage;
   }
@@ -11,7 +18,6 @@ export class GameInstance {
   }
   private _id: number;
   private _score: number = 0;
-
   private _quiz: Quiz | undefined;
   private _answersGiven: AnswerGiven[] = [];
 
@@ -21,9 +27,11 @@ export class GameInstance {
 
   static numberOfInstances: number = 0;
 
+
   constructor(
     private _startTime: Date,
-    private _endTime: Date | null = null
+    private _endTime: Date | null = null,
+    private _userId:number,
   ) {
     this._id = ++GameInstance.numberOfInstances;
     this._isfinished=false;

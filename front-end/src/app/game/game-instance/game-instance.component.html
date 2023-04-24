@@ -1,15 +1,26 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <div *ngIf="!quizStarted" class="game-instance">
   <div class="game-menu">
-    <h2>Choisir un Quiz à jouer</h2>
-    <ul>
-      <li *ngFor="let quiz of quizList$ | async">
-        {{quiz.name}} <button (click)="selectQuiz(quiz.id)" AdaptButtonSize >Jouer</button>
-      </li>
-    </ul>
+    <h2>Menu principal</h2>
+    <div class="carousel">
+      <figure>
+        <ng-container *ngFor="let quiz of quizList$ | async">
+          <div class="quiz-item">
+            <button (click)="selectQuiz(quiz.id)" class="quiz-button">
+              <i [ngClass]="getIcon(quiz.id)" aria-hidden="true"></i>
+              <span>{{ quiz.name }}</span>
+            </button>
+          </div>
+        </ng-container>
+      </figure>
+      <nav>
+        <button #prevButton class="nav prev" (click)="onClick(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button #nextButton class="nav next" (click)="onClick(1)"><i class="fas fa-chevron-right"></i></button>
+      </nav>
+    </div>
   </div>
 </div>
 
 <div *ngIf="quizStarted" class="game-content">
   <app-game-page [quizId]="(currentQuiz | async)?.id"></app-game-page>
 </div>
-

@@ -13,6 +13,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./game-page.component.scss']
 })
 export class GamePageComponent implements OnInit {
+  private backgroundMusic: HTMLAudioElement | undefined;
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
   gameInstance: GameInstance;
 
@@ -45,6 +46,18 @@ export class GamePageComponent implements OnInit {
         console.log("ouiyutryuilu");
       });
     }
+    this.backgroundMusic = document.getElementById('background-music') as HTMLAudioElement;
+    if (this.backgroundMusic) {
+      this.backgroundMusic.play();
+    }
+
+  }
+
+  ngOnDestroy() {
+    // @ts-ignore
+    this.backgroundMusic.pause();
+    // @ts-ignore
+    this.backgroundMusic.currentTime = 0;
   }
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {

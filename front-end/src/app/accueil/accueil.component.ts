@@ -1,17 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-accueil',
+  templateUrl: './accueil.component.html',
+  styleUrls: ['./accueil.component.scss']
 })
-export class HomePageComponent {
-  @ViewChild(NgbCarousel)
-  private carousel: NgbCarousel | undefined;
+export class AccueilComponent {
 
-  selectCurrentSlide() {
-    // @ts-ignore
-    this.carousel.select(this.carousel.activeId);
-  }
 }

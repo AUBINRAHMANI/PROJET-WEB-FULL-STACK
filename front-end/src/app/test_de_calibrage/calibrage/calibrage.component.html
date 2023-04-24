@@ -1,7 +1,8 @@
 <div class="calibration-wrapper" (click)="onButtonClickOutside($event)">
     <h2>Calibrage</h2>
-    <p>Test de bouton {{ levels[currentLevel] }}</p>
+    <p class="test">Test du bouton {{ levels[currentLevel] }}</p>
     <div class="buttons" (click)="onButtonClickOutside($event)">
+      <label>{{ labelMessage }}</label>
       <button *ngIf="showButton" (click)="onButtonClick()" [style.width.px]="buttonSizes[currentLevel][0]" [style.height.px]="buttonSizes[currentLevel][1]" [disabled]="buttonDisabled">{{ levels[currentLevel] }}</button>
     </div>
 </div>

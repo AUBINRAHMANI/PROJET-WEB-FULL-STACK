@@ -13,6 +13,7 @@ export class CalibrageComponent implements OnInit {
   showModal: boolean = false; // indique si la modale doit être affichée
   showButton: boolean = true; // indique si le bouton doit être affiché
   buttonDisabled: boolean = false; // indique si le bouton doit être désactivé
+  labelMessage: string = "Veuillez cliquer sur le bouton ci-dessous !";
   buttonSizes: number[][] = [
     [600, 500], // niveau 5
     [500, 400], // niveau 4

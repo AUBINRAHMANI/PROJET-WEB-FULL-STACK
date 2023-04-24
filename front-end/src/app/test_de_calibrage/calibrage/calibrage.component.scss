@@ -1,5 +1,5 @@
 .calibration-wrapper {
-  background-image: url('/assets/accueil_font.jpg'); /* Mettre l'URL de l'image de fond ici */
+  //background-image: url('/assets/accueil_font.jpg'); /* Mettre l'URL de l'image de fond ici */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -16,10 +16,16 @@
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 100px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 75px;
   }
+
+.test{
+  margin-top: 10px;
+  font-size: 25px;
+  text-decoration: underline;
+}
 
   .buttons {
     display: flex;
@@ -82,6 +88,13 @@
 
   .close:hover {
     color: #555;
+  }
+
+  label {
+    font-size: 18px;
+    color: black;
+    font-size: 2em; /* augmente la taille du label à 1.2 fois la taille par défaut */
+    margin-bottom: 50px; /* ajoute un espace de 10 pixels à droite du label */
   }
 
   @keyframes button-entrance {

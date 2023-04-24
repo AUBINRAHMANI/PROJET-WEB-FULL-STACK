@@ -22,6 +22,7 @@ export class CalibrageComponent implements OnInit {
     [125, 105]   // niveau 1
   ];
   private modalTimeoutId: number | undefined;
+  modalInitMessage: string="Veuillez faire un clic dans les boutons pour faire le test de calibrage,\n Si vous arrivez a le faire vous passerez au niveau suivant. Les retours se fermeront automatiquement";
 
   constructor(private calibrageService: CalibrageService) {
   }

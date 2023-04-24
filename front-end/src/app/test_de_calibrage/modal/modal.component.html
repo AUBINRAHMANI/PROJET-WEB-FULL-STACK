@@ -1,4 +1,4 @@
-<div class="modal" [class.show]="show">
+<div class="modal" [class.show]="show" (click)="close.emit()">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,7 +11,7 @@
         {{message}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="close.emit()">OK</button>
+       <!-- <button type="button" class="btn btn-primary" (click)="close.emit()"></button>-->
       </div>
     </div>
   </div>

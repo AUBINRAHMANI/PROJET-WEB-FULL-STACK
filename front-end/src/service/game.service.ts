@@ -102,7 +102,7 @@ export class GameService {
     }
   }
   selectAnswer(answerIndex: number): void {
-    console.log(this._gameInstance.isFinished+"yooooooooooooooooazaooooooh");
+    console.log(this._gameInstance.isFinished+" ok");
     if(!this._gameInstance.isFinished){
     console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
@@ -114,7 +114,7 @@ export class GameService {
     console.log("score -------"+this.gameInstance.score)
     this.nextQuestion();
     }else{
-      console.log("Le jeu est fini noukzaaaaaaa");
+      console.log("Le jeu est fini");
       this.router.navigate(['/game-result']);
     }
 

@@ -10,6 +10,7 @@ export class AdaptButtonSizeDirective {
     this.configurationService.buttonConfiguration$.subscribe(configuration => {
       this.el.nativeElement.style.minWidth = configuration.buttonWidth;
       this.el.nativeElement.style.minHeight = configuration.buttonHeight;
+      this.el.nativeElement.style.fontSize = configuration.fontSize;
     });
   }
 

@@ -1,25 +1,26 @@
-/*.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 1rem;
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* aligner la question en haut de la page */
 }
 
-.grid-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}*/
+.question {
+  margin-top: 2rem; /* ajouter un espacement pour laisser de la place à la grille */
+}
+
+.question h3 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 5rem;
   width: 100%;
   height: 100%;
-  position: absolute; /* Ajouté pour positionner les boutons dans les coins de l'écran */
-  top: 0;
-  left: 0;
 }
 
 .grid-item {

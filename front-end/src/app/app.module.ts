@@ -23,9 +23,7 @@ import {CarouselModule} from "ngx-owl-carousel-o";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { ModalComponent } from './test_de_calibrage/modal/modal.component';
-
-/*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
-*/
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -44,13 +42,13 @@ import { ModalComponent } from './test_de_calibrage/modal/modal.component';
     ProfilComponent,
     UserComponent,
     ModalComponent,
-    /*AdaptCalibrageButtonSizeDirective*/
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
+    MatTooltipModule,
     MatCardModule,
     HttpClientModule,
     ReactiveFormsModule,

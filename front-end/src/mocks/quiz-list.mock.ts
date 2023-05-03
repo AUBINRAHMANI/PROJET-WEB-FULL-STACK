@@ -27,7 +27,7 @@ export const QUESTION_CAPITALES: Question [] = [{
     }
   ],
 },
-  { id: '2', label: 'Quelle est la capitale de l Angleterre ?', answers: [
+  { id: '2', label: "Quelle est la capitale de l' Angleterre ?", answers: [
   {
     answerId : 1,
     value: 'Oxford',
@@ -50,7 +50,7 @@ export const QUESTION_CAPITALES: Question [] = [{
   }
   ],
 },
-  {id: '3', label: 'Quelle est la capitale de l Italie ?', answers: [
+  {id: '3', label: "Quelle est la capitale de l' Italie ?", answers: [
       {
         answerId : 1,
         value: 'Rome',
@@ -75,7 +75,7 @@ export const QUESTION_CAPITALES: Question [] = [{
 },
   {
     id: '4',
-    label: 'Quelle est la capitale de l Espagne ?',
+    label: "Quelle est la capitale de l' Espagne ?",
     answers: [
       {
         answerId : 1,
@@ -101,7 +101,7 @@ export const QUESTION_CAPITALES: Question [] = [{
   },
   {
     id: '5',
-    label: 'Quelle est la capitale de l Australie ?',
+    label: "Quelle est la capitale de l' Australie ?",
     answers: [
       {
         answerId : 1,
@@ -179,7 +179,7 @@ export const QUESTION_CAPITALES: Question [] = [{
   },
   {
     id: '8',
-    label: 'Quelle est la capitale de l Égypte ?',
+    label: "Quelle est la capitale de l' Égypte ?",
     answers: [
       {
         answerId : 1,
@@ -237,7 +237,7 @@ const QUESTION_ANIMAUX: Question [] = [
   },
   {
     id: '2',
-    label: 'Quel est l\'oiseau le plus rapide ?',
+    label: "Quel est l'oiseau le plus rapide ?",
     answers: [
       {
         answerId : 1,

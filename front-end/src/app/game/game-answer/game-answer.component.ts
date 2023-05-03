@@ -23,12 +23,14 @@ export class GameAnswerComponent {
   @ViewChild('correctAudio') correctAudio: ElementRef<HTMLAudioElement> | undefined;
   @ViewChild('incorrectAudio') incorrectAudio: ElementRef<HTMLAudioElement> | undefined;
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
-
+  randomColor: string ="#007bff";
+  textColor: string="#fff";
   constructor(private elementRef: ElementRef, private renderer: Renderer2,public gameService: GameService,public calibrageService:CalibrageService) { }
 
   ngOnInit(): void {
     console.log("GameAnswerComponent - ngOnInit()");
     console.log(" bouton onit "+this.enlargeButtons)
+    this.generateRandomColor();
     if (this.enlargeButtons) {
       this.globalClickListener = this.renderer.listen('document', 'click', (event) => {
         if (!this.elementRef.nativeElement.contains(event.target)) {
@@ -116,7 +118,36 @@ export class GameAnswerComponent {
     }
   }
 
+  generateRandomColor(): void {
+    // Génère une couleur aléatoire en utilisant la logique souhaitée
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    this.randomColor = randomColor;
+    this.textColor = this.calculateTextColor(randomColor);
+  }
+
+  calculateTextColor(color: string): string {
+    // Calcule la couleur du texte en fonction de la luminosité du fond
+    const brightness = this.calculateBrightness(color);
+    const threshold = 128; // Seuil de luminosité pour décider si le texte sera blanc ou noir
+
+    if (brightness <= threshold) {
+      return '#fff';
+    } else {
+      return '#000';
+    }
+  }
+
+  calculateBrightness(color: string): number {
+    // Calcule la luminosité de la couleur de fond
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    return brightness;
+  }
 
 
 
-}
+  }

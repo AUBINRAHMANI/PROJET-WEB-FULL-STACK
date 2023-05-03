@@ -8,8 +8,8 @@
     font-weight: bold;
     border: none;
     border-radius: 5px; /* Modifié pour rendre les boutons circulaires */
-    color: #fff;
-    background-color: #007bff;
+    color: var(--txt-color);
+    background-color: var(--random-color);
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     display: flex; /* Ajouté pour centrer le texte du bouton */

@@ -1,13 +1,13 @@
 <div class="calibration-wrapper" (click)="onButtonClickOutside($event)">
-    <h2>Calibrage</h2>
-    <p class="test">Test du bouton {{ levels[currentLevel] }}</p>
-    <div class="buttons" (click)="onButtonClickOutside($event)">
-      <label>{{ labelMessage }}</label>
-      <button *ngIf="showButton" (click)="onButtonClick()" [style.width.px]="buttonSizes[currentLevel][0]" [style.height.px]="buttonSizes[currentLevel][1]" [disabled]="buttonDisabled">{{ levels[currentLevel] }}</button>
-    </div>
+  <h2>Test de Calibrage
+    niveau {{ levels[currentLevel] }}</h2>
+  <p>Faites un clic dans les boutons pour faire le test de calibrage, si vous arrivez à le faire vous passerez au niveau suivant.
+    Les retours se fermeront automatiquement.</p>
+  <div class="buttons" (click)="onButtonClickOutside($event)">
+    <button *ngIf="showButton" (click)="onButtonClick()" [style.width.px]="buttonSizes[currentLevel][0]" [style.height.px]="buttonSizes[currentLevel][1]" [disabled]="buttonDisabled">{{ levels[currentLevel] }}</button>
+  </div>
 </div>
 <!--
 <app-modal *ngIf="currentLevel==0" [message]="this.modalInitMessage" [show]="showModal" (close)="closeModal()"></app-modal>
 -->
 <app-modal [message]="this.modalMessage[this.currentLevel]" [show]="showModal" (close)="closeModal()"></app-modal>
-

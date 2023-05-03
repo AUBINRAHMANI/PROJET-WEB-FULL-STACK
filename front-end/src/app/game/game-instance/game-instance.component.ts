@@ -104,8 +104,8 @@ export class GameInstanceComponent implements OnInit {
       this.currQuiz = this.numQuizzes - 1;
     } else { // @ts-ignore
       if (this.currQuiz >= this.numQuizzes) {
-            this.currQuiz = 0;
-          }
+        this.currQuiz = 0;
+      }
     }
 
     // @ts-ignore

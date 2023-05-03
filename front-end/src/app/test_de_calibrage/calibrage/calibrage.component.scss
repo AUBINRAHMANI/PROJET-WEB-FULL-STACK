@@ -16,16 +16,16 @@
   }
 
   h2 {
-    font-size: 100px;
+    font-size: 32px;
     font-weight: bold;
-    margin-bottom: 75px;
+    margin-bottom: 20px;
   }
 
-.test{
-  margin-top: 10px;
-  font-size: 25px;
-  text-decoration: underline;
-}
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
 
   .buttons {
     display: flex;
@@ -88,13 +88,6 @@
 
   .close:hover {
     color: #555;
-  }
-
-  label {
-    font-size: 18px;
-    color: black;
-    font-size: 2em; /* augmente la taille du label à 1.2 fois la taille par défaut */
-    margin-bottom: 50px; /* ajoute un espace de 10 pixels à droite du label */
   }
 
   @keyframes button-entrance {

@@ -2,8 +2,9 @@
   <ng-container *ngFor="let quiz of quizList; let i = index">
     <div
       class="quiz-item"
+      (click)="onQuizSelected(quiz.id)"
       [class.active]="currentIndex === i"
-      [@growAndDisappear]="currentIndex === i ? 'active' : 'inactive'"
+      [@growAndMove]="currentIndex === i ? 'active' : 'inactive'"
     >
       <button class="quiz-button">
         <i [ngClass]="getIcon(quiz.id)" aria-hidden="true"></i>
@@ -12,3 +13,4 @@
     </div>
   </ng-container>
 </div>
+

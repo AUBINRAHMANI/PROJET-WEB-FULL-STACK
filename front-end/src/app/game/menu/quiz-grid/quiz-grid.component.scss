@@ -24,6 +24,7 @@ $grow-time: 3s;
     color: #fff;
     opacity: 0.9;
     animation-fill-mode: both;
+    transform-origin: center;
 
     &.active {
       z-index: 1;

@@ -28,6 +28,8 @@ export class GamePageComponent implements OnInit {
   @Input() quizId: string | undefined;
   currentQuestion: Question | undefined;
   questions: Question[] = [];
+
+  MinusQuestions : Question[]=[]
   @Output() containerClick: EventEmitter<void> = new EventEmitter();
 
   constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
@@ -40,7 +42,7 @@ export class GamePageComponent implements OnInit {
     console.log("METHOD ngOnInit");
     if (this.quizId) {
       this.quiz = this.gameService.getQuiz(this.quizId);
-      this.gameService.retrieveQuestions(this.quizId);
+      this.gameService.retrieveQuestions(this.quizId,this.calibrageService.getCalibrateLevel());
       this.gameService.currentQuestion$.subscribe((question: Question) => {
         this.currentQuestion = question;
       });
@@ -51,6 +53,10 @@ export class GamePageComponent implements OnInit {
         }
         console.log("ouiyutryuilu");
       });
+      this.questions.forEach((question: Question) => {
+        this.MinusQuestions.push(question.getMiniusQuestions());
+      });
+
     }
     this.backgroundMusic = document.getElementById('background-music') as HTMLAudioElement;
     if (this.backgroundMusic) {
@@ -132,5 +138,11 @@ export class GamePageComponent implements OnInit {
       }
     }, this.inactivityTimeout);
   }
+
+  getMinus(index: string): Question {
+    // @ts-ignore
+    return this.MinusQuestions.find((question) => question.id === index);
+  }
+
 
 }

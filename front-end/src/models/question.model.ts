@@ -36,14 +36,22 @@ export class Question {
     return incorrectAnswers[randomIndex];
   }
 
-  getMiniusQuestions(): Answer[] {
+  getMiniusQuestions(): Question {
     const correctAnswer = this.getCorrectAnswer();
     const incorrectAnswer = this.getRandomIncorrectAnswer();
-    if (!correctAnswer || !incorrectAnswer) {
-      return [];
+
+    // Permute les réponses de manière aléatoire
+    const randomPosition = Math.floor(Math.random() * 2); // Génère 0 ou 1 aléatoirement
+    const answers = [correctAnswer, incorrectAnswer];
+    if (randomPosition === 1) {
+      answers.reverse(); // Inverse la liste si le nombre aléatoire est 1
     }
-    return [correctAnswer, incorrectAnswer];
+
+    // Crée et retourne l'objet Question
+    // @ts-ignore
+    return new Question(this.id, this.label, answers);
   }
+
 
 
 }

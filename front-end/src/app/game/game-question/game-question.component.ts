@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Answer, Question } from '../../../models/question.model';
 import {GameService} from "../../../service/game.service";
+import {CalibrageService} from "../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-question',
@@ -9,13 +10,16 @@ import {GameService} from "../../../service/game.service";
 })
 export class GameQuestionComponent implements OnInit {
   @Input() currentQuestion!: Question;
+  @Input() currentQuestionMinus!: Question ;
   @Output() answerSelected: EventEmitter<{ question: Question, answer: Answer }> = new EventEmitter();
 
   @Input() enlargeButtons: (() => void) | undefined;
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
 
   @Input() recalibrageEffectue : boolean | undefined;
-  constructor(public gameService: GameService) {}
+  constructor(public gameService: GameService,public calibrageService:CalibrageService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -24,7 +28,6 @@ export class GameQuestionComponent implements OnInit {
     console.log("GameQuestionComponent.onAnswerSelected");
     this.answerSelected.emit({ question, answer });
   }
-
   isAnswerCorrect(answer: Answer): boolean {
     return answer.isCorrect;
   }

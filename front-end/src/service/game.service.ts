@@ -66,7 +66,7 @@ export class GameService {
     this.currentQuestionIndex = 0;
   }
 
-  retrieveQuestions(quizId: string): void {
+  retrieveQuestions(quizId: string,level:number): void {
     console.log("GameService.retrieveQuestions()");
     const quiz = this.quizList.find(q => q.id === quizId);
     if (quiz) {
@@ -143,13 +143,13 @@ export class GameService {
     );
   }
 
-  startGame(quizId: string): void {
+  startGame(quizId: string,level:number): void {
     console.log("GameService - startGame");
     const quiz = this.quizList.find(q => q.id === quizId);
     // @ts-ignore
     this._gameInstance.setQuiz=quiz;
     if (quiz) {
-      this.retrieveQuestions(quiz.id);
+      this.retrieveQuestions(quiz.id,level);
     } else {
       console.log(`Le quiz avec l'identifiant ${quizId} n'a pas été trouvé.`);
     }

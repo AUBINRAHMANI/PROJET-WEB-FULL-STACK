@@ -93,4 +93,7 @@ export class CalibrageService {
   setCalibrateResult(level:number):void{
     this.calibrationResult=level;
   }
+  mustBeResize():boolean{
+    return this.getCalibrateLevel()<2 && this.getCalibrateLevel()>=0;
+  }
 }

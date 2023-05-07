@@ -26,116 +26,127 @@
   //animation: change-background 6s infinite alternate;
 
   @keyframes change-background {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    80% { opacity: 1; }
-    90% { opacity: 0; }
-    100% { opacity: 0; }
-  }
-}
-
-// Styles des informations du jeu
-.game-info {
-  margin: 20px;
-  text-align: center;
-}
-
-// Styles des questions du jeu
-.game-question {
-  width: 400px; /* Largeur fixe */
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  margin: 20px auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: #f2f2f2;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    word-wrap: break-word;
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
   }
 
-  p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #333;
+
+  // Styles des informations du jeu
+  .game-info {
+    margin: 20px;
+    text-align: center;
   }
 
-  .answer-wrapper {
+  // Styles des questions du jeu
+  .game-question {
+    width: 400px; /* Largeur fixe */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #f2f2f2;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
+    align-items: center;
 
-    label {
-      font-size: 18px;
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
       color: #333;
-      margin-bottom: 10px;
+      word-wrap: break-word;
+    }
 
-      input {
-        margin-right: 10px;
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .answer-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+
+      label {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+
+        input {
+          margin-right: 10px;
+        }
       }
     }
   }
-}
 
-// Styles du conteneur de question
-.question-container {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-// Styles de l'animation de réponse correcte
-.correct-animation {
-  animation: correct 0.5s ease-in-out;
-}
-
-// Styles de l'animation de réponse incorrecte
-.incorrect-animation {
-  animation: incorrect 0.5s ease-in-out;
-}
-
-// Styles des contrôles du jeu
-.game-controls {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  align-items: center;
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
+  // Styles du conteneur de question
+  .question-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
-  .btn-primary {
-    background-color: #007bff;
+  // Styles de l'animation de réponse correcte
+  .correct-animation {
+    animation: correct 0.5s ease-in-out;
+  }
 
-    &:hover {
-      background-color: #0056b3;
+  // Styles de l'animation de réponse incorrecte
+  .incorrect-animation {
+    animation: incorrect 0.5s ease-in-out;
+  }
+
+  // Styles des contrôles du jeu
+  .game-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    align-items: center;
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
     }
 
-    &:active {
-      background-color: #00468b;
-    }
+    .btn-primary {
+      background-color: #007bff;
 
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:active {
+        background-color: #00468b;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
   }
 }

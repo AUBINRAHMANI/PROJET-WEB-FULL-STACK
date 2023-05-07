@@ -16,6 +16,10 @@ export class GamePageComponent implements OnInit {
   private backgroundMusic: HTMLAudioElement | undefined;
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
   gameInstance: GameInstance;
+  private alertSound: HTMLAudioElement | undefined;
+  private inactivityTimeout: number = 3000000; // 5 minutes
+  private inactivityTimer: any;
+
 
 
 
@@ -50,6 +54,8 @@ export class GamePageComponent implements OnInit {
     if (this.backgroundMusic) {
       this.backgroundMusic.play();
     }
+    this.alertSound = document.getElementById('alert-sound') as HTMLAudioElement;
+    this.resetInactivityTimer();
 
   }
 
@@ -58,11 +64,15 @@ export class GamePageComponent implements OnInit {
     this.backgroundMusic.pause();
     // @ts-ignore
     this.backgroundMusic.currentTime = 0;
+    this.resetInactivityTimer();
+
   }
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {
     console.log("METHOD onAnswerSelected");
     this.gameService.selectAnswer(answer.answer.answerId);
+    this.resetInactivityTimer();
+
   }
 
   previousQuestion() {
@@ -100,6 +110,8 @@ export class GamePageComponent implements OnInit {
       this.containerClick.emit();
       this.changeDetectorRef.detectChanges();
     }
+    this.resetInactivityTimer();
+
   }
 
   enlargeButtons() {
@@ -107,5 +119,16 @@ export class GamePageComponent implements OnInit {
       this.gameService.recalibrageEffectue = true;
       this.containerClick.emit();
     }
+    this.resetInactivityTimer();
+
   }
+  resetInactivityTimer() {
+    clearTimeout(this.inactivityTimer);
+    this.inactivityTimer = setTimeout(() => {
+      if (this.alertSound) {
+        this.alertSound.play();
+      }
+    }, this.inactivityTimeout);
+  }
+
 }

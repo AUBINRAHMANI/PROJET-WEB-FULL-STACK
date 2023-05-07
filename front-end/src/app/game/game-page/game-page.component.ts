@@ -6,6 +6,7 @@ import { Answer, Question } from "../../../models/question.model";
 import { Observable } from "rxjs";
 import {GameInstance} from "../../../models/gameInstance.model";
 import { ChangeDetectorRef } from '@angular/core';
+import {CalibrageService} from "../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-page',
@@ -15,6 +16,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class GamePageComponent implements OnInit {
   private backgroundMusic: HTMLAudioElement | undefined;
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
+
   gameInstance: GameInstance;
   private alertSound: HTMLAudioElement | undefined;
   private inactivityTimeout: number = 3000000; // 5 minutes
@@ -28,7 +30,7 @@ export class GamePageComponent implements OnInit {
   questions: Question[] = [];
   @Output() containerClick: EventEmitter<void> = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, public gameService: GameService,private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
     this.ngOnInit();
     this.gameInstance = this.gameService.gameInstance;

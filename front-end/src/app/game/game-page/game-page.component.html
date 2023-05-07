@@ -18,7 +18,8 @@
 
    <div class="question-container" (click)="onContainerClick($event)">
      <div class="game-question">
-       <app-game-question [currentQuestion]="currentQuestion" (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion" [enlargeButtons]="enlargeButtons.bind(this)" (containerClick)="containerClick.emit()"
+       <app-game-question [currentQuestion]="currentQuestion" [currentQuestionMinus]="this.getMinus(currentQuestion.id)"
+                          (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion" [enlargeButtons]="enlargeButtons.bind(this)" (containerClick)="containerClick.emit()"
        ></app-game-question>
        <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
      </div>

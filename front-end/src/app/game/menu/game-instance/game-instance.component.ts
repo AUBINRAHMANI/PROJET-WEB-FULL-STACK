@@ -5,6 +5,7 @@ import { GameService } from '../../../../service/game.service';
 import { faCity, faTheaterMasks, faPaw, faMusic, faBirthdayCake, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import {GameInstance} from "../../../../models/gameInstance.model";
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {CalibrageService} from "../../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-instance',
@@ -25,7 +26,7 @@ export class GameInstanceComponent implements OnInit {
   @ViewChild('nextButton', { static: true }) nextButton: ElementRef ;
   // Définissez les icônes que vous souhaitez utiliser
 
-  constructor(private gameService: GameService, private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private gameService: GameService,private calibrageService:CalibrageService, private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     console.log("GAME-INSTANCE: ngOnInit");
@@ -48,7 +49,7 @@ export class GameInstanceComponent implements OnInit {
     console.log("GAME-INSTANCE: selectQuiz");
     this.currentQuiz = this.getQuiz(quizId);
     this.gameService.selectedQuizId = quizId;
-    this.gameService.startGame(quizId);
+    this.gameService.startGame(quizId,this.calibrageService.getCalibrateLevel());
     this.quizStarted = true;
     console.log(quizId);
   }

@@ -10,21 +10,22 @@ import {animate, keyframes, state, style, transition, trigger} from "@angular/an
   styleUrls: ['./quiz-grid.component.scss'],
   animations: [
     trigger('growAndDisappear', [
-      state('inactive', style({ transform: 'scale(1)', opacity: 1 })),
-      state('active', style({ transform: 'scale(2)', opacity: 1 })),
+      state('inactive', style({ transform: 'scale(1)' })),
+      state('active', style({ transform: 'scale(3)' })),
       transition('inactive => active', [
         animate(
-          '15s ease-in-out',
+          '3s ease-in-out',
           keyframes([
-            style({ transform: 'scale(1)', opacity: 1, offset: 0 }),
-            style({ transform: 'scale(1)', opacity: 1, offset: 0.2 }),
-            style({ transform: 'scale(5)', opacity: 0, offset: 0.9 }),
-            style({ transform: 'scale(6)', opacity: 0, offset: 1 }),
+            style({ transform: 'scale(1)', offset: 0 }),
+            style({ transform: 'scale(1)', offset: 0.2 }),
+            style({ transform: 'scale(3)', offset: 1 }),
           ])
         ),
       ]),
-    ]),
-  ],
+      transition('active => inactive', [
+        animate('1s ease-in-out', style({ transform: 'scale(1)' })),
+      ]),
+  ]),]
 })
 
 export class QuizGridComponent {
@@ -46,7 +47,7 @@ export class QuizGridComponent {
   startAnimation(): void {
     setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.quizList.length;
-    }, 3000);
+    }, 4000);
   }
   ngOnInit(): void {
     this.startAnimation();

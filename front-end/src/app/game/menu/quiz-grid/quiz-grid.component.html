@@ -1,0 +1,14 @@
+<div class="grid-container" [ngStyle]="getGridStyles()">
+  <ng-container *ngFor="let quiz of quizList; let i = index">
+    <div
+      class="quiz-item"
+      [class.active]="currentIndex === i"
+      [@growAndDisappear]="currentIndex === i ? 'active' : 'inactive'"
+    >
+      <button class="quiz-button">
+        <i [ngClass]="getIcon(quiz.id)" aria-hidden="true"></i>
+        <span>{{ quiz.name }}</span>
+      </button>
+    </div>
+  </ng-container>
+</div>

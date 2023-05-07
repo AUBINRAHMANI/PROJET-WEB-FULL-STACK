@@ -25,6 +25,26 @@ export class GameAnswerComponent {
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
   randomColor: string ="#007bff";
   textColor: string="#fff";
+
+  colorPairs = [
+    {bgColor: '#007bff', textColor: '#fff'},
+    {bgColor: '#28a745', textColor: '#fff'},
+    {bgColor: '#dc3545', textColor: '#fff'},
+    {bgColor: '#ffc107', textColor: '#000'},
+    {bgColor: '#6610f2', textColor: '#fff'},
+    {bgColor: '#6f42c1', textColor: '#fff'},
+    {bgColor: '#17a2b8', textColor: '#fff'},
+    {bgColor: '#fd7e14', textColor: '#000'},
+    {bgColor: '#28a745', textColor: '#fff'},
+    {bgColor: '#20c997', textColor: '#fff'},
+    {bgColor: '#007bff', textColor: '#000'},
+    {bgColor: '#6c757d', textColor: '#fff'},
+    {bgColor: '#17a2b8', textColor: '#000'},
+    {bgColor: '#f0ad4e', textColor: '#000'},
+    {bgColor: '#9b59b6', textColor: '#fff'}
+    // Ajoutez d'autres paires de couleurs selon vos besoins
+  ];
+
   constructor(private elementRef: ElementRef, private renderer: Renderer2,public gameService: GameService,public calibrageService:CalibrageService) { }
 
   ngOnInit(): void {
@@ -119,6 +139,17 @@ export class GameAnswerComponent {
   }
 
   generateRandomColor(): void {
+    // Sélectionne une paire de couleurs aléatoire dans le tableau
+    const randomIndex = Math.floor(Math.random() * this.colorPairs.length);
+    const randomPair = this.colorPairs[randomIndex];
+
+    // Met à jour les valeurs de couleur du composant en utilisant la paire sélectionnée
+    this.randomColor = randomPair.bgColor;
+    this.textColor = randomPair.textColor;
+  }
+
+
+  /*generateRandomColor(): void {
     // Génère une couleur aléatoire en utilisant la logique souhaitée
     const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     this.randomColor = randomColor;
@@ -146,7 +177,7 @@ export class GameAnswerComponent {
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
     return brightness;
-  }
+  }*/
 
 
 

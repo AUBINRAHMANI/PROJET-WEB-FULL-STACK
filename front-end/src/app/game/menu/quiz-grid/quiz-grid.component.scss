@@ -1,0 +1,45 @@
+$grid-columns: 3;
+$grid-rows: 2;
+$item-width: 300px;
+$item-height: 200px;
+$grid-gap: 20px;
+$grow-time: 3s;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, $item-width);
+  grid-template-rows: repeat($grid-rows, $item-height);
+  grid-gap: $grid-gap;
+  justify-content: center;
+
+  .quiz-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: $item-width;
+    height: $item-height;
+    background-color: #007bff;
+    border-radius: 10px;
+    color: #fff;
+    opacity: 0.9;
+    animation-fill-mode: both;
+
+    &.active {
+      z-index: 1;
+      background-color: red; // Changez la couleur de fond ici
+    }
+
+    button {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+
+      &:hover {
+        background-color: #0069d9;
+      }
+    }
+  }
+}

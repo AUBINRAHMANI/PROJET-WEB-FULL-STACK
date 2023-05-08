@@ -19,12 +19,11 @@ export class GamePageComponent implements OnInit {
 
   gameInstance: GameInstance;
   private alertSound: HTMLAudioElement | undefined;
-  private inactivityTimeout: number = 60000; // 1 minutes
+  private inactivityTimeout: number = 10000; // 1 minutes
   private inactivityTimeoutText: number = 5000; // 5 secondes
   private timer: any;
   //private sound: Howl;  alternative pour HTMLAudioElement
   public showReminder: boolean = false;
-
 
 
 
@@ -139,7 +138,6 @@ export class GamePageComponent implements OnInit {
     this.timer = setTimeout(() => {
       this.playSound();
     }, this.inactivityTimeout);
-    this.startTimer();
   }
 
   resetTimer(){

@@ -1,36 +1,41 @@
 <div class="game-page">
-  <audio id="background-music" loop>
-    <!--<source src="assets/game_sound.m4a" type="audio/mp4">-->
-    Your browser does not support the audio element.
-  </audio>
-  <audio id="alert-sound">
-    <source src="assets/alert-sound.m4a" type="audio/mp4">
-     Your browser does not support the audio element.
-   </audio>
+  <div [ngClass]="{'blur-background': showReminder}">
+    <audio id="background-music" loop>
+      <!--<source src="assets/game_sound.m4a" type="audio/mp4">-->
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="alert-sound">
+      <source src="assets/alert-sound.m4a" type="audio/mp4">
+       Your browser does not support the audio element.
+     </audio>
 
-   <div class="game-info">
-     <h2>{{ (quiz | async)?.name }}</h2>
-     <h4>{{ (quiz | async)?.theme }}</h4>
-     <p *ngIf="(quiz | async)?.questions?.length === 0">Aucune question disponible</p>
-     <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
-     <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
-   </div>
+     <div class="game-info">
+       <h2>{{ (quiz | async)?.name }}</h2>
+       <h4>{{ (quiz | async)?.theme }}</h4>
+       <p *ngIf="(quiz | async)?.questions?.length === 0">Aucune question disponible</p>
+       <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
+       <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
+     </div>
 
-  <div *ngIf="showReminder" class="inactivity">
+     <div class="question-container" (click)="onContainerClick($event)">
+       <div class="game-question">
+         <app-game-question [currentQuestion]="currentQuestion" [currentQuestionMinus]="this.getMinus(currentQuestion.id)"
+                            (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion" [enlargeButtons]="enlargeButtons.bind(this)" (containerClick)="containerClick.emit()"
+         ></app-game-question>
+         <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
+       </div>
+     </div>
+
+
+     <!--<div class="game-controls">
+       <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === 0" (click)="previousQuestion()" AdaptButtonSize>Précédent</button>
+       <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === ((quiz | async)?.questions?.length ?? 0) - 1" (click)="nextQuestion()" AdaptButtonSize>Suivant</button>
+     </div>-->
+
+  </div>
+
+  <div *ngIf="showReminder" class="reminder-message">
     <p>Êtes-vous encore là ?</p>
   </div>
 
-   <div class="question-container" (click)="onContainerClick($event)">
-     <div class="game-question">
-       <app-game-question [currentQuestion]="currentQuestion" [currentQuestionMinus]="this.getMinus(currentQuestion.id)"
-                          (answerSelected)="onAnswerSelected($event)" *ngIf="currentQuestion" [enlargeButtons]="enlargeButtons.bind(this)" (containerClick)="containerClick.emit()"
-       ></app-game-question>
-       <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
-     </div>
-   </div>
-
-   <!--<div class="game-controls">
-     <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === 0" (click)="previousQuestion()" AdaptButtonSize>Précédent</button>
-     <button class="btn btn-primary" [disabled]="gameService.currentQuestionIndex === ((quiz | async)?.questions?.length ?? 0) - 1" (click)="nextQuestion()" AdaptButtonSize>Suivant</button>
-   </div>-->
 </div>

@@ -90,6 +90,13 @@
     color: #555;
   }
 
+  label {
+    font-size: 18px;
+    color: black;
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+
   @keyframes button-entrance {
     from {
       opacity: 0;

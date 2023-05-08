@@ -9,5 +9,6 @@ import { Component } from '@angular/core';
 export class AccueilComponent {
   labelMessage1: string = "Veuillez cliquer sur le bouton pour acceder au quizz !";
   labelMessage2: string = "Veuillez cliquer sur le bouton pour acceder au test de calibrage !";
+  labelMessageAccueil : string = "Veuillez selectionner une des 2 fonctions !";
 
 }

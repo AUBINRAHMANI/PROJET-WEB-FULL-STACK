@@ -8,7 +8,6 @@ import {GameInstance} from "../../../models/gameInstance.model";
 import { ChangeDetectorRef } from '@angular/core';
 import {CalibrageService} from "../../../service/calibrage.service";
 
-
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -20,9 +19,11 @@ export class GamePageComponent implements OnInit {
 
   gameInstance: GameInstance;
   private alertSound: HTMLAudioElement | undefined;
-  private inactivityTimeout: number = 3000000; // 5 minutes
-  private inactivityTimer: any;
-
+  private inactivityTimeout: number = 10000; // 1 minutes
+  private inactivityTimeoutText: number = 5000; // 5 secondes
+  private timer: any;
+  //private sound: Howl;  alternative pour HTMLAudioElement
+  public showReminder: boolean = false;
 
 
 
@@ -60,16 +61,12 @@ export class GamePageComponent implements OnInit {
       });
 
     }
-    this.backgroundMusic = document.getElementById('background-music') as HTMLAudioElement;
+    this.backgroundMusic = document.getElementById('z-music') as HTMLAudioElement;
     if (this.backgroundMusic) {
       this.backgroundMusic.play();
     }
     this.alertSound = document.getElementById('alert-sound') as HTMLAudioElement;
-    this.resetInactivityTimer();
-    setInterval(() => {
-      this.progressValue += 10;
-    }, 1000);
-
+    this.startTimer();
   }
 
   ngOnDestroy() {
@@ -77,25 +74,27 @@ export class GamePageComponent implements OnInit {
     this.backgroundMusic.pause();
     // @ts-ignore
     this.backgroundMusic.currentTime = 0;
-    this.resetInactivityTimer();
+    this.resetTimer();
 
   }
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {
     console.log("METHOD onAnswerSelected");
     this.gameService.selectAnswer(answer.answer.answerId);
-    this.resetInactivityTimer();
+    this.resetTimer();
 
   }
 
   previousQuestion() {
     console.log("METHOD previousQuestion");
     this.gameService.previousQuestion();
+    this.startTimer();
   }
 
   nextQuestion() {
     console.log("METHOD nextQuestion");
     this.gameService.nextQuestion();
+    this.startTimer()
   }
 
   disablePrevious(): boolean {
@@ -123,7 +122,7 @@ export class GamePageComponent implements OnInit {
       this.containerClick.emit();
       this.changeDetectorRef.detectChanges();
     }
-    this.resetInactivityTimer();
+    this.resetTimer();
 
   }
 
@@ -132,16 +131,29 @@ export class GamePageComponent implements OnInit {
       this.gameService.recalibrageEffectue = true;
       this.containerClick.emit();
     }
-    this.resetInactivityTimer();
 
+    this.resetTimer();
   }
-  resetInactivityTimer() {
-    clearTimeout(this.inactivityTimer);
-    this.inactivityTimer = setTimeout(() => {
-      if (this.alertSound) {
-        this.alertSound.play();
-      }
+
+  startTimer() {
+    this.timer = setTimeout(() => {
+      this.playSound();
     }, this.inactivityTimeout);
+  }
+
+  resetTimer(){
+    clearTimeout(this.timer);
+    this.startTimer();
+  }
+
+
+  playSound() {
+    const audio = new Audio('assets/ding.mp3');
+    audio.play();
+    this.showReminder = true;
+    setTimeout(() =>{
+      this.showReminder = false;
+    }, this.inactivityTimeoutText) // le message s'affiche pendant 5 secondes
   }
 
   getMinus(index: string): Question {

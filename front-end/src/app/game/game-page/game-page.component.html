@@ -16,6 +16,10 @@
      <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
    </div>
 
+  <div *ngIf="showReminder" class="inactivity">
+    <p>Êtes-vous encore là ?</p>
+  </div>
+
    <div class="question-container" (click)="onContainerClick($event)">
      <div class="game-question">
        <app-game-question [currentQuestion]="currentQuestion" [currentQuestionMinus]="this.getMinus(currentQuestion.id)"

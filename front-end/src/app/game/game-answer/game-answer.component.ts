@@ -25,7 +25,8 @@ export class GameAnswerComponent {
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
   randomColor: string ="#007bff";
   textColor: string="#fff";
-
+  @Input() backgroundColor: string = '#007bff';
+  @Input() textColoor: string = '#fff';
   colorPairs = [
     {bgColor: '#007bff', textColor: '#fff'},
     {bgColor: '#28a745', textColor: '#fff'},
@@ -33,14 +34,6 @@ export class GameAnswerComponent {
     {bgColor: '#ffc107', textColor: '#000'},
     {bgColor: '#6610f2', textColor: '#fff'},
     {bgColor: '#6f42c1', textColor: '#fff'},
-    {bgColor: '#17a2b8', textColor: '#fff'},
-    {bgColor: '#fd7e14', textColor: '#000'},
-    {bgColor: '#28a745', textColor: '#fff'},
-    {bgColor: '#20c997', textColor: '#fff'},
-    {bgColor: '#007bff', textColor: '#000'},
-    {bgColor: '#6c757d', textColor: '#fff'},
-    {bgColor: '#17a2b8', textColor: '#000'},
-    {bgColor: '#f0ad4e', textColor: '#000'},
     {bgColor: '#9b59b6', textColor: '#fff'}
     // Ajoutez d'autres paires de couleurs selon vos besoins
   ];
@@ -50,6 +43,8 @@ export class GameAnswerComponent {
   ngOnInit(): void {
     console.log("GameAnswerComponent - ngOnInit()");
     console.log(" bouton onit "+this.enlargeButtons)
+    this.randomColor=this.backgroundColor;
+    this.textColor=this.textColoor
     this.generateRandomColor();
     if (this.enlargeButtons) {
       this.globalClickListener = this.renderer.listen('document', 'click', (event) => {

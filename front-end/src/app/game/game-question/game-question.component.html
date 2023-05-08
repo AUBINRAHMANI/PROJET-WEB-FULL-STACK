@@ -10,7 +10,10 @@
         <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"
                          [enlargeButtons]="gameService.recalibrageEffectue"
                          (answerSelected)="onAnswerSelected(currentQuestion, answer)"
-                         [containerClick]="containerClick"  class="answer-btn"></app-game-answer>
+                         [containerClick]="containerClick"
+                         [backgroundColor]="colorPairs[answer.answerId-1].bgColor"
+                         [textColoor]="colorPairs[answer.answerId-1].textColor"
+                         class="answer-btn"></app-game-answer>
       </div>
     </div>
   </div>
@@ -22,7 +25,12 @@
         <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"
                          [enlargeButtons]="gameService.recalibrageEffectue"
                          (answerSelected)="onAnswerSelected(currentQuestion, answer)"
-                         [containerClick]="containerClick"  class="answer-btn"></app-game-answer>
+                         [containerClick]="containerClick"
+                         [backgroundColor]="colorPairs[answer.answerId-1].bgColor"
+                         [textColoor]="colorPairs[answer.answerId-1].textColor"
+                         class="answer-btn"
+
+        ></app-game-answer>
       </div>
     </div>
   </div>

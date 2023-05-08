@@ -21,6 +21,17 @@ export class GameQuestionComponent implements OnInit {
 
   }
 
+  colorPairs = [
+    {bgColor: '#007bff', textColor: '#fff'},
+    {bgColor: '#28a745', textColor: '#fff'},
+    {bgColor: '#dc3545', textColor: '#fff'},
+    {bgColor: '#ffc107', textColor: '#000'},
+    {bgColor: '#6610f2', textColor: '#fff'},
+    {bgColor: '#6f42c1', textColor: '#fff'},
+    {bgColor: '#9b59b6', textColor: '#fff'}
+    // Ajoutez d'autres paires de couleurs selon vos besoins
+  ];
+
   ngOnInit(): void {
   }
 

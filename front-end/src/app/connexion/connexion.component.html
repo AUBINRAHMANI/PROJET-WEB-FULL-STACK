@@ -11,7 +11,7 @@
   <div class="profil-liste">
     <div *ngFor="let utilisateur of listeUtilisateur" class="profil-item" (click)="selectProfil(utilisateur)">
       <img [src]="utilisateur.image" alt="Image de profil">
-      <span>{{ utilisateur.nom }} {{ utilisateur.prenom}}</span>
+      <span>{{ utilisateur.nom }} {{utilisateur.prenom}}</span>
     </div>
   </div>
 </div>
@@ -21,6 +21,6 @@
     Gestion des profils
   </button>
 </div>
-```
+
 
 

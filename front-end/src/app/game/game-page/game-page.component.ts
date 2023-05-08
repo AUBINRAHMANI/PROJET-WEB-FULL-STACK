@@ -33,6 +33,7 @@ export class GamePageComponent implements OnInit {
 
   MinusQuestions : Question[]=[]
   @Output() containerClick: EventEmitter<void> = new EventEmitter();
+  progressValue: number=0;
 
   constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
@@ -70,10 +71,8 @@ export class GamePageComponent implements OnInit {
 
   ngOnDestroy() {
     // @ts-ignore
-    this.backgroundMusic.pause();
     // @ts-ignore
-    this.backgroundMusic.currentTime = 0;
-    this.resetTimer();
+
 
   }
 

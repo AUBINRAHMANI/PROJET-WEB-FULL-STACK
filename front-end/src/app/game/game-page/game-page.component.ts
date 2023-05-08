@@ -71,10 +71,8 @@ export class GamePageComponent implements OnInit {
 
   ngOnDestroy() {
     // @ts-ignore
-    this.backgroundMusic.pause();
     // @ts-ignore
-    this.backgroundMusic.currentTime = 0;
-    this.resetTimer();
+
 
   }
 

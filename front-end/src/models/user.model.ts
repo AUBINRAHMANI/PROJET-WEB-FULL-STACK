@@ -4,6 +4,7 @@ export interface Utilisateur {
   prenom: string;
   score: number[];
   stade:string;
+  image?:string;
 
 
 }

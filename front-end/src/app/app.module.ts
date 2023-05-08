@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {ReactiveFormsModule} from "@angular/forms";
-import {ConnexionComponents} from "./connexion/connexion.components";
+import {UserManagementComponent} from "./user-management/user-management.component";
 import {ProfilComponent} from "./profil/profil.component";
 import {UserComponent} from "./user/user.component";
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +25,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { ModalComponent } from './test_de_calibrage/modal/modal.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
+import {ConnexionComponent} from "./connexion/connexion.component";
 
 @NgModule({
   declarations: [
@@ -39,11 +40,12 @@ import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
     HeaderComponent,
     AdaptButtonSizeDirective,
     CalibrageComponent,
-    ConnexionComponents,
+    UserManagementComponent,
     ProfilComponent,
     UserComponent,
     ModalComponent,
     QuizGridComponent,
+    ConnexionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {UserService} from "../service/user.service";
-import {Utilisateur} from "../../models/Utilisateur.model";
+import {Utilisateur} from "../../models/user.model";
 
 
 

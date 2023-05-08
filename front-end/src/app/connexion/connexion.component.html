@@ -1,40 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>SOLID</title>
-</head>
+<div *ngIf="profilSelectionne" class="profil-selectionne">
+  <h2 class="label">Profil sélectionné :</h2>
+  <div class="profil-item">
+    <img [src]="profilSelectionne.image" routerLink="/gameinstance" alt="Image de profil">
+    <span class="profil-selectionne-nom">{{ profilSelectionne.nom }} {{ profilSelectionne.prenom}}</span>
+  </div>
+</div>
 
-<body>
-
-<section class="background-image-section">
-    <header>
-      <div id="Connexion">
-        <h1>CONNEXION :</h1>
-        <!-- <img id='connexion' src="../assets/Connexion.png"  alt="Connexion"> -->
+<div class="profil-container">
+  <h1>Sélectionnez un profil</h1>
+  <div class="profil-liste">
+    <div *ngFor="let utilisateur of listeUtilisateur" class="profil-item" (click)="selectProfil(utilisateur)">
+      <img [src]="utilisateur.image" alt="Image de profil">
+      <span>{{ utilisateur.nom }}</span>
     </div>
-    </header>
+  </div>
+</div>
 
-    <app-profil></app-profil>
-
-    <!-- <div class="test">
-      <p>test</p>
-    </div>  -->
-
-    <div class="utilisateur">
-      <div class="utilisateur" *ngFor="let user of listeUtilisateur">
-
-        <app-user [user]="user" (deleteUser)="deleteUser($event)"></app-user>
-
-      </div>
+<div class="btn-container">
+  <button class="btn" routerLink="/user-management">
+    Gestion des profils
+  </button>
+</div>
+```
 
 
-    </div>
-
-
-</section>
-
-    <app-profil></app-profil>
-
-</body>
-</html>

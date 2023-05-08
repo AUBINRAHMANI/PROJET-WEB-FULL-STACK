@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../service/user.service";
-import {Utilisateur} from "../../models/Utilisateur.model";
+import {Utilisateur} from "../../models/user.model";
 
 @Component({
   selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
+  templateUrl: './user-management.component.html',
+  styleUrls: ['./user-management.component.scss']
 })
 
-export class ConnexionComponents implements OnInit {
+export class UserManagementComponent implements OnInit {
 
   public listeUtilisateur: Utilisateur[] = [];
 

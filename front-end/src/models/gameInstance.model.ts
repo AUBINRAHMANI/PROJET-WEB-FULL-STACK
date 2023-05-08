@@ -1,6 +1,6 @@
 import {Answer, Question} from "./question.model";
 import { Quiz } from "./quiz.model";
-import {Utilisateur} from "./Utilisateur.model";
+import {Utilisateur} from "./user.model";
 
 export class GameInstance {
   set userId(value: number) {

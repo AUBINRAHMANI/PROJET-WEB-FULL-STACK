@@ -1,0 +1,14 @@
+<section class="background-image-section">
+      <div id="Connexion">
+        <h1>Gestion des profils :</h1>
+      </div>
+
+    <div class="utilisateur">
+      <div class="user-list" *ngFor="let user of listeUtilisateur">
+        <app-user [user]="user" (deleteUser)="deleteUser($event)"></app-user>
+      </div>
+    </div>
+
+</section>
+    <app-profil></app-profil>
+

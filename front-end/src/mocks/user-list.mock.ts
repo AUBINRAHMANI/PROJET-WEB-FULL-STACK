@@ -1,4 +1,4 @@
-import { Utilisateur } from '../models/Utilisateur.model';
+import { Utilisateur } from '../models/user.model';
 
 export const LISTE_UTILISATEUR: Utilisateur[] = [
   {
@@ -7,6 +7,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     prenom: 'user',
     score: [],
     stade: 'Niveau 3',
+    image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
   {
     id: '1',
@@ -14,6 +15,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     prenom: 'Sandra',
     score: [15, 10, 8, 9, 10],
     stade: 'Niveau 0',
+    image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
   {
@@ -22,6 +24,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     prenom:'Marry',
     score: [14, 12, 18, 9, 7],
     stade : 'Niveau 2',
+    image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
   {
@@ -30,7 +33,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     prenom: 'Pierre',
     score: [9, 10, 12, 17, 5],
     stade: 'Niveau 4',
-
+    image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
 ];

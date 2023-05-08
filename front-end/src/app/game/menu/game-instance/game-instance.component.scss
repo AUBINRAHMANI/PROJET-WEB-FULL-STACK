@@ -1,5 +1,5 @@
 @use 'sass:math'; // Ajoutez cette ligne en haut de votre fichier SCSS
-
+/*
 // Ajoutez ces lignes en dessous de l'importation du module 'sass:math'
 $n: 6; // Modifiez cette valeur pour refléter le nombre d'éléments dans votre liste de quiz
 //$item-width: 300px; // Largeur des éléments de quiz
@@ -11,8 +11,9 @@ $viewer-distance: 500px;
 $theta: math.div(2 * 3.141592653589793, $n) or calc(2 * 3.141592653589793 / $n);
 
 $apothem: math.div($viewer-distance, math.tan(3.141592653589793 / $n));
-
+*/
 $background-images: ('mon_voisin_Totoro.jpg', 'studio_ghibli.jpg', 'voyage_de_chinro.jpg');
+
 
 
 
@@ -24,11 +25,6 @@ $background-images: ('mon_voisin_Totoro.jpg', 'studio_ghibli.jpg', 'voyage_de_ch
   min-height: 100vh;
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
-  //background-image: url('/assets/accueil_font.jpg');
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center;
-
 
   .game-menu {
     display: flex;
@@ -45,86 +41,8 @@ $background-images: ('mon_voisin_Totoro.jpg', 'studio_ghibli.jpg', 'voyage_de_ch
     }
   }
 
-  .carousel {
-    padding: 20px;
-
-    perspective: $viewer-distance;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    > * {
-      flex: 0 0 auto;
-    }
-
-    figure {
-      margin: 0;
-
-      width: $item-width;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      transform-origin: 50% 50% (-$apothem);
-
-      .quiz-item {
-        width: $item-width;
-        box-sizing: border-box;
-        padding: 0 $item-separation / 2;
-        opacity: 0.9;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        &:not(:first-of-type) {
-          position: absolute;
-          left: 0;
-          top: 0;
-          transform-origin: 50% 50% (-$apothem);
-        }
-
-        @for $i from 0 through $n - 1 {
-          &:nth-child(#{$i + 1}) {
-            transform: rotateY(#{$i * $theta}rad);
-          }
-        }
 
 
-        button {
-          font-size: 24px; // Changez cette valeur pour ajuster la taille du texte
-          padding: 125px 105px; // Changez ces valeurs pour ajuster la taille du bouton
-          border: none; // Supprime la bordure par défaut
-          border-radius: 10px; // Ajoute un arrondi aux coins du bouton
-          background-color: #007bff; // Changez cette valeur pour la couleur souhaitée
-          color: #fff; // Changez cette valeur pour la couleur du texte souhaitée
-          cursor: pointer; // Change le curseur en forme de main lorsqu'il survole le bouton
-
-          &:hover {
-            background-color: #0069d9; // Changez cette valeur pour la couleur souhaitée lors du survol du bouton
-          }
-        }
-      }
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0 0;
-
-      button {
-        flex: 0 0 auto;
-        margin: 0 5px;
-
-        cursor: pointer;
-
-        color: #333;
-        background: none;
-        border: 1px solid;
-        letter-spacing: 1px;
-        padding: 5px 10px;
-      }
-    }
-  }
 
   .game-content {
     display: flex;
@@ -134,7 +52,7 @@ $background-images: ('mon_voisin_Totoro.jpg', 'studio_ghibli.jpg', 'voyage_de_ch
     width: 100%;
     height: 100%;
     background-color: #f5f5f5;
-    background-image: url('/assets/accueil_font.jpg');
+    background-image: url('/front-end/src/assets/accueil_font.jpg');
     background-size: cover;
     transition: background-image 1s ease-in-out;
 
@@ -250,5 +168,4 @@ $background-images: ('mon_voisin_Totoro.jpg', 'studio_ghibli.jpg', 'voyage_de_ch
   }
 
 }
-
 

@@ -1,6 +1,9 @@
-<div class="header">test : {{currentPage}} !
-  <button (click)="updateButtonConfiguration({ buttonWidth: '150px'})">+</button>
-  <button (click)="updateButtonConfiguration({buttonWidth: '50px'})">-</button>
-  <button class="btn" AdaptButtonSize>Test Calibrage</button>
-</div>
+<div class="header">
+    <button class="btn" routerLink="/" matTooltip="Accueil" matTooltipPosition="after">
+      <i class="fas fa-home btn-icon"></i>
+    </button>
 
+  <button class="btn" routerLink="/calibrage" matTooltip="Calibrage" matTooltipPosition="after">
+    <i class="fas fa-cog btn-icon"></i>
+  </button>
+</div>

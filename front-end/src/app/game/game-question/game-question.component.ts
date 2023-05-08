@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Answer, Question } from '../../../models/question.model';
 import {GameService} from "../../../service/game.service";
+import {CalibrageService} from "../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-question',
@@ -9,13 +10,27 @@ import {GameService} from "../../../service/game.service";
 })
 export class GameQuestionComponent implements OnInit {
   @Input() currentQuestion!: Question;
+  @Input() currentQuestionMinus!: Question ;
   @Output() answerSelected: EventEmitter<{ question: Question, answer: Answer }> = new EventEmitter();
 
   @Input() enlargeButtons: (() => void) | undefined;
   @Input() containerClick: EventEmitter<void> = new EventEmitter();
 
   @Input() recalibrageEffectue : boolean | undefined;
-  constructor(public gameService: GameService) {}
+  constructor(public gameService: GameService,public calibrageService:CalibrageService) {
+
+  }
+
+  colorPairs = [
+    {bgColor: '#007bff', textColor: '#fff'},
+    {bgColor: '#28a745', textColor: '#fff'},
+    {bgColor: '#dc3545', textColor: '#fff'},
+    {bgColor: '#ffc107', textColor: '#000'},
+    {bgColor: '#6610f2', textColor: '#fff'},
+    {bgColor: '#6f42c1', textColor: '#fff'},
+    {bgColor: '#9b59b6', textColor: '#fff'}
+    // Ajoutez d'autres paires de couleurs selon vos besoins
+  ];
 
   ngOnInit(): void {
   }
@@ -24,7 +39,6 @@ export class GameQuestionComponent implements OnInit {
     console.log("GameQuestionComponent.onAnswerSelected");
     this.answerSelected.emit({ question, answer });
   }
-
   isAnswerCorrect(answer: Answer): boolean {
     return answer.isCorrect;
   }
@@ -36,7 +50,5 @@ export class GameQuestionComponent implements OnInit {
       this.enlargeButtons();
     }
   }
-
-
 
 }

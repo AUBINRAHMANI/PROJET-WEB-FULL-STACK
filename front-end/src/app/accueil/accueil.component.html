@@ -4,22 +4,34 @@
   <label class="Accueil">{{labelMessageAccueil}}</label>
   <ngb-carousel [interval]="3000" [showNavigationIndicators]="false">
     <ng-template ngbSlide>
+
       <label class="message">{{ labelMessage1 }}</label>
+
       <div class="carousel-content">
-        <button routerLink="/gameinstance" class="carousel-btn">
+        <button routerLink="/gameinstance" class="carousel-btn" >
           <i class="fas fa-question-circle btn-icon"></i>
           <span>Quiz</span>
         </button>
       </div>
     </ng-template>
     <ng-template ngbSlide>
+
       <label class="message">{{ labelMessage2 }}</label>
       <div class="carousel-content">
-        <button routerLink="/calibrage" class="carousel-btn">
+        <button routerLink="/calibrage" class="carousel-btn" >
           <i class="fas fa-cog btn-icon"></i>
           <span>Calibrage</span>
         </button>
       </div>
     </ng-template>
+<!--    <ng-template ngbSlide>-->
+<!--      <div class="carousel-content">-->
+<!--        <button routerLink="/connexion" class="carousel-btn" AdaptButtonSize>-->
+<!--          <i class="fas fa-user btn-icon"></i>-->
+<!--          <span>Connexion</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </ng-template>-->
   </ngb-carousel>
 </div>
+

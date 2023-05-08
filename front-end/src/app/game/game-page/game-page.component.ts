@@ -6,6 +6,7 @@ import { Answer, Question } from "../../../models/question.model";
 import { Observable } from "rxjs";
 import {GameInstance} from "../../../models/gameInstance.model";
 import { ChangeDetectorRef } from '@angular/core';
+import {CalibrageService} from "../../../service/calibrage.service";
 
 @Component({
   selector: 'app-game-page',
@@ -15,16 +16,23 @@ import { ChangeDetectorRef } from '@angular/core';
 export class GamePageComponent implements OnInit {
   private backgroundMusic: HTMLAudioElement | undefined;
   quiz: Observable<Quiz | undefined> = new Observable<Quiz | undefined>();
+
   gameInstance: GameInstance;
+  private alertSound: HTMLAudioElement | undefined;
+  private inactivityTimeout: number = 3000000; // 5 minutes
+  private inactivityTimer: any;
+
 
 
 
   @Input() quizId: string | undefined;
   currentQuestion: Question | undefined;
   questions: Question[] = [];
+
+  MinusQuestions : Question[]=[]
   @Output() containerClick: EventEmitter<void> = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, public gameService: GameService,private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
     this.ngOnInit();
     this.gameInstance = this.gameService.gameInstance;
@@ -34,7 +42,7 @@ export class GamePageComponent implements OnInit {
     console.log("METHOD ngOnInit");
     if (this.quizId) {
       this.quiz = this.gameService.getQuiz(this.quizId);
-      this.gameService.retrieveQuestions(this.quizId);
+      this.gameService.retrieveQuestions(this.quizId,this.calibrageService.getCalibrateLevel());
       this.gameService.currentQuestion$.subscribe((question: Question) => {
         this.currentQuestion = question;
       });
@@ -45,11 +53,17 @@ export class GamePageComponent implements OnInit {
         }
         console.log("ouiyutryuilu");
       });
+      this.questions.forEach((question: Question) => {
+        this.MinusQuestions.push(question.getMiniusQuestions());
+      });
+
     }
     this.backgroundMusic = document.getElementById('background-music') as HTMLAudioElement;
     if (this.backgroundMusic) {
       this.backgroundMusic.play();
     }
+    this.alertSound = document.getElementById('alert-sound') as HTMLAudioElement;
+    this.resetInactivityTimer();
 
   }
 
@@ -58,11 +72,15 @@ export class GamePageComponent implements OnInit {
     this.backgroundMusic.pause();
     // @ts-ignore
     this.backgroundMusic.currentTime = 0;
+    this.resetInactivityTimer();
+
   }
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {
     console.log("METHOD onAnswerSelected");
     this.gameService.selectAnswer(answer.answer.answerId);
+    this.resetInactivityTimer();
+
   }
 
   previousQuestion() {
@@ -100,6 +118,8 @@ export class GamePageComponent implements OnInit {
       this.containerClick.emit();
       this.changeDetectorRef.detectChanges();
     }
+    this.resetInactivityTimer();
+
   }
 
   enlargeButtons() {
@@ -107,5 +127,22 @@ export class GamePageComponent implements OnInit {
       this.gameService.recalibrageEffectue = true;
       this.containerClick.emit();
     }
+    this.resetInactivityTimer();
+
   }
+  resetInactivityTimer() {
+    clearTimeout(this.inactivityTimer);
+    this.inactivityTimer = setTimeout(() => {
+      if (this.alertSound) {
+        this.alertSound.play();
+      }
+    }, this.inactivityTimeout);
+  }
+
+  getMinus(index: string): Question {
+    // @ts-ignore
+    return this.MinusQuestions.find((question) => question.id === index);
+  }
+
+
 }

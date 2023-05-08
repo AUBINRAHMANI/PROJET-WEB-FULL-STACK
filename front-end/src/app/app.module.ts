@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {GameQuestionComponent} from "./game/game-question/game-question.component";
 import {GameAnswerComponent} from "./game/game-answer/game-answer.component";
-import {GameInstanceComponent} from "./game/game-instance/game-instance.component";
+import {GameInstanceComponent} from "./game/menu/game-instance/game-instance.component";
 import {HttpClientModule} from "@angular/common/http";
 import { AccueilComponent } from './accueil/accueil.component';
 import { CalibrageComponent } from './test_de_calibrage/calibrage/calibrage.component';
@@ -23,9 +23,8 @@ import {CarouselModule} from "ngx-owl-carousel-o";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { ModalComponent } from './test_de_calibrage/modal/modal.component';
-
-/*import { AdaptCalibrageButtonSizeDirective } from './adaptButtonSize/adapt-calibrage-button-size.directive';
-*/
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +43,14 @@ import { ModalComponent } from './test_de_calibrage/modal/modal.component';
     ProfilComponent,
     UserComponent,
     ModalComponent,
-    /*AdaptCalibrageButtonSizeDirective*/
+    QuizGridComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
+    MatTooltipModule,
     MatCardModule,
     HttpClientModule,
     ReactiveFormsModule,

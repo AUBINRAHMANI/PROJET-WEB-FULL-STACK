@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+<div *ngIf="!quizStarted" class="game-instance">
+  <div class="game-menu">
+    <h2>Menu principal</h2>
+    <app-quiz-grid
+      [quizList]="(quizList$ | async) || []"
+      (selectQuiz)="selectQuiz($event)"
+    ></app-quiz-grid>
+  </div>
+</div>
+
+<div *ngIf="quizStarted" class="game-content">
+  <app-game-page [quizId]="(currentQuiz | async)?.id"></app-game-page>
+</div>

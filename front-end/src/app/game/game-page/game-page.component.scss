@@ -48,6 +48,29 @@
   .game-info {
     margin: 20px;
     text-align: center;
+
+    /*.progress-container {
+      display: flex;
+      justify-content: center;
+      max-width: 75%;
+      margin: auto;*/
+
+      .mat-progress-bar {
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .mat-progress-bar-background {
+        background-color: #eee;
+      }
+
+      .mat-progress-bar-fill {
+        background-color: #007bff;
+      }
+   /* }*/
+
+
   }
 
   // Styles des questions du jeu
@@ -67,7 +90,7 @@
     h3 {
       font-size: 24px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 1000px;
       color: #333;
       word-wrap: break-word;
     }

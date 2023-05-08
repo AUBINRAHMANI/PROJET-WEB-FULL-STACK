@@ -25,6 +25,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { ModalComponent } from './test_de_calibrage/modal/modal.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
     CarouselModule,
     NgbModule,
     FontAwesomeModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

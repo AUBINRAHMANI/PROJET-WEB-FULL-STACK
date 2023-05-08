@@ -13,7 +13,14 @@
      <h4>{{ (quiz | async)?.theme }}</h4>
      <p *ngIf="(quiz | async)?.questions?.length === 0">Aucune question disponible</p>
      <p *ngIf="currentQuestion === undefined">Aucune question sélectionnée</p>
-     <p>{{ gameService.currentQuestionIndex + 1 }}/{{ (quiz | async)?.questions?.length }}</p>
+     <div class="progress-container">
+     <ngb-progressbar [value]="gameService.currentQuestionIndex + 1"
+                      [max]="(quiz | async)?.questions?.length ?? 0"
+                      [striped]="true"
+                      [animated]="true"
+     ></ngb-progressbar>
+     </div>
+
    </div>
 
    <div class="question-container" (click)="onContainerClick($event)">

@@ -8,6 +8,7 @@ import {GameInstance} from "../../../models/gameInstance.model";
 import { ChangeDetectorRef } from '@angular/core';
 import {CalibrageService} from "../../../service/calibrage.service";
 
+
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -31,6 +32,7 @@ export class GamePageComponent implements OnInit {
 
   MinusQuestions : Question[]=[]
   @Output() containerClick: EventEmitter<void> = new EventEmitter();
+  progressValue: number=0;
 
   constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
@@ -64,6 +66,9 @@ export class GamePageComponent implements OnInit {
     }
     this.alertSound = document.getElementById('alert-sound') as HTMLAudioElement;
     this.resetInactivityTimer();
+    setInterval(() => {
+      this.progressValue += 10;
+    }, 1000);
 
   }
 

@@ -1,5 +1,5 @@
-<div class="question-container">
-  <div class="question">
+<div class="question-container" *ngIf="!calibrageService.mustBeResize()">
+  <div class="question" >
     <h3 class="question-label">{{currentQuestion.label}}
     </h3>
   </div>
@@ -17,8 +17,12 @@
       </div>
     </div>
   </div>
+</div>
 
-
+<div class="question-container-resized" *ngIf="calibrageService.mustBeResize()">
+  <div class="question" *ngIf="calibrageService.mustBeResize()">
+    <h3 class="question-label-resized">{{currentQuestion.label}}</h3>
+  </div>
   <div *ngIf="calibrageService.mustBeResize()" class="answers">
     <div class="grid-container">
       <div *ngFor="let answer of currentQuestionMinus?.answers" class="grid-item">

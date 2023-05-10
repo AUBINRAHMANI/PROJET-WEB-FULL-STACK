@@ -46,6 +46,7 @@ export class ProfilComponent implements OnInit {
     const userToCreate: Utilisateur = this.userForm.getRawValue() as Utilisateur;
     userToCreate.id = LISTE_UTILISATEUR.length.toString();
     userToCreate.stade = -1;
+    userToCreate.image = 'https://www.w3schools.com/howto/img_avatar.png';
     this.userService.addUtilisateur(userToCreate);
 
   }

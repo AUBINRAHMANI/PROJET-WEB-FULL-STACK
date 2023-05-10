@@ -53,6 +53,7 @@ export class GameAnswerComponent {
         }
       });
     }
+    console.log(localStorage.getItem('profilSelectionne'));
   }
 
 

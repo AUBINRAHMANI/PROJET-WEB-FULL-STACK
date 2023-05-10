@@ -16,7 +16,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Perry',
     prenom: 'Sandra',
     score: [],
-    stade: 3,
+    stade: 4,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
@@ -25,7 +25,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Ferry',
     prenom:'Marry',
     score: [],
-    stade : 2,
+    stade : 1,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 

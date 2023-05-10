@@ -79,13 +79,11 @@ export class CalibrageService {
     return this.calibrationResult;
   }
 
-  isCalibrate():boolean{
-    return this.calibrationResult!=-1;
-  }
-
   getCalibrateButtonsSize():number[]{
-    if(this.isCalibrate()){
-      return this.buttonSizes[this.calibrationResult];
+    const val = localStorage.getItem('profilSelectionne');
+    const user = JSON.parse(val!);
+    if(user.stade!=-1){
+      return this.buttonSizes[user.stade];
     }
     return [250,200];
   }

@@ -6,8 +6,8 @@
       <div id="id"><i> Id : </i> {{this.user.id}} </div>
       <div id="stade"> <i> Stade : Niveau </i>  {{this.user.stade}} </div>
 
-  <button classe="btn" (click)="userDelete()">Supprimer</button>
+    <button class="btn" *ngIf="user.id !== '0'" (click)="userDelete()">Supprimer</button>
   </div>
-  </h2>
+</h2>
 </body>
 

@@ -45,6 +45,7 @@ export class ProfilComponent implements OnInit {
    // this.userService.addUtilisateur(this.userForm.value);
     const userToCreate: Utilisateur = this.userForm.getRawValue() as Utilisateur;
     userToCreate.id = LISTE_UTILISATEUR.length.toString();
+    userToCreate.stade = 0;
     this.userService.addUtilisateur(userToCreate);
 
   }
@@ -54,23 +55,7 @@ export class ProfilComponent implements OnInit {
     console.log("profil : ",this.user.id);
   }
 
-//selectionner un utilisateur quand on click dessus
-
-  selectUser(user: Utilisateur){
-    this.userService.setSelectedUserId(user.id);
-    console.log("profil : ",user.id);
-
-    if(user.id=='0'){
-      this.router.navigate(['/accueilP']);
-    }
-    else{
-      this.router.navigate(['/acceuil']);
-    }
-
-  }
-
-
-  }
+}
 
 
 

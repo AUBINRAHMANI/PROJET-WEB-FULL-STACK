@@ -34,7 +34,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Durcit',
     prenom: 'Pierre',
     score: [],
-    stade: 0,
+    stade: -1,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 

@@ -47,7 +47,7 @@ export class ConnexionComponent implements OnInit {
       this.router.navigate(['/accueilP']);
     }
     else{
-      if (user.stade == 0) {
+      if (user.stade == -1) {
         this.router.navigate(['/calibrage']);
       }
       else {

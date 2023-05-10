@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalibrageService } from "../../../service/calibrage.service";
+import {UserService} from "../../../service/user.service";
 
 @Component({
   selector: 'app-calibrage',
@@ -24,7 +25,8 @@ export class CalibrageComponent implements OnInit {
   private modalTimeoutId: number | undefined;
   modalInitMessage: string="Veuillez faire un clic dans les boutons pour faire le test de calibrage,\n Si vous arrivez a le faire vous passerez au niveau suivant. Les retours se fermeront automatiquement";
 
-  constructor(private calibrageService: CalibrageService) {
+  constructor(private calibrageService: CalibrageService, private userService: UserService){
+
   }
 
   ngOnInit(): void {
@@ -37,6 +39,12 @@ export class CalibrageComponent implements OnInit {
     console.log("Clic sur le bouton");
     // vérifier si le niveau cliqué est le niveau attendu
     const isCalibrated = this.calibrageService.checkCalibration(this.levels[this.currentLevel]);
+    const val = localStorage.getItem('profilSelectionne');
+    const user = JSON.parse(val!);
+    console.log("user : ",user);
+    user.stade = this.currentLevel;
+    console.log("user : ",user);
+    localStorage.setItem('profilSelectionne', JSON.stringify(user));
 
     if (isCalibrated) {
       // afficher un message de succès

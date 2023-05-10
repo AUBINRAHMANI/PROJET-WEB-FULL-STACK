@@ -27,6 +27,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import { QuizGridComponent } from './game/menu/quiz-grid/quiz-grid.component';
 import {ConnexionComponent} from "./connexion/connexion.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { AccueilPComponent } from './accueil-p/accueil-p.component';
+import { CreerQuizzComponent } from './creer-quizz/creer-quizz.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     ModalComponent,
     QuizGridComponent,
     ConnexionComponent,
+    AccueilPComponent,
+    CreerQuizzComponent,
   ],
   imports: [
     BrowserModule,

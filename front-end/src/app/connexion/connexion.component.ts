@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../service/user.service";
+import {UserService} from "../../service/user.service";
 import {Utilisateur} from "../../models/user.model";
 
 @Component({
@@ -37,6 +37,12 @@ export class ConnexionComponent implements OnInit {
     // Supprimez l'enregistrement du profil dans le localStorage
     localStorage.removeItem('profilSelectionne');
   }
+
+  getUtilisateurById(id: String): Utilisateur | undefined {
+    return this.listeUtilisateur.find((utilisateur) => utilisateur.id === id);
+  }
+
+
 
 }
 

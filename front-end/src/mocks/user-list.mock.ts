@@ -9,6 +9,16 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     stade: 'Niveau 3',
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
+
+  {
+    id: '0',
+    nom: 'Psychomotricien',
+    prenom: ' ',
+    score: [],
+    stade: '',
+    image: 'https://formationepgv.com/wp-content/uploads/2020/11/avatar-femme.png',
+  },
+
   {
     id: '1',
     nom: 'Perry',

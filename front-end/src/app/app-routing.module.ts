@@ -6,6 +6,8 @@ import {AccueilComponent} from "./accueil/accueil.component";
 import {CalibrageComponent} from "./test_de_calibrage/calibrage/calibrage.component";
 import {UserManagementComponent} from "./user-management/user-management.component";
 import {ConnexionComponent} from "./connexion/connexion.component";
+import { AccueilPComponent } from './accueil-p/accueil-p.component';
+import { CreerQuizzComponent } from './creer-quizz/creer-quizz.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'user-management', component: UserManagementComponent },
   { path: 'game-result', component: GameResultComponent },
+  { path: 'accueilP', component: AccueilPComponent },
+  { path : 'createQuizz', component: CreerQuizzComponent}
 ];
 
 @NgModule({

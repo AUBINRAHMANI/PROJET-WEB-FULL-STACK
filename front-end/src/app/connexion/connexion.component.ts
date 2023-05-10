@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../service/user.service";
 import {Utilisateur} from "../../models/user.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -12,7 +13,7 @@ export class ConnexionComponent implements OnInit {
   public listeUtilisateur: Utilisateur[] = [];
   public profilSelectionne: Utilisateur | null = null;
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, private router: Router){
     this.userService.utilisateurs$.subscribe((utilisateurs: Utilisateur[]) => {
       this.listeUtilisateur = utilisateurs;
     });
@@ -38,9 +39,19 @@ export class ConnexionComponent implements OnInit {
     localStorage.removeItem('profilSelectionne');
   }
 
-  getUtilisateurById(id: String): Utilisateur | undefined {
-    return this.listeUtilisateur.find((utilisateur) => utilisateur.id === id);
+  selectUser(user: Utilisateur){
+    this.userService.setSelectedUserId(user.id);
+    console.log("profil : ",user.id);
+
+    if(user.id=='0'){
+      this.router.navigate(['/accueilP']);
+    }
+    else{
+      this.router.navigate(['/gameinstance']);
+    }
+
   }
+
 
 
 

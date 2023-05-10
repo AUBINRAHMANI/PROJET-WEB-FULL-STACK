@@ -56,11 +56,13 @@ export class ProfilComponent implements OnInit {
     console.log("profil : ",this.user.id);
   }
 
+//selectionner un utilisateur quand on click dessus
 
-  selectUser(user: any){
+  selectUser(user: Utilisateur){
     this.userService.setSelectedUserId(user.id);
+    console.log("profil : ",user.id);
 
-    if(user.id==0){
+    if(user.id=='0'){
       this.router.navigate(['/accueilP']);
     }
     else{

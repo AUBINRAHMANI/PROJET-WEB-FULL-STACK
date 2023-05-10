@@ -1,10 +1,10 @@
 export interface Utilisateur {
-  id: string;
+  id?: string;
   nom: string;
   prenom: string;
-  score: number[];
-  stade:string;
-  image?:string;
+  score?: number[];
+  stade?:string;
+  image?: string;
 
 
 }

@@ -5,6 +5,7 @@ import {Utilisateur} from "../../models/user.model";
 import { Router } from '@angular/router';
 
 
+import {LISTE_UTILISATEUR} from "../../mocks/user-list.mock";
 
 @Component({
   selector: 'app-profil',
@@ -24,17 +25,12 @@ export class ProfilComponent implements OnInit {
       id: [''],
       nom: [''],
       prenom: [''],
-      score: [''],
-      stade: [''],
     });
 
     this.userForm.patchValue({
       id: this.user?.id ?? '',
       nom: this.user?.nom ?? '',
       prenom: this.user?.prenom ?? '',
-      score: this.user?.score ?? '',
-      stade: this.user?.stade ?? '',
-
     });
 
     this.userForm.controls['id'].setValue(this.user?.id ?? '');
@@ -48,7 +44,9 @@ export class ProfilComponent implements OnInit {
   addUser(): void {
    // this.userService.addUtilisateur(this.userForm.value);
     const userToCreate: Utilisateur = this.userForm.getRawValue() as Utilisateur;
+    userToCreate.id = LISTE_UTILISATEUR.length.toString();
     this.userService.addUtilisateur(userToCreate);
+
   }
 
   userDelete(): void {

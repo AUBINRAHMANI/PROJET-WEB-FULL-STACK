@@ -45,7 +45,7 @@ export class ProfilComponent implements OnInit {
    // this.userService.addUtilisateur(this.userForm.value);
     const userToCreate: Utilisateur = this.userForm.getRawValue() as Utilisateur;
     userToCreate.id = LISTE_UTILISATEUR.length.toString();
-    userToCreate.stade = 0;
+    userToCreate.stade = -1;
     this.userService.addUtilisateur(userToCreate);
 
   }

@@ -47,7 +47,12 @@ export class ConnexionComponent implements OnInit {
       this.router.navigate(['/accueilP']);
     }
     else{
-      this.router.navigate(['/gameinstance']);
+      if (user.stade == 0) {
+        this.router.navigate(['/calibrage']);
+      }
+      else {
+        this.router.navigate(['/gameinstance']);
+      }
     }
 
   }

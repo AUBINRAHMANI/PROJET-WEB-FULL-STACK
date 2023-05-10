@@ -7,7 +7,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Psychomotricien',
     prenom: ' ',
     score: [],
-    stade: '',
+    stade: 0,
     image: 'https://formationepgv.com/wp-content/uploads/2020/11/avatar-femme.png',
   },
 
@@ -16,7 +16,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Perry',
     prenom: 'Sandra',
     score: [],
-    stade: 'Niveau 0',
+    stade: 3,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
@@ -25,7 +25,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Ferry',
     prenom:'Marry',
     score: [],
-    stade : 'Niveau 2',
+    stade : 2,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 
@@ -34,7 +34,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
     nom: 'Durcit',
     prenom: 'Pierre',
     score: [],
-    stade: 'Niveau 4',
+    stade: 0,
     image: 'https://www.w3schools.com/howto/img_avatar.png',
   },
 

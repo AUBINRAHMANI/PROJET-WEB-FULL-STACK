@@ -1,1 +1,25 @@
-<p>creer-quizz works!</p>
+<div class="card">
+  <h2>Créer un nouveau Quiz</h2>
+  <form class="quiz-form" [formGroup]="quizForm">
+
+    <label for="name">
+      Title <br>
+      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+    </label>
+
+    <br>
+    <label for="theme">
+      Theme <br>
+      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
+    </label>
+
+    <br>
+    <label for="question">
+      Questions<br>
+      <input class="input-custom" type="text" id="question" [formControlName]="'question'">
+    </label>
+    <br>
+    <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
+    <br>
+  </form>
+</div>

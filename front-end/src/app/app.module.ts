@@ -29,6 +29,7 @@ import {ConnexionComponent} from "./connexion/connexion.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { AccueilPComponent } from './accueil-p/accueil-p.component';
 import { CreerQuizzComponent } from './creer-quizz/creer-quizz.component';
+//import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CreerQuizzComponent } from './creer-quizz/creer-quizz.component';
     ConnexionComponent,
     AccueilPComponent,
     CreerQuizzComponent,
+    //QuizzFormComponent,
   ],
   imports: [
     BrowserModule,

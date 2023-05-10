@@ -1,14 +1,6 @@
 import { Utilisateur } from '../models/user.model';
 
 export const LISTE_UTILISATEUR: Utilisateur[] = [
-  {
-    id: '-1',
-    nom: 'DEFAULT',
-    prenom: 'user',
-    score: [],
-    stade: 'Niveau 3',
-    image: 'https://www.w3schools.com/howto/img_avatar.png',
-  },
 
   {
     id: '0',

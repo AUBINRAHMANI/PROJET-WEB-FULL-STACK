@@ -168,4 +168,10 @@ export class GameService {
     const blob = new Blob([json], { type: 'application/json' });
     saveAs(blob, this.FILE_NAME);
   }
+
+  addQuiz(quiz: Quiz): void {
+    console.log("GameService - addQuiz");
+    this.quizList.push(quiz);
+    this.quizList$.next(this.quizList);
+  }
 }

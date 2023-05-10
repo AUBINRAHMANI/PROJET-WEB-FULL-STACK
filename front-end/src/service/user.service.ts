@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Utilisateur} from "../../models/user.model";
-import {LISTE_UTILISATEUR} from "../../mocks/user-list.mock";
+import {Utilisateur} from "../models/user.model";
+import {LISTE_UTILISATEUR} from "../mocks/user-list.mock";
 import {BehaviorSubject} from "rxjs";
 
 

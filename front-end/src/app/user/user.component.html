@@ -1,10 +1,10 @@
 <body>
-<h2>
-  <div id="profil">
-    <div id="nom"><i> Nom : </i>  {{this.user.nom}} </div>
-    <div id="prenom"> <i> Prenom : </i> {{this.user.prenom}} </div>
-    <div id="id"><i> Id : </i> {{this.user.id}} </div>
-    <div id="stade"> <i> Stade </i>  {{this.user.stade}} </div>
+  <h2>
+    <div id="profil">
+      <div id="nom"><i> Nom : </i>  {{this.user.nom}} </div>
+      <div id="prenom"> <i> Prenom : </i> {{this.user.prenom}} </div>
+      <div id="id"><i> Id : </i> {{this.user.id}} </div>
+      <div id="stade"> <i> Stade : Niveau </i>  {{this.user.stade}} </div>
 
     <button class="btn" *ngIf="user.id !== '0'" (click)="userDelete()">Supprimer</button>
   </div>

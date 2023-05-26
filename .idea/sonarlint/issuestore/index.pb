@@ -3,8 +3,6 @@ c
 3front-end/src/app/composant/resultat.component.html,5\3\535ac79180d6692e8cafb7b0c0577adbe1001db8
 c
 3front-end/src/app/composant/resultat.component.scss,a\5\a501d98828f39deaf0873856f3ff617705470f52
-c
-3front-end/src/app/connexion/connexion.components.ts,8\a\8aaa0ac5638b6536f7b4e9aeb7bec24822728a55
 \
 ,front-end/src/app/profil/profil.component.ts,6\5\659496e323da78ed957dd0e66251fdbd0e448ccb
 ^
@@ -23,11 +21,5 @@ d
 4front-end/src/app/connexion/connexion.component.scss,1\e\1e31de65949fa734963a72291978b624c33b34cf
 O
 front-end/src/app/app.module.ts,b\0\b08266b6396482628adadb0db2ed9f4b8ee7301a
-q
-Afront-end/src/app/game/game-instance/game-instance.component.html,9\2\9227553449128e7f8aff994d4a01ab5aab308e37
-q
-Afront-end/src/app/game/game-instance/game-instance.component.scss,1\0\10345e2e97fa6ac5cdbd1ec19ffb598121cd908f
-o
-?front-end/src/app/game/game-instance/game-instance.component.ts,f\b\fb1d5e7e136e27f234ed92397ca76093f1e89299
 t
 Dfront-end/src/app/test_de_calibrage/calibrage/calibrage.component.ts,7\9\79b1120fee0bfedccc52400dc1fd63ff76b887ca

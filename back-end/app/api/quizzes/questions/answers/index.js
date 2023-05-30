@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
   }
 })
 
-router.get('/:answerId', (req, res) => {
+router.get('/:id', (req, res) => {
   try {
     const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.id)
     res.status(200).json(answer)
@@ -49,10 +49,10 @@ router.post('/', (req, res) => {
   }
 })
 
-router.put('/:answerId', (req, res) => {
+router.put('/:id', (req, res) => {
   try {
-    const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.answerId)
-    const updatedAnswer = Answer.update(req.params.answerId, { ...req.body, questionId: answer.questionId })
+    const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.id)
+    const updatedAnswer = Answer.update(req.params.id, { ...req.body, questionId: answer.questionId })
     res.status(200).json(updatedAnswer)
   } catch (err) {
     if (err.name === 'NotFoundError') {
@@ -65,10 +65,10 @@ router.put('/:answerId', (req, res) => {
   }
 })
 
-router.delete('/:answerId', (req, res) => {
+router.delete('/:id', (req, res) => {
   try {
-    getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.answerId)
-    Answer.delete(req.params.answerId)
+    getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.id)
+    Answer.delete(req.params.id)
     res.status(204).end()
   } catch (err) {
     if (err.name === 'NotFoundError') {

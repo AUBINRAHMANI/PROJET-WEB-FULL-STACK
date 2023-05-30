@@ -213,33 +213,33 @@ export const QUESTION_HS_MUSICAL: Question[] = [
     new Answer(4, 'Just Getting Started', false)
   ])
 ];
-/* QUESTION DESSERT */
+/* QUESTION DESSERT */  //
 export const QUESTION_DESSERT: Question[] = [
-  new Question('1', 'Which dessert originated in France and consists of puff pastry layers filled with pastry cream?', [
+  new Question('1', ' Quel dessert est originaire de France et est fait de feuilletage en couches garni de crème pâtissière ?', [
     new Answer(1, 'Macarons', false),
     new Answer(2, 'Croissant', false),
     new Answer(3, 'Tarte Tatin', false),
     new Answer(4, 'Mille-Feuille', true),
   ]),
-  new Question('2', 'What is the main ingredient in the Italian dessert Tiramisu?', [
+  new Question('2', "Quel est l'ingrédient principale pour faire un Tiramisu Italien ?", [
     new Answer(1, 'Chocolate', false),
     new Answer(2, 'Coffee', true),
     new Answer(3, 'Strawberry', false),
     new Answer(4, 'Vanilla', false),
   ]),
-  new Question('3', 'Which of the following desserts is not a type of pie?', [
+  new Question('3', "Quel dessert n'est pas une tarte ?", [
     new Answer(1, 'Key Lime Pie', false),
     new Answer(2, 'Peach Cobbler', false),
     new Answer(3, 'Eclairs', true),
     new Answer(4, 'Blueberry Pie', false),
   ]),
-  new Question('4', 'What is the main ingredient in the French dessert crème brûlée?', [
+  new Question('4', "Quel est l'ingredient principal dans le dessert français : La crème brulée ?", [
     new Answer(1, 'Caramel', false),
     new Answer(2, 'Raspberry', false),
     new Answer(3, 'Chocolate', false),
     new Answer(4, 'Vanilla', true),
   ]),
-  new Question('5', 'What is the main ingredient in the Greek dessert baklava?', [
+  new Question('5', "Quel est est l'ingrédient principal dans le célèbre dessert grecque, le baklava ?", [
     new Answer(1, 'Honey', false),
     new Answer(2, 'Cinnamon', false),
     new Answer(3, 'Walnuts', true),

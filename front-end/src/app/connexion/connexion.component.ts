@@ -43,7 +43,7 @@ export class ConnexionComponent implements OnInit {
     this.userService.setSelectedUserId(user.id);
     console.log("profil : ",user.id);
 
-    if(user.id=='0'){
+    if(user.droit){
       this.router.navigate(['/accueilP']);
     }
     else{

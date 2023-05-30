@@ -5,6 +5,7 @@
     "prenom": "",
     "score": [],
     "stade": 0,
+    "droit": true,
     "image": "https://formationepgv.com/wp-content/uploads/2020/11/avatar-femme.png"
   },
 
@@ -14,6 +15,7 @@
     "prenom": "Sandra",
     "score": [],
     "stade": 4,
+    "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   },
 
@@ -23,6 +25,7 @@
     "prenom":"Marry",
     "score": [],
     "stade" : 1,
+    "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   },
 
@@ -32,6 +35,7 @@
     "prenom": "Pierre",
     "score": [],
     "stade": -1,
+    "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   }
 ]

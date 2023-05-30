@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 router.get('/:answerId', (req, res) => {
   try {
-    const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.answerId)
+    const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.id)
     res.status(200).json(answer)
   } catch (err) {
     if (err.name === 'NotFoundError') {

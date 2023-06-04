@@ -7,7 +7,8 @@ import {Answer, Question} from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
 import {AnswerGiven, GameInstance} from "../models/gameInstance.model";
 import { Router } from '@angular/router';
-import { saveAs} from "file-saver";
+import { saveAs } from 'file-saver';
+import {serverUrl, httpOptionsBase} from "../configs/server.config";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class GameService {
   public _currentQuizIndex = 0;
   public _currentQuestionIndex = 0;
   public selectedQuizId: string | null = null;
+
+  private quizUrl = serverUrl + "/quizzes"; // URL to web api
 
   public recalibrageEffectue = false;
   public quizQuestionsLength = 0;
@@ -60,8 +63,10 @@ export class GameService {
 
   public retrieveQuizList(): void {
     console.log("GameService.retrieveQuizList()");
-    this.quizList = QUIZ_LIST;
-    this.quizList$.next(this.quizList);
+    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
+      this.quizList = quizList;
+      this.quizList$.next(this.quizList);
+    });
     this.currentQuizIndex = 0;
     this.currentQuestionIndex = 0;
   }

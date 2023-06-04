@@ -7,5 +7,6 @@ module.exports = new BaseModel('Utilisateur', {
   prenom: Joi.string().required(),
   score: Joi.array().items(Joi.number()),
   stade: Joi.number().required(),
+  droit: Joi.boolean().required(),
   image: Joi.string(),
 })

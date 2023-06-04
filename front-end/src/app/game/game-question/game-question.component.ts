@@ -33,7 +33,10 @@ export class GameQuestionComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    console.log("Question and minus");
+    console.log(this.currentQuestion);
   }
+
 
   onAnswerSelected(question: Question, answer: Answer): void {
     console.log("GameQuestionComponent.onAnswerSelected");

@@ -13,7 +13,8 @@ export class Question {
     public id: string,
     public label: string,
     public answers: Answer[]
-  ) {}
+  ) {
+  }
   selectedAnswerIndex?: number;
   // @ts-ignore
   id: string;

@@ -57,7 +57,7 @@ export class GamePageComponent implements OnInit {
         console.log("ouiyutryuilu");
       });
       this.questions.forEach((question: Question) => {
-        this.MinusQuestions.push(question.getMiniusQuestions());
+        this.MinusQuestions.push( question.getMiniusQuestions());
       });
 
     }

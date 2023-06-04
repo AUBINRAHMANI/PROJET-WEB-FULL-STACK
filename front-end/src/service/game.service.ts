@@ -64,16 +64,33 @@ export class GameService {
   public retrieveQuizList(): void {
     console.log("GameService.retrieveQuizList()");
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
-      this.quizList = quizList;
+      this.quizList = quizList.map((quiz) => {
+        const questions = quiz.questions.map((question) => {
+          const answers = question.answers.map((answer) => new Answer(
+            answer.answerId,
+            answer.value,
+            answer.isCorrect,
+            answer.type
+          ));
+          return new Question(question.id, question.label, answers);
+        });
+        return {
+          ...quiz,
+          questions: questions
+        };
+      });
       this.quizList$.next(this.quizList);
     });
     this.currentQuizIndex = 0;
     this.currentQuestionIndex = 0;
   }
 
+
   retrieveQuestions(quizId: string,level:number): void {
     console.log("GameService.retrieveQuestions()");
     const quiz = this.quizList.find(q => q.id === quizId);
+    // @ts-ignore
+    console.log(quiz.questions)
     if (quiz) {
       this.currentQuizIndex = this.quizList.indexOf(quiz);
       this.currentQuestionIndex = 0;
@@ -111,11 +128,16 @@ export class GameService {
     if(!this._gameInstance.isFinished){
     console.log("GameService - selectAnswer");
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
-    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers[answerIndex-1];
+    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers.find((answer) => answer.answerId === answerIndex);
+    console.log(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex])
+    console.log(selectedAnswer);
     let currentValebleQuestion = this.currentQuestion$.getValue();
-    console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
-    this._gameInstance.updateScore(selectedAnswer);
-    this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
+    // @ts-ignore
+      console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
+    // @ts-ignore
+      this._gameInstance.updateScore(selectedAnswer);
+    // @ts-ignore
+      this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
     console.log("score -------"+this.gameInstance.score)
     this.nextQuestion();
     }else{

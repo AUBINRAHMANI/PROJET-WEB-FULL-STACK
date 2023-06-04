@@ -5,14 +5,15 @@
   </div>
 
   <div *ngIf="!calibrageService.mustBeResize()" class="answers">
+    {{calibrageService.mustBeResize()}}
     <div class="grid-container">
-      <div *ngFor="let answer of currentQuestion.answers" class="grid-item">
+      <div *ngFor="let answer of currentQuestion.answers; let i = index" class="grid-item">
         <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"
                          [enlargeButtons]="gameService.recalibrageEffectue"
                          (answerSelected)="onAnswerSelected(currentQuestion, answer)"
                          [containerClick]="containerClick"
-                         [backgroundColor]="colorPairs[answer.answerId-1].bgColor"
-                         [textColoor]="colorPairs[answer.answerId-1].textColor"
+                         [backgroundColor]="colorPairs[i].bgColor"
+                         [textColoor]="colorPairs[i].textColor"
                          class="answer-btn"></app-game-answer>
       </div>
     </div>
@@ -25,15 +26,14 @@
   </div>
   <div *ngIf="calibrageService.mustBeResize()" class="answers">
     <div class="grid-container">
-      <div *ngFor="let answer of currentQuestionMinus?.answers" class="grid-item">
+      <div *ngFor="let answer of currentQuestionMinus?.answers; let i = index" class="grid-item">
         <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"
                          [enlargeButtons]="gameService.recalibrageEffectue"
                          (answerSelected)="onAnswerSelected(currentQuestion, answer)"
                          [containerClick]="containerClick"
-                         [backgroundColor]="colorPairs[answer.answerId-1].bgColor"
-                         [textColoor]="colorPairs[answer.answerId-1].textColor"
-                         class="answer-btn"
-
+                         [backgroundColor]="colorPairs[ i].bgColor"
+                         [textColoor]="colorPairs[i].textColor"
+                         [class.answer-btn]="true"
         ></app-game-answer>
       </div>
     </div>

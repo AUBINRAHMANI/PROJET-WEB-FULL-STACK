@@ -76,7 +76,9 @@ export class CalibrageService {
   }
 
   getCalibrateLevel():number {
-    return this.calibrationResult;
+    const val = localStorage.getItem('profilSelectionne');
+    const user = JSON.parse(val!);
+    return user.stade;
   }
 
   getCalibrateButtonsSize():number[]{

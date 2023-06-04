@@ -7,7 +7,7 @@ import {Answer, Question} from "../models/question.model";
 import { QUIZ_LIST } from "../mocks/quiz-list.mock";
 import {AnswerGiven, GameInstance} from "../models/gameInstance.model";
 import { Router } from '@angular/router';
-import { saveAs } from 'file-saver';
+import { saveAs} from "file-saver";
 
 @Injectable({
   providedIn: 'root'

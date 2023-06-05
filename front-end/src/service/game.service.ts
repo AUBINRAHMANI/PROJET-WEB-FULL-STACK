@@ -126,20 +126,20 @@ export class GameService {
   selectAnswer(answerIndex: number): void {
     console.log(this._gameInstance.isFinished+" ok");
     if(!this._gameInstance.isFinished){
-    console.log("GameService - selectAnswer");
-    this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
-    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers.find((answer) => answer.answerId === answerIndex);
-    console.log(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex])
-    console.log(selectedAnswer);
-    let currentValebleQuestion = this.currentQuestion$.getValue();
-    // @ts-ignore
+      console.log("GameService - selectAnswer");
+      this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
+      let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers.find((answer) => answer.answerId === answerIndex);
+      console.log(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex])
+      console.log(selectedAnswer);
+      let currentValebleQuestion = this.currentQuestion$.getValue();
+      // @ts-ignore
       console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
-    // @ts-ignore
+      // @ts-ignore
       this._gameInstance.updateScore(selectedAnswer);
-    // @ts-ignore
+      // @ts-ignore
       this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
-    console.log("score -------"+this.gameInstance.score)
-    this.nextQuestion();
+      console.log("score -------"+this.gameInstance.score)
+      this.nextQuestion();
     }else{
       console.log("Le jeu est fini");
       this.router.navigate(['/game-result']);

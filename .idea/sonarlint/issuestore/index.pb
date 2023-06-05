@@ -15,8 +15,6 @@ Z
 *front-end/src/app/user/user.component.html,b\d\bdcee9cb5782f34ebdf37799b87172db298ce374
 d
 4front-end/src/app/connexion/connexion.component.html,4\f\4fcc0345adbeb5b279a6ee9038eb2f01bf3ef02a
-^
-.front-end/src/service/configuration.service.ts,d\4\d4770f1d9078a637cde5c664a8dc701b7ab61180
 d
 4front-end/src/app/connexion/connexion.component.scss,1\e\1e31de65949fa734963a72291978b624c33b34cf
 O

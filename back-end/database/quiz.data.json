@@ -2,7 +2,7 @@
   {
     "theme": "Geographie",
     "name": "Les capitales",
-      "id": 1684745936142
+    "id": 1684745936142
   },
   {
     "theme": "Animaux",
@@ -14,13 +14,11 @@
     "name": "Toutes les musiques",
     "id": 1685091377284
   },
-
   {
     "theme": "Musique",
     "name": "High School Musical",
     "id": 1685091927027
   },
-
   {
     "theme": "Langues Etrangeres",
     "name": "Devine la bonne langue",
@@ -31,5 +29,4 @@
     "name": "Les desserts",
     "id": 1685091848860
   }
-
 ]

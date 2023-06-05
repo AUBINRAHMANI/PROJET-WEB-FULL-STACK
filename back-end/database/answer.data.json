@@ -1,0 +1,26 @@
+[
+  {
+    "value": "Paris",
+    "isCorrect": true,
+    "questionId": 1684743182996,
+    "id": 15
+  },
+  {
+    "value": "Nice",
+    "isCorrect": false,
+    "questionId": 1684743182996,
+    "id": 25
+  },
+  {
+    "value": "Stockholm",
+    "isCorrect": false,
+    "questionId": 1684743182996,
+    "id": 35
+  },
+  {
+    "value": "Venise",
+    "isCorrect": false,
+    "questionId": 1684743182996,
+    "id": 45
+  }
+]

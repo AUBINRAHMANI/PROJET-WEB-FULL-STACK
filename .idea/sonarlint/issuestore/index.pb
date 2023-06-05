@@ -23,7 +23,3 @@ O
 front-end/src/app/app.module.ts,b\0\b08266b6396482628adadb0db2ed9f4b8ee7301a
 t
 Dfront-end/src/app/test_de_calibrage/calibrage/calibrage.component.ts,7\9\79b1120fee0bfedccc52400dc1fd63ff76b887ca
-P
- back-end/database/user.data.json,8\3\83944510683db93a855a1ddae892fedf4ba1a117
-c
-3back-end/app/api/quizzes/questions/answers/index.js,d\b\db4f1ea86e3d9d68e31eafc6d36c2b6e0288e2c8

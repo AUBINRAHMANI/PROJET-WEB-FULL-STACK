@@ -5,7 +5,6 @@
   </div>
 
   <div *ngIf="!calibrageService.mustBeResize()" class="answers">
-    {{calibrageService.mustBeResize()}}
     <div class="grid-container">
       <div *ngFor="let answer of currentQuestion.answers; let i = index" class="grid-item">
         <app-game-answer [answer]="answer" [correct]="isAnswerCorrect(answer)"

@@ -95,7 +95,7 @@ const QUESTION_ANIMAUX: Question[] = [
       new Answer(1, 'La baleine bleue', true),
       new Answer(2, "L'éléphant", false),
       new Answer(3, 'Le rhinocéros blanc', false),
-      new Answer(4, 'Le requin blanc', false),
+      new Answer(4, 'Le Grand requin blanc', false),
     ]
   ),
   new Question(

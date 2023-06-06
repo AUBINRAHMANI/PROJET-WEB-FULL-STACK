@@ -1,6 +1,6 @@
 export class Answer {
   constructor(
-    public answerId: number,
+    public id: number,
     public value: string,
     public isCorrect: boolean,
     public type?: string

@@ -97,6 +97,7 @@ export class GameService {
       this.currentQuestionIndex = 0;
       if (quiz.questions) {
         this.currentQuestion$.next(quiz.questions[this.currentQuestionIndex]);
+        console.log(quiz.questions)
         this.quizQuestionsLength = quiz.questions[0].answers.length;
         console.log(this.quizQuestionsLength+" size"); // Affiche la longueur de la liste des questions dans la console du navigateur
       }

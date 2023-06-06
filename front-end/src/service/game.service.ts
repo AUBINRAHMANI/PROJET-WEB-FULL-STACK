@@ -28,7 +28,8 @@ export class GameService {
   public quizList$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizList);
   public currentQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizList[this.currentQuizIndex]);
   public currentQuestion$: BehaviorSubject<Question> = new BehaviorSubject(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex]);
-  private _gameInstance: GameInstance = new GameInstance( new Date(), null,-1);
+  // @ts-ignore
+  private _gameInstance: GameInstance ;
 
   private readonly FILE_NAME = 'Reports/results.json';
   constructor(private http: HttpClient,private router:Router) {
@@ -67,7 +68,7 @@ export class GameService {
       this.quizList = quizList.map((quiz) => {
         const questions = quiz.questions.map((question) => {
           const answers = question.answers.map((answer) => new Answer(
-            answer.answerId,
+            answer.id,
             answer.value,
             answer.isCorrect,
             answer.type
@@ -126,9 +127,9 @@ export class GameService {
   selectAnswer(answerIndex: number): void {
     console.log(this._gameInstance.isFinished+" ok");
     if(!this._gameInstance.isFinished){
-    console.log("GameService - selectAnswer");
+    console.log("GameService - selectAnswer"+answerIndex);
     this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].selectedAnswerIndex = answerIndex;
-    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers.find((answer) => answer.answerId === answerIndex);
+    let selectedAnswer = this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex].answers.find((answer) => answer.id === answerIndex);
     console.log(this.quizList[this.currentQuizIndex].questions[this.currentQuestionIndex])
     console.log(selectedAnswer);
     let currentValebleQuestion = this.currentQuestion$.getValue();
@@ -172,6 +173,13 @@ export class GameService {
 
   startGame(quizId: string,level:number): void {
     console.log("GameService - startGame");
+    const profilEnregistre = localStorage.getItem('profilSelectionne');
+    // @ts-ignore
+    const objetProfil = JSON.parse(profilEnregistre);
+    console.log(objetProfil.id);
+    console.log("voici le profil enregistre",profilEnregistre);
+    // @ts-ignore
+    this._gameInstance=new GameInstance(new Date(),null,parseInt(objetProfil.id));
     const quiz = this.quizList.find(q => q.id === quizId);
     // @ts-ignore
     this._gameInstance.setQuiz=quiz;

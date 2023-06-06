@@ -38,7 +38,15 @@ export class GamePageComponent implements OnInit {
   constructor(private route: ActivatedRoute, public gameService: GameService,public calibrageService:CalibrageService,private changeDetectorRef: ChangeDetectorRef) {
     console.log("CLASS GamePageComponent");
     this.ngOnInit();
-    this.gameInstance = this.gameService.gameInstance;
+    console.log("GameService - startGame");
+    const profilEnregistre = localStorage.getItem('profilSelectionne');
+    // @ts-ignore
+    const objetProfil = JSON.parse(profilEnregistre);
+    console.log(objetProfil.id);
+    console.log("voici le profil enregistre",profilEnregistre);
+    // @ts-ignore
+    this.gameInstance=new GameInstance(new Date(),null,parseInt(objetProfil.id));
+    this.gameService.gameInstance=this.gameInstance;
   }
 
   ngOnInit(): void {
@@ -78,7 +86,7 @@ export class GamePageComponent implements OnInit {
 
   onAnswerSelected(answer: { question: Question; answer: Answer }) {
     console.log("METHOD onAnswerSelected");
-    this.gameService.selectAnswer(answer.answer.answerId);
+    this.gameService.selectAnswer(answer.answer.id);
     this.resetTimer();
 
   }

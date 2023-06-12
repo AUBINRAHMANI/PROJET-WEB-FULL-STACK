@@ -38,4 +38,53 @@ test.describe('Create a new user', () => {
 
 
   });
+
+  test('Delete User', async ({ page }) => {
+    await page.goto(testUrl);
+    //const boutonGestion = await page.$('.boutonGestion');
+    const boutonGestion = await page.getByTestId('boutonGestion');
+    await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
+    await boutonGestion.click();
+
+    //creation utilisateur
+    await page.fill('input[id="nom"]', 'Jean');
+    await page.fill('input[id="prenom"]', 'Rene');
+    const boutonCreer = await page.getByRole('button', { name: 'Créer' });
+    await expect(boutonCreer).toBeVisible();
+    await boutonCreer.click();
+
+    // Attendre 2 secondes
+    await page.waitForTimeout(2000);
+
+    //suppression utilisateur
+    /* const boutonSupprimer = await page.getByRole('button', { name: 'Supprimer' });
+    await expect(boutonSupprimer).toBeVisible();
+    await boutonSupprimer.click();
+
+    await expect(page.getByText('Rene')).not.toBeVisible(); */
+
+    const utilisateurs = await page.$$('.utilisateur');
+    console.log('Nombre de utilisateurs:', utilisateurs.length);
+
+
+    if (utilisateurs.length > 0) {
+      const premiereUtilisateur = utilisateurs[0];
+      const colonnes = await premiereUtilisateur.$$('profil')
+      console.log('Nombre de colonnes:', colonnes.length);
+      await page.locator('button.delete-user').last().click();
+      expect((await premiereUtilisateur.$$('profil')).length).toBe(colonnes.length - 1);
+
+
+      console.log('Nombre de colonnes:', colonnes.length);
+    } else {
+      console.log('Aucun utilisateur trouvé');
+    }
+
+    //QUESTION COMMENT VOIR MES LOGS ET PK CA MARCHE PAS MONN TRUC QUI COMPTE LES COLONNES
+
+
+
+
+
+  });
 });

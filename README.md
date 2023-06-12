@@ -2,7 +2,7 @@
 
 Before running the tests, you need to run your front-end and back-end:
 
-1) Run your back-end: `npm run dev`
+1) Run your back-end: `npm run start:e2e`
 
 2) Run your front-end: `npm start`
 

@@ -4,7 +4,7 @@ export const LISTE_UTILISATEUR: Utilisateur[] = [
 
   {
     id: '0',
-    nom: 'Psychomotricien',
+    nom: 'Ergothérapeute',
     prenom: ' ',
     score: [],
     stade: 0,

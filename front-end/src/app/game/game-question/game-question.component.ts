@@ -40,6 +40,7 @@ export class GameQuestionComponent implements OnInit {
 
   onAnswerSelected(question: Question, answer: Answer): void {
     console.log("GameQuestionComponent.onAnswerSelected");
+    console.log({question,answer});
     this.answerSelected.emit({ question, answer });
   }
   isAnswerCorrect(answer: Answer): boolean {

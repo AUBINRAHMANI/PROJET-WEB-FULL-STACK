@@ -103,7 +103,7 @@ export class GameInstance {
     if(!this._isfinished){
       console.log("---"+answer.isCorrect);
       if (answer.isCorrect) {
-        this._score += 2;
+        this._score += 1;
       }
       console.log(this.score);
     }

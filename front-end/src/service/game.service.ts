@@ -136,12 +136,12 @@ export class GameService {
     let currentValebleQuestion = this.currentQuestion$.getValue();
     // @ts-ignore
       console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
-    // @ts-ignore
+      // @ts-ignore
       this._gameInstance.updateScore(selectedAnswer);
-    // @ts-ignore
+      // @ts-ignore
       this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
-    console.log("score -------"+this.gameInstance.score)
-    this.nextQuestion();
+      console.log("score -------"+this.gameInstance.score)
+      this.nextQuestion();
     }else{
       console.log("Le jeu est fini");
       this.router.navigate(['/game-result']);

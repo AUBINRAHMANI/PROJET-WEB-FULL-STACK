@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from
 })
 
 export class ModalComponent implements OnChanges {
-  @Input() title: string = 'Modal';
+  @Input() title: string = 'Test de Calibrage';
   @Input() message: string = '';
   @Input() show: boolean = false;
   @Output() close: EventEmitter<void> = new EventEmitter<void>();

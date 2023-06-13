@@ -1,20 +1,69 @@
 import { test, expect } from '@playwright/test';
-import {testUrl, testUrlGameInstance} from 'e2e/e2e.config';
+import { testUrl, testUrlGameInstance } from 'e2e/e2e.config';
 
 test.describe('Select Quiz and play', () => {
   test('Basic test', async ({ page }) => {
-    await page.goto(testUrlGameInstance);
+    await page.goto(testUrl);
 
-    await page.waitForSelector('.quiz-item');
+    await page.waitForSelector('.profil-liste .profil-item span');
 
-    await page.click('.quiz-button >> text="Les capitales"');
+    // Cliquer sur le div qui contient "marry ferry"
+    await page.click('.profil-liste .profil-item >> text="Ferry Marry"');
+
+    // Attendre que l'élément profil-selectionne soit visible
+    await page.waitForSelector('.profil-selectionne');
+
     // Cliquer sur le div profil-selectionne
-    //await page.click('.profil-selectionne .profil-item');
+    await page.click('.profil-selectionne .profil-item');
 
-    await page.waitForNavigation();
+    const gameMenuDiv = await page.$('.game-menu');
+    expect(gameMenuDiv).not.toBeNull();
 
+    // Créer un locator pour le bouton qui a le texte "Les Capitales"
+    const lesCapitalesButton = page.locator('button >> text="Les Capitales"');
 
-    const gameInfo = await page.$('.game-page');
-    expect(gameInfo).not.toBeNull();
+    // Attendre que le bouton soit chargé
+    await lesCapitalesButton.waitFor();
+
+    // Effectuer un clic sur le bouton
+    await lesCapitalesButton.click();
+
+    // Attendre que l'élément app-game-page soit potentiellement chargé
+    await page.waitForSelector('app-game-page');
+
+    // Vérifier si la balise app-game-page existe
+    for (let i = 1; i <= 8; i++) {
+      const appGamePageElement = await page.$('app-game-page');
+      if (appGamePageElement) {
+        console.log('La balise app-game-page existe.');
+
+        // Répéter le processus 8 fois
+
+        // Attendre que le premier élément app-game-answer soit chargé
+        await page.waitForSelector('app-game-answer');
+
+        // Vérifier si l'élément app-game-answer existe
+        const appGameAnswerElement = await page.$('app-game-answer');
+        if (appGameAnswerElement) {
+          console.log(`L'élément app-game-answer existe. (itération ${i})`);
+
+          // Cliquer sur le premier élément app-game-answer
+          await page.click('app-game-answer');
+
+          console.log(`Clic effectué sur le premier élément app-game-answer. (itération ${i})`);
+        } else {
+          console.log(`L'élément app-game-answer n'existe pas. (itération ${i})`);
+        }
+      } else {
+        console.log('La balise app-game-page n\'existe pas.');
+      }
+    }
+    const lretour = page.locator('button >> text="Retour à la page de Connexion"');
+
+    // Attendre que le bouton soit chargé
+    await lretour.waitFor();
+
+    // Effectuer un clic sur le bouton
+    await lretour.click();
   });
 });

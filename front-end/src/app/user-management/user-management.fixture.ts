@@ -4,7 +4,7 @@ export class UserManagementFixture extends E2EComponentFixture {
 
 
   getUserList(){
-    return this.page.$$('user-list');
+    return this.page.$$('.user-list');
   }
 
   VerifyContentPage(){
@@ -30,6 +30,18 @@ export class UserManagementFixture extends E2EComponentFixture {
 
   VerifyUserExist(value : string){
     return (this.page.getByText(value));
+  }
+
+  TableauUser(){
+    return this.page.$$('.utilisateur');
+  }
+
+  ButtonDelete(){
+    return this.page.locator('button.delete-user');
+  }
+
+  LastButtonDelete(){
+   return this.ButtonDelete().last();
   }
 
 

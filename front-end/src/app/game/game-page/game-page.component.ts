@@ -19,7 +19,7 @@ export class GamePageComponent implements OnInit {
 
   gameInstance: GameInstance;
   private alertSound: HTMLAudioElement | undefined;
-  private inactivityTimeout: number = 10000; // 1 minutes
+  private inactivityTimeout: number = 120000; // 2 minutes
   private inactivityTimeoutText: number = 5000; // 5 secondes
   private timer: any;
   //private sound: Howl;  alternative pour HTMLAudioElement
@@ -118,6 +118,7 @@ export class GamePageComponent implements OnInit {
     const quiz = this.gameService.quizList[this.gameService.currentQuizIndex];
     const currentQuestionIndex = this.gameService.currentQuestionIndex;
     return currentQuestionIndex === quiz.questions.length - 1;
+    this.killTimer();
   }
 
 
@@ -150,6 +151,10 @@ export class GamePageComponent implements OnInit {
   resetTimer(){
     clearTimeout(this.timer);
     this.startTimer();
+  }
+
+  killTimer(){
+    clearTimeout(this.timer);
   }
 
 

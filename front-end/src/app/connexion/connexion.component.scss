@@ -65,7 +65,7 @@
   justify-content: center;
 }
 
-.btn {
+.boutonGestion {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #777777;
@@ -73,9 +73,11 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 18px; /* Taille du texte */
+  padding: 10px 20px; /* Espacement interne */
 }
 
-.btn:hover {
+.boutonGestion:hover {
   background-color: #555555;
 }
 

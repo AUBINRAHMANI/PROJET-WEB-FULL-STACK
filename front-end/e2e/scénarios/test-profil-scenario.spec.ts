@@ -66,24 +66,16 @@ test.describe('Create a new user', () => {
     const utilisateurs = await page.$$('.utilisateur');
     console.log('Nombre de utilisateurs:', utilisateurs.length);
 
-
     if (utilisateurs.length > 0) {
       const premiereUtilisateur = utilisateurs[0];
-      const colonnes = await premiereUtilisateur.$$('profil')
-      console.log('Nombre de colonnes:', colonnes.length);
+      const colonnesBefore = await page.$$('.user-list');
+      console.log('Nombre de colonnes:', colonnesBefore.length);
       await page.locator('button.delete-user').last().click();
-      expect((await premiereUtilisateur.$$('profil')).length).toBe(colonnes.length - 1);
-
-
-      console.log('Nombre de colonnes:', colonnes.length);
-    } else {
-      console.log('Aucun utilisateur trouvé');
+      const colonnesAfter = await page.$$('.user-list');
+      console.log('Nombre de colonnes:', colonnesAfter.length);
+      expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1);
     }
-
-    //QUESTION COMMENT VOIR MES LOGS ET PK CA MARCHE PAS MONN TRUC QUI COMPTE LES COLONNES
-
-
-
+    //QUESTION COMMENT VOIR MES LOGS ET PK CA MARCHE PAS MONN TRU C QUI COMPTE LES COLONNES
 
 
   });

@@ -1,11 +1,30 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
+import {UserManagementFixture} from "../../src/app/user-management/user-management.fixture";
+import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
+
+
 
 test.describe('Create a new user', () => {
   test('Remplir les champs et cliquer sur Créer', async ({ page }) => {
     await page.goto(testUrl);
-    //const boutonGestion = await page.$('.boutonGestion');
-    const boutonGestion = await page.getByTestId('boutonGestion');
+
+
+    //creation des fixtures
+    const userManagementFixture = new UserManagementFixture(page);
+    const connexionFixture = new ConnexionFixture(page);
+
+
+
+
+    //constantes
+    const boutonGestion = connexionFixture.getBoutonGestion();
+    const verifyContentPage = userManagementFixture.VerifyContentPage();
+    const formuser = userManagementFixture.getForm();
+    const createBoutton = userManagementFixture.CreateBoutton();
+
+
+
     await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
     await boutonGestion.click();
 
@@ -13,69 +32,75 @@ test.describe('Create a new user', () => {
     await page.waitForTimeout(1000);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    const pageGestionUtilisateurs = await page.$('#Connexion');
-    expect(pageGestionUtilisateurs).not.toBeNull();
+    await expect(page).toHaveURL("http://localhost:4200/user-management");
 
     //Verifier si le form est affiché
-   //const form = await page.getByRole('form', { name: 'form' });
-    const form = await page.locator('css=form');
-    await expect(form).toBeVisible();
+    await expect(formuser).toBeVisible();
+    await expect(userManagementFixture.VerifyUserExist('LE BARBARE')).not.toBeVisible();
 
     // Remplir les champs
-    await page.fill('input[id="nom"]', 'Huzog');
-    await page.fill('input[id="prenom"]', 'LE BARBARE');
+    await userManagementFixture.inputNom('LE BARBARE');
+    await userManagementFixture.inputPrenom('HUZOG');
 
     // Cliquer sur le bouton Créer
-    const boutonCreer = await page.getByRole('button', { name: 'Créer' });
-    await expect(boutonCreer).toBeVisible();
-    await boutonCreer.click();
+    await expect(createBoutton).toBeVisible();
+    await createBoutton.click();
 
     // Attendre 2 secondes
     await page.waitForTimeout(2000);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    await expect(page.getByText('LE BARBARE')).toBeVisible();
-
+    await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
 
   });
 
   test('Delete User', async ({ page }) => {
+
+    //creation des fixtures
+    const userManagementFixture = new UserManagementFixture(page);
+    const connexionFixture = new ConnexionFixture(page);
+
+    //constantes
+    const boutonGestion = connexionFixture.getBoutonGestion();
+    const getUserList = userManagementFixture.getUserList();
+    const verifyContentPage = userManagementFixture.VerifyContentPage();
+    const formuser = userManagementFixture.getForm();
+    const createBoutton = userManagementFixture.CreateBoutton();
+    const tableauUser = userManagementFixture.TableauUser();
+    const buttonDelete = userManagementFixture.ButtonDelete();
+    const lastButtonDelete = userManagementFixture.LastButtonDelete();
+
     await page.goto(testUrl);
     //const boutonGestion = await page.$('.boutonGestion');
-    const boutonGestion = await page.getByTestId('boutonGestion');
     await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
     await boutonGestion.click();
 
     //creation utilisateur
-    await page.fill('input[id="nom"]', 'Jean');
-    await page.fill('input[id="prenom"]', 'Rene');
-    const boutonCreer = await page.getByRole('button', { name: 'Créer' });
-    await expect(boutonCreer).toBeVisible();
-    await boutonCreer.click();
+    await userManagementFixture.inputNom('Jean');
+    await userManagementFixture.inputPrenom('Rene');
+    await expect(createBoutton).toBeVisible();
+    await createBoutton.click();
 
     // Attendre 2 secondes
     await page.waitForTimeout(2000);
 
     //suppression utilisateur
-    /* const boutonSupprimer = await page.getByRole('button', { name: 'Supprimer' });
-    await expect(boutonSupprimer).toBeVisible();
-    await boutonSupprimer.click();
 
-    await expect(page.getByText('Rene')).not.toBeVisible(); */
-
-    const utilisateurs = await page.$$('.utilisateur');
-    console.log('Nombre de utilisateurs:', utilisateurs.length);
+    const utilisateurs = await tableauUser;
+    console.log('Nombre de utilisateurs:', utilisateurs.length);  // ON VERIFIE SI LE TABLEAU EST VIDE
 
     if (utilisateurs.length > 0) {
-      const premiereUtilisateur = utilisateurs[0];
-      const colonnesBefore = await page.$$('.user-list');
+      const colonnesBefore = await getUserList; // ON RECUPERE LE NOMBRE DE COLONNES AVANT LA SUPPRESSION
       console.log('Nombre de colonnes:', colonnesBefore.length);
-      await page.locator('button.delete-user').last().click();
-      const colonnesAfter = await page.$$('.user-list');
+
+      console.log(lastButtonDelete);
+      await lastButtonDelete.click(); // ON CLIQUE SUR LE DERNIER BOUTON DELETE
+
+      const colonnesAfter = await getUserList; // ON RECUPERE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
       console.log('Nombre de colonnes:', colonnesAfter.length);
-      expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1);
+
+      expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1); // ON VERIFIE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
     }
-    //QUESTION COMMENT VOIR MES LOGS ET PK CA MARCHE PAS MONN TRU C QUI COMPTE LES COLONNES
 
 
   });

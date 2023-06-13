@@ -74,11 +74,8 @@ test.describe('Create a new user', () => {
       const colonnesAfter = await page.$$('.user-list');
       console.log('Nombre de colonnes:', colonnesAfter.length);
       expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1);
-
+    }
     //QUESTION COMMENT VOIR MES LOGS ET PK CA MARCHE PAS MONN TRU C QUI COMPTE LES COLONNES
-
-
-
 
 
   });

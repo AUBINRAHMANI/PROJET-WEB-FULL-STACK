@@ -10,5 +10,13 @@ export class ConnexionFixture extends E2EComponentFixture {
     return this.getBoutonGestion().isVisible();
   }
 
+  clickOnSelectedProfile(){
+    return this.page.click('.profil-selectionne .profil-item');;
+  }
+
+  clickOnProfile(string : string){
+    return this.page.click('.profil-liste .profil-item >> text='+string);
+  }
+
 
 }

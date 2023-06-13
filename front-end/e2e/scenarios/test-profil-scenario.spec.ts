@@ -15,8 +15,6 @@ test.describe('Create a new user', () => {
     const connexionFixture = new ConnexionFixture(page);
 
 
-
-
     //constantes
     const boutonGestion = connexionFixture.getBoutonGestion();
     const verifyContentPage = userManagementFixture.VerifyContentPage();

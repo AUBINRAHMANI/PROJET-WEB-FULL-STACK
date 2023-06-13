@@ -1,11 +1,31 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
+import {UserManagementFixture} from "../../src/app/user-management/user-management.fixture";
+import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
+
+
 
 test.describe('Create a new user', () => {
   test('Remplir les champs et cliquer sur Créer', async ({ page }) => {
     await page.goto(testUrl);
-    //const boutonGestion = await page.$('.boutonGestion');
-    const boutonGestion = await page.getByTestId('boutonGestion');
+
+
+    //creation des fixtures
+    const userManagementFixture = new UserManagementFixture(page);
+    const connexionFixture = new ConnexionFixture(page);
+
+
+
+
+    //constantes
+    const boutonGestion = connexionFixture.getBoutonGestion();
+    const getUserList = userManagementFixture.getUserList();
+    const verifyContentPage = userManagementFixture.VerifyContentPage();
+    const formuser = userManagementFixture.getForm();
+    const createBoutton = userManagementFixture.CreateBoutton();
+
+
+
     await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
     await boutonGestion.click();
 
@@ -13,33 +33,36 @@ test.describe('Create a new user', () => {
     await page.waitForTimeout(1000);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    const pageGestionUtilisateurs = await page.$('#Connexion');
-    expect(pageGestionUtilisateurs).not.toBeNull();
+    await expect(page).toHaveURL("http://localhost:4200/user-management");
 
     //Verifier si le form est affiché
-   //const form = await page.getByRole('form', { name: 'form' });
-    const form = await page.locator('css=form');
-    await expect(form).toBeVisible();
+    await expect(formuser).toBeVisible();
+    await expect(userManagementFixture.VerifyUserExist('LE BARBARE')).not.toBeVisible();
 
     // Remplir les champs
-    await page.fill('input[id="nom"]', 'Huzog');
-    await page.fill('input[id="prenom"]', 'LE BARBARE');
+    await userManagementFixture.inputNom('LE BARBARE');
+    await userManagementFixture.inputPrenom('HUZOG');
 
     // Cliquer sur le bouton Créer
-    const boutonCreer = await page.getByRole('button', { name: 'Créer' });
-    await expect(boutonCreer).toBeVisible();
-    await boutonCreer.click();
+    await expect(createBoutton).toBeVisible();
+    await createBoutton.click();
 
     // Attendre 2 secondes
     await page.waitForTimeout(2000);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    await expect(page.getByText('LE BARBARE')).toBeVisible();
-
+    await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
 
   });
 
   test('Delete User', async ({ page }) => {
+
+    //creation des fictures
+    const userManagementFixture = new UserManagementFixture(page);
+
+    //constantes
+    const getUserList = userManagementFixture.getUserList;
+
     await page.goto(testUrl);
     //const boutonGestion = await page.$('.boutonGestion');
     const boutonGestion = await page.getByTestId('boutonGestion');
@@ -67,11 +90,10 @@ test.describe('Create a new user', () => {
     console.log('Nombre de utilisateurs:', utilisateurs.length);
 
     if (utilisateurs.length > 0) {
-      const premiereUtilisateur = utilisateurs[0];
-      const colonnesBefore = await page.$$('.user-list');
+      const colonnesBefore = getUserList;
       console.log('Nombre de colonnes:', colonnesBefore.length);
       await page.locator('button.delete-user').last().click();
-      const colonnesAfter = await page.$$('.user-list');
+      const colonnesAfter = getUserList;
       console.log('Nombre de colonnes:', colonnesAfter.length);
       expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1);
     }

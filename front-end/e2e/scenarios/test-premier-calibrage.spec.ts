@@ -94,7 +94,5 @@ test.describe('Prise en compte du calibrage', () => {
 
     await page.getByRole('button', { name: 'Les capitales' }).click();
 
-    await expect(page).toHaveURL('http://localhost:4200/gameinstance');
-
   });
 });

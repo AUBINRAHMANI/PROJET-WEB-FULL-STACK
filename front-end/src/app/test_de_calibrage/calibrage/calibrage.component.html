@@ -3,7 +3,7 @@
     niveau {{ levels[currentLevel] }}</h2>
   <p>Faites un clic dans les boutons pour faire le test de calibrage, si vous arrivez à le faire vous passerez au niveau suivant.
     Les retours se fermeront automatiquement.</p>
-  <div class="buttons" (click)="onButtonClickOutside($event)">
+  <div class="bouton-calibrage" (click)="onButtonClickOutside($event)">
     <button *ngIf="showButton" (click)="onButtonClick()" [style.width.px]="buttonSizes[currentLevel][0]" [style.height.px]="buttonSizes[currentLevel][1]" [disabled]="buttonDisabled">{{ levels[currentLevel] }}</button>
   </div>
 </div>

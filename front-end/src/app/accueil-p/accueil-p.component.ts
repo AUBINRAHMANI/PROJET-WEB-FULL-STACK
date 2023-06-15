@@ -14,6 +14,10 @@ export class AccueilPComponent {
       this.router.navigate(['/createQuizz']);
     }
 
+    consulterQuizz(){
+      this.router.navigate(['/gameinstance']);
+    }
+
     GestionProfils(){
       this.router.navigate(['/user-management']);
     }

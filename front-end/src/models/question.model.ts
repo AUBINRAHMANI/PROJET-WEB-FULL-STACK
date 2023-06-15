@@ -29,7 +29,8 @@ export class Question {
   }
 
   getRandomIncorrectAnswer(): Answer | undefined {
-    const incorrectAnswers = this.answers.filter((answer) => !answer.isCorrect);
+    const incorrectAnswers = this.answers.filter((answer) => answer !== this.getCorrectAnswer());
+    console.log("incorrectAnswers", incorrectAnswers);
     if (incorrectAnswers.length === 0) {
       return undefined;
     }

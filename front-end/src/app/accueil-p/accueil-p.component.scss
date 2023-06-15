@@ -29,7 +29,7 @@ h2 {
 
 .button-create {
   margin: 20px;
-  background-color: #777777;
+  background-color: royalblue;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -39,12 +39,27 @@ h2 {
 }
 
 .button-create:hover {
-  background-color: #1a7f37;
+  background-color: darkblue;
+}
+
+.button-consult {
+  margin: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 32px; /* Taille du texte */
+  padding: 30px 60px; /* Espacement interne */
+  background-color: red;
+}
+
+.button-consult:hover {
+  background-color: darkred;
 }
 
 .boutonGestion {
   margin: 20px;
-  background-color: #777777;
+  background-color: green;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -54,5 +69,5 @@ h2 {
 }
 
 .boutonGestion:hover {
-  background-color: #1a7f37;
+  background-color: darkgreen;
 }

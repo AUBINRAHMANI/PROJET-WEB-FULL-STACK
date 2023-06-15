@@ -31,10 +31,10 @@ export class GameAnswerComponent {
     {bgColor: '#007bff', textColor: '#fff'},
     {bgColor: '#28a745', textColor: '#fff'},
     {bgColor: '#dc3545', textColor: '#fff'},
-    {bgColor: '#ffc107', textColor: '#000'},
-    {bgColor: '#6610f2', textColor: '#fff'},
     {bgColor: '#6f42c1', textColor: '#fff'},
-    {bgColor: '#9b59b6', textColor: '#fff'}
+    // {bgColor: '#ef8704', textColor: '#fff'},
+    // {bgColor: '#6610f2', textColor: '#fff'},
+    // {bgColor: '#9b59b6', textColor: '#fff'}
     // Ajoutez d'autres paires de couleurs selon vos besoins
   ];
 
@@ -76,12 +76,9 @@ export class GameAnswerComponent {
     }
   }
 
-
-
-
   onAnswerSelected(button: HTMLElement): void {
     console.log("GameAnswerComponent - onAnswerSelected()");
-    this.isCorrect = this.answer?.isCorrect ?? false;
+    this.isCorrect = this.answer?.isCorrect || false;
     if (this.isCorrect) {
       this.applyAnimation(button, 'correct-animation');
       this.playAudio('correct'); // Ajoutez cette ligne
@@ -96,7 +93,6 @@ export class GameAnswerComponent {
   }
 
   private applyAnimation(button: HTMLElement, animationClass: string): void {
-    console.log("XA DERVRAGYFGHJKLKMJKLGHDFSKJLMKJHGFHJKL?MKJCGFXDWCGKJL?M");
     button.classList.add(animationClass);
     setTimeout(() => {
       button.classList.remove(animationClass);

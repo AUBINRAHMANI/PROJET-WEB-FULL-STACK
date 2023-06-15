@@ -96,7 +96,11 @@ export class CalibrageService {
     user.stade=level;
     this.userService.updateUser(user);
   }
+
   mustBeResize():boolean{
+    if(this.getCalibrateLevel()==-1){
+      this.router.navigate(['calibrage']);
+    }
     return this.getCalibrateLevel()<2 && this.getCalibrateLevel()>=0;
   }
 

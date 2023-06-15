@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import {UserService} from "./user.service";
+import {Utilisateur} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class CalibrageService {
   isCalibrated: boolean = false; // indique si le calibrage est terminé
   private calibrationResult: number =-1;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
     console.log('CalibrageService.constructor()');
     this.startCalibration();
   }
@@ -76,14 +78,12 @@ export class CalibrageService {
   }
 
   getCalibrateLevel():number {
-    const val = localStorage.getItem('profilSelectionne');
-    const user = JSON.parse(val!);
+    const user = this.getCurrentUser();
     return user.stade;
   }
 
   getCalibrateButtonsSize():number[]{
-    const val = localStorage.getItem('profilSelectionne');
-    const user = JSON.parse(val!);
+    const user = this.getCurrentUser();
     if(user.stade!=-1){
       return this.buttonSizes[user.stade];
     }
@@ -92,8 +92,17 @@ export class CalibrageService {
 
   setCalibrateResult(level:number):void{
     this.calibrationResult=level;
+    const user = this.getCurrentUser();
+    user.stade=level;
+    this.userService.updateUser(user);
   }
   mustBeResize():boolean{
     return this.getCalibrateLevel()<2 && this.getCalibrateLevel()>=0;
+  }
+
+  getCurrentUser(){
+    const val = localStorage.getItem('profilSelectionne');
+    const user = JSON.parse(val!);
+    return user;
   }
 }

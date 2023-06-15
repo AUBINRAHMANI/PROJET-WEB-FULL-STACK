@@ -43,12 +43,6 @@ export class UserService {
     this.http.post<Utilisateur>(this.usersUrl, utilisateur, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
-  setSelectedUser(userId: string): void {
-    const urlWithId = this.usersUrl + '/' + userId;
-    this.http.get<Utilisateur>(urlWithId).subscribe((user) => {
-      this.userSelected$.next(user);
-    });
-  }
 
   deleteUser(user: Utilisateur): void {
     const urlWithId = this.usersUrl + '/' + user.id;

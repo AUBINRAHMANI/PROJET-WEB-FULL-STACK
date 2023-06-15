@@ -34,21 +34,5 @@
     "stade": -1,
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
-  },
-  {
-    "id": 1686820784863,
-    "nom": "e",
-    "prenom": "e",
-    "stade": -1,
-    "droit": false,
-    "image": "https://www.w3schools.com/howto/img_avatar.png"
-  },
-  {
-    "id": 1686820875624,
-    "nom": "z",
-    "prenom": "z",
-    "stade": -1,
-    "droit": false,
-    "image": "https://www.w3schools.com/howto/img_avatar.png"
   }
 ]

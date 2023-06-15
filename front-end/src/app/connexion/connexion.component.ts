@@ -40,9 +40,6 @@ export class ConnexionComponent implements OnInit {
   }
 
   selectUser(user: Utilisateur){
-    this.userService.setSelectedUser(user.id);
-    console.log("profil : ",user.id);
-
     if(user.droit){
       this.router.navigate(['/accueilP']);
     }

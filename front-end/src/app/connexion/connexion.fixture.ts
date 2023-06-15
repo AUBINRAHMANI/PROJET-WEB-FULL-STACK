@@ -30,6 +30,12 @@ export class ConnexionFixture extends E2EComponentFixture {
     return this.getProfileSelected(value).getByRole('img', { name: 'Image de profil' });
   }
 
+  clickOnSelectedProfile(){
+    return this.page.click('.profil-selectionne .profil-item');;
+  }
 
+  clickOnProfile(string : string){
+    return this.page.click('.profil-liste .profil-item >> text='+string);
+  }
 
 }

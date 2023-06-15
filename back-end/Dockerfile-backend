@@ -1,15 +1,15 @@
 FROM node:latest AS backend-build
 
-RUN useradd -m myuser
-USER myuser
-
-WORKDIR /home/myuser/app
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
 
 COPY . .
+
+RUN useradd -m myuser && chown -R myuser /app
+USER myuser
 
 EXPOSE 9428
 

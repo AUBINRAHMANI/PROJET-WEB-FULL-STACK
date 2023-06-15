@@ -27,36 +27,32 @@ h2 {
   margin-top: 60px;
 }
 
-.button {
-  margin: 0 30px;
-  padding: 40px 80px;
-  font-size: 48px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #45a049;
-}
-
 .button-create {
-  background-color: #2196F3;
+  margin: 20px;
+  background-color: #777777;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 32px; /* Taille du texte */
+  padding: 30px 60px; /* Espacement interne */
 }
 
 .button-create:hover {
-  background-color: #1c87e8;
+  background-color: #1a7f37;
 }
 
-.button-play {
-  background-color: #f44336;
+.boutonGestion {
+  margin: 20px;
+  background-color: #777777;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 32px; /* Taille du texte */
+  padding: 30px 60px; /* Espacement interne */
 }
 
-.button-play:hover {
-  background-color: #e6392e;
+.boutonGestion:hover {
+  background-color: #1a7f37;
 }

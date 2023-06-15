@@ -1,8 +1,7 @@
 const Joi = require('joi')
 const BaseModel = require('../utils/base-model.js')
 
-module.exports = new BaseModel('Utilisateur', {
-  // id: Joi.string().required(),
+module.exports = new BaseModel('User', {
   nom: Joi.string().required(),
   prenom: Joi.string().required(),
   score: Joi.array().items(Joi.number()),

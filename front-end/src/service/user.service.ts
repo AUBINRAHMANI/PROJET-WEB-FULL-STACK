@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Utilisateur} from "../models/user.model";
 import {LISTE_UTILISATEUR} from "../mocks/user-list.mock";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {httpOptionsBase, serverUrl} from "../configs/server.config";
 
 
 
@@ -11,40 +14,51 @@ import {BehaviorSubject} from "rxjs";
 
 export class UserService {
 
-  public utilisateurs: Utilisateur[] = LISTE_UTILISATEUR;
+  public utilisateurs: Utilisateur[] = [];
 
-  private selectedUserId: string = "";
-  // private listeUtilisateur: Utilisateur[] = [];
+  public userSelected$: Subject<Utilisateur> = new Subject();
 
-  // Observable containing a list of quizzes, initialized with an empty array.
-// Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
+  private usersUrl = serverUrl + "/users"; // URL to web api
+
+  // Observable containing a list of users, initialized with an empty array.
+  // Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
   public utilisateurs$: BehaviorSubject<Utilisateur[]> = new BehaviorSubject(this.utilisateurs);
+  private httpOptions = httpOptionsBase;
 
-  //public listeUtilisateur$: Utilisateur[] = this.listeUtilisateur;
 
-  public addUtilisateur(utilisateur: Utilisateur): void {
-    this.utilisateurs.push(utilisateur);
-    this.utilisateurs$.next(this.utilisateurs);
+  constructor(private http: HttpClient, private router: Router) {
+    this.retrieveUsers();
   }
 
-  public deleteUser(user: Utilisateur): void {
-    this.utilisateurs = this.utilisateurs.filter((u: Utilisateur) => u.id !== user.id);
-    this.utilisateurs$.next(this.utilisateurs);
+  public retrieveUsers() {
+    console.log("UsersService.retrieveQuizList()");
+    this.http.get<Utilisateur[]>(this.usersUrl).subscribe((users: Utilisateur[]) => {
+      this.utilisateurs = users;
+      this.utilisateurs$.next(this.utilisateurs);
+    });
+    console.log("Users : " + this.utilisateurs);
   }
 
-  public setSelectedUserId(id: string) {
-    this.selectedUserId = id;
+  addUser(utilisateur: Utilisateur): void {
+    this.http.post<Utilisateur>(this.usersUrl, utilisateur, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
-  public getSelectedUserId(): string {
-    return this.selectedUserId;
+  setSelectedUser(userId: string): void {
+    const urlWithId = this.usersUrl + '/' + userId;
+    this.http.get<Utilisateur>(urlWithId).subscribe((user) => {
+      this.userSelected$.next(user);
+    });
   }
 
-  isCreatedQuizAllowed(): boolean {
-    return this.selectedUserId !== "";
+  deleteUser(user: Utilisateur): void {
+    const urlWithId = this.usersUrl + '/' + user.id;
+    this.http.delete<Utilisateur>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
-
+  updateUser(user: Utilisateur): void {
+    const urlWithId = this.usersUrl + '/' + user.id;
+    this.http.put<Utilisateur>(urlWithId, user, this.httpOptions).subscribe(() => this.retrieveUsers());
+  }
 }
 
 

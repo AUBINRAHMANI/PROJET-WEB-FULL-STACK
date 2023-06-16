@@ -37,7 +37,7 @@ export class UserManagementFixture extends E2EComponentFixture {
   }
 
   ButtonDelete(){
-    return this.page.locator('button.delete-user');
+    return this.page.getByRole('button', { name: 'Supprimer' });
   }
 
   LastButtonDelete(){

@@ -26,6 +26,7 @@ test.describe('Create a new user', () => {
     const clickProfil = connexionFixture.getProfil();
     const BoutonGestion = accueilPFixture.BoutonGestion();
 
+
     //SELECTIONNER L'ERGOTHERAPEUTE
     await expect(profilExist).toBeVisible();
     await profilExist.click();
@@ -67,6 +68,11 @@ test.describe('Create a new user', () => {
 
     // Vérifier si la page de gestion des utilisateurs est affichée
     await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
+
+    //supprimer pour pas qu'il reste dans la base de donnée
+    await page.getByRole('button', { name: 'Supprimer' }).last().click();
+    //await userManagementFixture.LastButtonDelete().click();
+
 
   });
 
@@ -121,10 +127,10 @@ test.describe('Create a new user', () => {
 
     //suppression utilisateur
 
-    const utilisateurs = await tableauUser;
+    const utilisateurs = tableauUser;
     console.log('Nombre de utilisateurs:', utilisateurs.length);  // ON VERIFIE SI LE TABLEAU EST VIDE
 
-    if (utilisateurs.length > 0) {
+    if (utilisateurs.length >= 0) {
       const colonnesBefore =  getUserList; // ON RECUPERE LE NOMBRE DE COLONNES AVANT LA SUPPRESSION
       console.log('Nombre de colonnes:', colonnesBefore.length);
 

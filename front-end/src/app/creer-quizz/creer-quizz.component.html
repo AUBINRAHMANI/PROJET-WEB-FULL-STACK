@@ -1,4 +1,4 @@
-<div class="card">
+<div data-testid=CreerQuiz class="card">
   <h2>Créer un nouveau Quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
 
@@ -19,7 +19,7 @@
       <input class="input-custom" type="text" id="question" [formControlName]="'question'">
     </label>
     <br>
-    <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
+    <button type="submit" class="button-card" (click)="addQuiz()">Creer</button>
     <br>
   </form>
 </div>

@@ -5,7 +5,7 @@
 
     <div class="utilisateur">
       <div class="user-list" *ngFor="let user of listeUtilisateur">
-        <app-user [user]="user" (deleteUser)="deleteUser($event)"></app-user>
+        <app-user *ngIf="user.droit!=true" [user]="user" (deleteUser)="deleteUser($event)"></app-user>
       </div>
     </div>
 

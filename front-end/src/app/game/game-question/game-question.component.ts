@@ -35,6 +35,7 @@ export class GameQuestionComponent implements OnInit {
   ngOnInit(): void {
     console.log("Question and minus");
     console.log(this.currentQuestion);
+    console.log(this.currentQuestionMinus);
   }
 
 

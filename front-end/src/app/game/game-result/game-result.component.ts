@@ -15,9 +15,14 @@ export class GameResultComponent implements OnInit {
     this.saveGameInstanceToFile();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.gameInstance?.answersGiven);
+  }
 
   saveGameInstanceToFile(): void {
     this.gameService.saveGameInstanceToFile(this.gameInstance);
+  }
+  areBothTrue(value1: boolean | string, value2: boolean | string): boolean {
+    return String(value1).toLowerCase() === String(value2).toLowerCase();
   }
 }

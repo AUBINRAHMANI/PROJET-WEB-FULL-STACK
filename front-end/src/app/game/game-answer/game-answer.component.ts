@@ -11,7 +11,7 @@ import {CalibrageService} from "../../../service/calibrage.service";
 export class GameAnswerComponent {
 
   @Input() answer: Answer | undefined;
-  @Input() correct = false;
+  @Input() correct : Boolean | undefined;
   @Output() answerSelected: EventEmitter<Answer> = new EventEmitter();
   disabled: any;
   recalibrageEffectue = false;
@@ -81,11 +81,17 @@ export class GameAnswerComponent {
 
   onAnswerSelected(button: HTMLElement): void {
     console.log("GameAnswerComponent - onAnswerSelected()");
+
     this.isCorrect = this.answer?.isCorrect ?? false;
-    if (this.isCorrect) {
+    console.log(typeof this.answer?.isCorrect);
+    console.log("nous devons appliquer cette animations");
+    console.log(this.correct);
+    console.log(typeof this.correct);
+
+    if (this.areBothTrue(true,this.isCorrect)) {
       this.applyAnimation(button, 'correct-animation');
       this.playAudio('correct'); // Ajoutez cette ligne
-    } else {
+    }else {
       this.applyAnimation(button, 'incorrect-animation');
       this.playAudio('incorrect'); // Ajoutez cette ligne
     }
@@ -97,6 +103,7 @@ export class GameAnswerComponent {
 
   private applyAnimation(button: HTMLElement, animationClass: string): void {
     console.log("XA DERVRAGYFGHJKLKMJKLGHDFSKJLMKJHGFHJKL?MKJCGFXDWCGKJL?M");
+    console.log("voici l'animations :$$$"+animationClass+" "+this.correct);
     button.classList.add(animationClass);
     setTimeout(() => {
       button.classList.remove(animationClass);
@@ -175,6 +182,10 @@ export class GameAnswerComponent {
     return brightness;
   }*/
 
-
-
+  areBothTrue(value1: boolean | string, value2: boolean | string): boolean {
+    return String(value1).toLowerCase() === String(value2).toLowerCase();
   }
+
+
+
+}

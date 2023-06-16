@@ -135,7 +135,7 @@ export class GameService {
     console.log(selectedAnswer);
     let currentValebleQuestion = this.currentQuestion$.getValue();
     // @ts-ignore
-      console.log(selectedAnswer.answerId+" "+selectedAnswer.isCorrect);
+      console.log(selectedAnswer.id+" "+selectedAnswer.isCorrect);
       // @ts-ignore
       this._gameInstance.updateScore(selectedAnswer);
       // @ts-ignore

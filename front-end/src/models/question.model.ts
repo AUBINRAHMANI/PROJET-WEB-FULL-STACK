@@ -29,12 +29,14 @@ export class Question {
   }
 
   getRandomIncorrectAnswer(): Answer | undefined {
-    const incorrectAnswers = this.answers.filter((answer) => !answer.isCorrect);
-    if (incorrectAnswers.length === 0) {
+    const incorrectAnswers = this.answers.slice();
+    const filteredAnswers = incorrectAnswers.filter(answer => answer !== this.getCorrectAnswer());
+
+    if (filteredAnswers.length === 0) {
       return undefined;
     }
-    const randomIndex = Math.floor(Math.random() * incorrectAnswers.length);
-    return incorrectAnswers[randomIndex];
+    const randomIndex = Math.floor(Math.random() * filteredAnswers.length);
+    return filteredAnswers[randomIndex];
   }
 
   getMiniusQuestions(): Question {
@@ -52,6 +54,8 @@ export class Question {
     // @ts-ignore
     return new Question(this.id, this.label, answers);
   }
+
+
 
 
 

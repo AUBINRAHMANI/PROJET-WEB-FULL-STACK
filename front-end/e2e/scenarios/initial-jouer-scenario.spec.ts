@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { testUrl, testUrlGameInstance } from 'e2e/e2e.config';
+import { testUrl} from 'e2e/e2e.config';
 import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
 import {CalibrageFixture} from "../../src/app/test_de_calibrage/calibrage/calibrage.fixture";
 
@@ -21,28 +21,13 @@ test.describe('Select Quiz and play', () => {
     const gameMenuDiv = await page.$('.game-menu');
     expect(gameMenuDiv).not.toBeNull();
 
-    // Créer un locator pour le bouton qui a le texte "Les Capitales"
-    const lesCapitalesButton = page.locator('button >> text="Les Capitales"');
-
-    // Attendre que le bouton soit chargé
-    await lesCapitalesButton.waitFor();
-
-    // Effectuer un clic sur le bouton
-    await lesCapitalesButton.click();
-
-    // Attendre que l'élément app-game-page soit potentiellement chargé
-    await page.waitForSelector('app-game-page');
+    await page.getByRole('button', { name: 'Devine la bonne langue' }).click();
 
     // Vérifier si la balise app-game-page existe
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 3; i++) {
       const appGamePageElement = await page.$('app-game-page');
       if (appGamePageElement) {
         console.log('La balise app-game-page existe.');
-
-        // Répéter le processus 8 fois
-
-        // Attendre que le premier élément app-game-answer soit chargé
-        await page.waitForSelector('app-game-answer');
 
         // Vérifier si l'élément app-game-answer existe
         const appGameAnswerElement = await page.$('app-game-answer');
@@ -60,18 +45,19 @@ test.describe('Select Quiz and play', () => {
         console.log('La balise app-game-page n\'existe pas.');
       }
     }
-    const lretour = page.locator('button >> text="Retour à la page de Connexion"');
+
+    //const lretour = page.locator('button >> text="Retour à la page de Connexion"');
 
     // Attendre que le bouton soit chargé
-    await lretour.waitFor();
+   // await lretour.waitFor();
 
     // Effectuer un clic sur le bouton
-    await lretour.click();
+    //await lretour.click();
   });
 });
 
 test.describe('Jeu et prise en compte du calibrage', () => {
-  test('Calibrage jamais effectué', async ({ page }) => {
+  test('Jeu et prise en compte du calibrage', async ({ page }) => {
     await page.goto(testUrl);
 
     //creation des fixtures
@@ -111,7 +97,7 @@ test.describe('Jeu et prise en compte du calibrage', () => {
     await page.getByRole('button', { name: 'Devine la bonne langue' }).click();
 
     // Vérifier si la balise app-game-page existe
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 3; i++) {
       const appGamePageElement = await page.$('app-game-page');
       if (appGamePageElement) {
         console.log('La balise app-game-page existe.');

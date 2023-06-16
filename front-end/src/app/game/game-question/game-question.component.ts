@@ -33,6 +33,8 @@ export class GameQuestionComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+  }
+  ngOnChanges():void{
     console.log("CurrentQuestion");
     console.log(this.currentQuestion);
     console.log("CurrentQuestionMinus");

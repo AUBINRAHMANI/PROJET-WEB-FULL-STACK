@@ -137,10 +137,13 @@ export class GameService {
     // @ts-ignore
       console.log(selectedAnswer.id+" "+selectedAnswer.isCorrect);
       // @ts-ignore
+      console.log(selectedAnswer);
+      // @ts-ignore
       this._gameInstance.updateScore(selectedAnswer);
       // @ts-ignore
       this._gameInstance.addAnswer(new AnswerGiven(currentValebleQuestion,selectedAnswer,this.findCorrectAnswer(currentValebleQuestion)));
-      console.log("score -------"+this.gameInstance.score)
+      // @ts-ignore
+      console.log("score -------"+this._gameInstance.score)
       this.nextQuestion();
     }else{
       console.log("Le jeu est fini");

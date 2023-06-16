@@ -19,11 +19,22 @@ RUN npm run build
 # Étape de production avec Nginx
 FROM nginx:alpine
 
+# Changer le propriétaire des répertoires nécessaires pour l'utilisateur nginx
+RUN chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/run && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chown -R nginx:nginx /etc/nginx/nginx.conf && \
+    touch /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/run/nginx.pid
+
 # Copier les fichiers de build Angular vers le répertoire de Nginx
 COPY --from=build /app/dist/front-end /usr/share/nginx/html
 
 # Copier la configuration personnalisée de Nginx (si nécessaire)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Utiliser l'utilisateur nginx pour exécuter Nginx
+USER nginx
 
 # Exposer le port 8080
 EXPOSE 8080

@@ -5,6 +5,8 @@ services:
     build:
       context: ./back-end
       dockerfile: Dockerfile-backend
+      args:
+        - CUSTOM_HOST=${CUSTOM_HOST:-localhost}
     ports:
       - "9428:9428"
     volumes:
@@ -23,6 +25,8 @@ services:
     build:
       context: ./front-end
       dockerfile: Dockerfile-frontend
+      args:
+        - CUSTOM_HOST=${CUSTOM_HOST:-localhost}
     ports:
       - "8080:8080"
     volumes:
@@ -51,7 +55,7 @@ services:
     networks:
       - app-network
     #ports:
-    #  - "9323:9323"
+    #  - "9323:9323
     environment:
       - API_URL=http://backend:9428
 

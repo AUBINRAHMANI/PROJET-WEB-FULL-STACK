@@ -22,7 +22,7 @@ test.describe('Select Quiz and play', () => {
     expect(gameMenuDiv).not.toBeNull();
 
     // Créer un locator pour le bouton qui a le texte "Les Capitales"
-    const lesCapitalesButton = page.locator('button >> text="Les Capitales"');
+    const lesCapitalesButton = page.locator('button >> text="Les capitales"');
 
     // Attendre que le bouton soit chargé
     await lesCapitalesButton.waitFor();

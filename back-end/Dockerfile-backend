@@ -11,6 +11,7 @@ COPY . .
 RUN useradd -m myuser && chown -R myuser /app
 USER myuser
 
+
 EXPOSE 9428
 
 CMD [ "npm", "run", "dev" ]

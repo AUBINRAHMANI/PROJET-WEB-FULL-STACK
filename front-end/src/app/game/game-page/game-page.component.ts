@@ -58,11 +58,9 @@ export class GamePageComponent implements OnInit {
         this.currentQuestion = question;
       });
       this.quiz.subscribe((quiz: Quiz | undefined) => {
-        console.log("dure dure");
         if (quiz) {
           this.questions = quiz.questions;
         }
-        console.log("ouiyutryuilu");
       });
       this.questions.forEach((question: Question) => {
         this.MinusQuestions.push( question.getMiniusQuestions());

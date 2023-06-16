@@ -5,7 +5,7 @@
       <div id="prenom"> <i> Prenom : </i> {{this.user.prenom}} </div>
       <div id="stade"> <i> Calibrage : Niveau </i>  {{this.user.stade}} </div>
 
-    <button data-testid="supprimer" class="btn delete-user" *ngIf="user.id !== '0'" (click)="userDelete()">Supprimer</button>
+    <button data-testid="supprimer" class="btn delete-user" (click)="userDelete()">Supprimer</button>
   </div>
 </h2>
 </body>

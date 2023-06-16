@@ -1,0 +1,28 @@
+# Utilisez une image Node.js comme image de base
+FROM node:14
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copiez package.json et package-lock.json avant les autres fichiers pour optimiser la mise en cache des dépendances
+COPY package*.json ./
+
+# Installer les dépendances
+RUN npm install
+
+# Installer Playwright Test
+RUN npm install -D @playwright/test
+
+# Copier les fichiers e2e et les fichiers nécessaires pour l'exécution des tests
+COPY e2e ./e2e
+COPY playwright.config.ts .
+COPY tsconfig.json .
+
+# Exposer le port 9323 pour accéder aux résultats des tests (si nécessaire)
+EXPOSE 9323
+
+# Définir des variables d'environnement pour indiquer où se trouve le backend
+ENV API_URL=http://backend:9428
+
+# Exécutez vos tests e2e
+CMD ["npm", "run", "test:e2e"]

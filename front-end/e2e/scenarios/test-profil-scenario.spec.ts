@@ -27,10 +27,10 @@ test.describe('Create a new user', () => {
     await boutonGestion.click();
 
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(10);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    await expect(page).toHaveURL("http://localhost:4200/user-management");
+    await expect(page).toHaveURL("http://localhost:8080/user-management");
 
     //Verifier si le form est affiché
     await expect(formuser).toBeVisible();
@@ -45,7 +45,7 @@ test.describe('Create a new user', () => {
     await createBoutton.click();
 
     // Attendre 2 secondes
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(20);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
     await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
@@ -80,7 +80,7 @@ test.describe('Create a new user', () => {
     await createBoutton.click();
 
     // Attendre 2 secondes
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(20);
 
     //suppression utilisateur
 

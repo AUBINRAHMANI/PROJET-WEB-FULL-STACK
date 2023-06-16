@@ -4,11 +4,15 @@ services:
   backend:
     build:
       context: ./back-end
-      dockerfile: Dockerfile-backend # Assurez-vous que le chemin du Dockerfile est correct
+      dockerfile: Dockerfile-backend
     ports:
-      - "9428:9428" # Mappez le port 9428 de l'hôte vers le port 9428 du conteneur
+      - "9428:9428"
     volumes:
       - backend-data:/app/data
+    networks:
+      - app-network
+    environment:
+      - ENVIRONMENT=development
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"]
       interval: 30s
@@ -18,20 +22,43 @@ services:
   frontend:
     build:
       context: ./front-end
-      dockerfile: Dockerfile-frontend # Assurez-vous que le chemin du Dockerfile est correct
+      dockerfile: Dockerfile-frontend
     ports:
       - "8080:8080"
     volumes:
       - frontend-data:/usr/share/nginx/html
     depends_on:
-      backend:
-        condition: service_healthy
+      - backend
+    networks:
+      - app-network
+    environment:
+      - API_URL=http://backend:9428
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s
       timeout: 10s
       retries: 3
 
+  tests:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile-tests
+    depends_on:
+      - backend
+      - frontend
+    volumes:
+      - test-results:/app/test-results
+    networks:
+      - app-network
+    #ports:
+    #  - "9323:9323"
+    environment:
+      - API_URL=http://backend:9428
+
+networks:
+  app-network:
+
 volumes:
   backend-data:
   frontend-data:
+  test-results:

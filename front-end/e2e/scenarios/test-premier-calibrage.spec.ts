@@ -74,23 +74,23 @@ test.describe('Prise en compte du calibrage', () => {
 
     // Cliquer sur le bouton calibrage niveau 5
     await calibrageFixture.clickBoutonCalibrage(5);
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(30);
 
     // Cliquer sur le bouton calibrage niveau 4
     await calibrageFixture.clickBoutonCalibrage(4);
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(30);
 
     // Cliquer sur le bouton calibrage niveau 3
     await calibrageFixture.clickBoutonCalibrage(3);
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(30);
 
     // Cliquer sur le bouton calibrage niveau 2
     await calibrageFixture.clickBoutonCalibrage(2);
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(30);
 
     // Cliquer en dehors du bouton niveau 1
     await page.getByText('Test de Calibrage niveau 1Faites un clic dans les boutons pour faire le test de ').click();
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(30);
 
     await page.getByRole('button', { name: 'Les capitales' }).click();
 

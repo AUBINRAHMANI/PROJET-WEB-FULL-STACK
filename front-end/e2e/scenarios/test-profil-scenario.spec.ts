@@ -2,17 +2,17 @@ import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
 import {UserManagementFixture} from "../../src/app/user-management/user-management.fixture";
 import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
-
+import {AccueilPFixtureil} from "../../src/app/accueil-p/acceuil-p.fixture";
 
 
 test.describe('Create a new user', () => {
   test('Remplir les champs et cliquer sur Créer', async ({ page }) => {
     await page.goto(testUrl);
 
-
     //creation des fixtures
     const userManagementFixture = new UserManagementFixture(page);
     const connexionFixture = new ConnexionFixture(page);
+    const accueilPFixture = new AccueilPFixtureil(page);
 
 
     //constantes
@@ -20,13 +20,31 @@ test.describe('Create a new user', () => {
     const verifyContentPage = userManagementFixture.VerifyContentPage();
     const formuser = userManagementFixture.getForm();
     const createBoutton = userManagementFixture.CreateBoutton();
+    const profilExist = connexionFixture.verifyProfilExist('Ergothérapeute');
+    const prolfilSelected = connexionFixture.getProfileSelected('Ergothérapeute');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const clickProfil = connexionFixture.getProfil();
+    const BoutonGestion = accueilPFixture.BoutonGestion();
 
+    //SELECTIONNER L'ERGOTHERAPEUTE
+    await expect(profilExist).toBeVisible();
+    await profilExist.click();
 
+    //await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
+    //await boutonGestion.click();
 
-    await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
-    await boutonGestion.click();
+    await expect(prolfilSelected).toBeVisible();
+    await expect(profilSelectionneImage).toBeVisible();
+    await profilSelectionneImage.click();
 
+    //On veut atterir sur la gestion Ergo
+    await expect(page).toHaveURL("http://localhost:4200/accueilP");
 
+    //Cliquer sur le bouton Gestion
+    await expect(BoutonGestion).toBeVisible();
+    await BoutonGestion.click();
+
+    // Attendre 1 seconde
     await page.waitForTimeout(1000);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
@@ -57,6 +75,7 @@ test.describe('Create a new user', () => {
     //creation des fixtures
     const userManagementFixture = new UserManagementFixture(page);
     const connexionFixture = new ConnexionFixture(page);
+    const accueilPFixture = new AccueilPFixtureil(page);
 
     //constantes
     const boutonGestion = connexionFixture.getBoutonGestion();
@@ -65,11 +84,31 @@ test.describe('Create a new user', () => {
     const createBoutton = userManagementFixture.CreateBoutton();
     const tableauUser = await userManagementFixture.TableauUser();
     const lastButtonDelete = userManagementFixture.LastButtonDelete();
+    const profilExist = connexionFixture.verifyProfilExist('Ergothérapeute');
+    const prolfilSelected = connexionFixture.getProfileSelected('Ergothérapeute');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const clickProfil = connexionFixture.getProfil();
+    const BoutonGestion = accueilPFixture.BoutonGestion();
 
     await page.goto(testUrl);
-    //const boutonGestion = await page.$('.boutonGestion');
-    await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
-    await boutonGestion.click();
+    //SELECTIONNER L'ERGOTHERAPEUTE
+    await expect(profilExist).toBeVisible();
+    await profilExist.click();
+
+    //await expect(boutonGestion).toBeVisible(); //on test si le bouton existe
+    //await boutonGestion.click();
+
+    await expect(prolfilSelected).toBeVisible();
+    await expect(profilSelectionneImage).toBeVisible();
+    await profilSelectionneImage.click();
+
+    //On veut atterir sur la gestion Ergo
+    await expect(page).toHaveURL("http://localhost:4200/accueilP");
+
+    //Cliquer sur le bouton Gestion
+    await expect(BoutonGestion).toBeVisible();
+    await BoutonGestion.click();
+
 
     //creation utilisateur
     await userManagementFixture.inputNom('Jean');

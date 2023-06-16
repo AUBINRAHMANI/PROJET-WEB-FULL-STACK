@@ -34,5 +34,13 @@
     "stade": -1,
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
+  },
+  {
+    "id": 1686926562997,
+    "nom": "LE BARBARE",
+    "prenom": "HUZOG",
+    "stade": -1,
+    "droit": false,
+    "image": "https://www.w3schools.com/howto/img_avatar.png"
   }
 ]

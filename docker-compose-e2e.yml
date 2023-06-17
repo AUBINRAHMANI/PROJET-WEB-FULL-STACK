@@ -12,7 +12,7 @@ services:
     networks:
       - app-network
     environment:
-      - ENVIRONMENT=development
+      - ENVIRONMENT=test
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"]
       interval: 30s

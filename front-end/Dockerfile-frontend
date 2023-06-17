@@ -36,11 +36,17 @@ COPY --from=build /app/dist/front-end /usr/share/nginx/html
 # Copier la configuration personnalisée de Nginx (si nécessaire)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Copier le script de démarrage
+COPY start.sh /start.sh
+
+# Rendre le script de démarrage exécutable
+RUN chmod +x /start.sh
+
 # Utiliser l'utilisateur nginx pour exécuter Nginx
 USER nginx
 
 # Exposer le port 80
 EXPOSE 80
 
-# Démarrer Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Démarrer Nginx via le script de démarrage
+CMD ["/bin/sh", "/start.sh"]

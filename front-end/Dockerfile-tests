@@ -45,4 +45,4 @@ ENV API_URL=http://backend:9428
 EXPOSE 9323
 
 # Exécutez vos tests e2e
-CMD ["npm", "run", "test:e2e"]
+CMD ["npm", "run", "start:e2e"]

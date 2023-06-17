@@ -6,13 +6,13 @@ services:
       context: ./back-end
       dockerfile: Dockerfile-backend
     ports:
-      - "${BACKEND_PORT_MAPPING:-80:9428}"
+      - "9428:9428"
     volumes:
       - backend-data:/app/data
     networks:
       - app-network
     environment:
-      - ENVIRONMENT=${BACKEND_ENVIRONMENT:-development}
+      - ENVIRONMENT=development
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"]
       interval: 30s
@@ -28,7 +28,8 @@ services:
     volumes:
       - frontend-data:/usr/share/nginx/html
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     networks:
       - app-network
     environment:

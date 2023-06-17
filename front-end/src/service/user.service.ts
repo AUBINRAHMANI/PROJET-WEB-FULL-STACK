@@ -31,7 +31,8 @@ export class UserService {
   }
 
   public retrieveUsers() {
-    console.log("UsersService.retrieveQuizList()");
+    console.log("UsersService.retrieveQuizList()"+this.usersUrl);
+    console.log(this.usersUrl+" is the usersUrl");
     this.http.get<Utilisateur[]>(this.usersUrl).subscribe((users: Utilisateur[]) => {
       this.utilisateurs = users;
       this.utilisateurs$.next(this.utilisateurs);

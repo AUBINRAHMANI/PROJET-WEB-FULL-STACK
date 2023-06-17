@@ -64,7 +64,7 @@ test.describe('Prise en compte du calibrage', () => {
     await page.waitForSelector('.profil-liste .profil-item span');
 
     // Cliquer sur le div qui contient "Durcit Pierre"
-    await connexionFixture.clickOnProfile("Durcit Pierre");
+    await connexionFixture.clickOnProfile("salos pullos");
 
     // Attendre que l'élément profil-selectionne soit visible
     await page.waitForSelector('.profil-selectionne');

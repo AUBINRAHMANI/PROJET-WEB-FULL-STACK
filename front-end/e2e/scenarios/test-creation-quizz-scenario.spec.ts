@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
-import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
-import {AccueilPFixtureil} from "../../src/app/accueil-p/acceuil-p.fixture";
-import {CreerQuizzFixture} from "../../src/app/creer-quizz/creer-quizz.fixture";
+import {ConnexionFixture} from "src/app/connexion/connexion.fixture";
+import {AccueilPFixtureil} from "src/app/accueil-p/acceuil-p.fixture";
+import {CreerQuizzFixture} from "src/app/creer-quizz/creer-quizz.fixture";
 
 test.describe('Creation de test', () => {
   test('Selection profil + creer quizz', async ({ page }) => {

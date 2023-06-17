@@ -7,9 +7,9 @@
   <div class="quiz-answers">
     <h2>Réponses données</h2>
     <ul class="answer-list">
-      <li class="answer-item" *ngFor="let answer of gameInstance?.answersGiven">
+      <li class="answer-item" *ngFor="let answer of gameInstance?.answersGiven;let i = index">
         <div class="question-info">
-          <p class="question-id">Question {{answer.question.id}}</p>
+          <p class="question-id">Question {{i+1}}</p>
           <p class="question-label">{{answer.question.label}}</p>
         </div>
         <div class="answer-info">

@@ -102,7 +102,7 @@ export class GameInstance {
   updateScore(answer: Answer): void {
     if(!this._isfinished){
       console.log("---"+answer.isCorrect);
-      if (answer.isCorrect) {
+      if (this.areBothTrue(true,answer.isCorrect)) {
         this._score += 1;
       }
       console.log(this.score);
@@ -114,6 +114,10 @@ export class GameInstance {
     this._isfinished=true;
     console.log("le jeu est bien fini");
     this._endTime = new Date();
+  }
+
+  areBothTrue(value1: boolean | string, value2: boolean | string): boolean {
+    return String(value1).toLowerCase() === String(value2).toLowerCase();
   }
 }
 

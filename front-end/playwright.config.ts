@@ -6,7 +6,7 @@ const config: PlaywrightTestConfig = {
     ['json', { outputFile: 'test-results/report.json' }],
   ],
   use: {
-    headless: false,
+    headless: true,
     viewport: { width: 1200, height: 720 },
     ignoreHTTPSErrors: true,
     video: 'retry-with-video',

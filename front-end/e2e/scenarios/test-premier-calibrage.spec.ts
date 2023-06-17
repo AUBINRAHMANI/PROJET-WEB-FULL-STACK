@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import {testUrl} from '../e2e.config';
-import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
-import {CalibrageFixture} from "../../src/app/test_de_calibrage/calibrage/calibrage.fixture";
+import {ConnexionFixture} from "src/app/connexion/connexion.fixture";
+import {CalibrageFixture} from "src/app/test_de_calibrage/calibrage/calibrage.fixture";
 
 
 test.describe('Présence de calibrage', () => {

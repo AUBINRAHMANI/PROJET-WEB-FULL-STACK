@@ -39,9 +39,26 @@ services:
       timeout: 10s
       retries: 3
 
+  tests:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile-tests
+    depends_on:
+      - frontend
+    volumes:
+      - test-results:/app/test-results
+    networks:
+      - app-network
+    ports:
+      - "9323:9323"
+    environment:
+      - API_URL=http://frontend:80
+
+
 networks:
   app-network:
 
 volumes:
   backend-data:
   frontend-data:
+  test-results:

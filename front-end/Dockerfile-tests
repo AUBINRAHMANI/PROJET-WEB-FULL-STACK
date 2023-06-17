@@ -1,6 +1,20 @@
 # Utilisez une image Node.js comme image de base
 FROM node:14
 
+# Mettre à jour la liste des paquets et installer les dépendances nécessaires pour Playwright
+RUN apt-get update && apt-get install -y \
+    libnss3 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2
+
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
@@ -18,11 +32,17 @@ COPY e2e ./e2e
 COPY playwright.config.ts .
 COPY tsconfig.json .
 
-# Exposer le port 9323 pour accéder aux résultats des tests (si nécessaire)
-EXPOSE 9323
+# Copier tous les fichiers nécessaires pour l'exécution des tests
+COPY src ./src
+COPY angular.json .
+COPY tsconfig.app.json .
+COPY tsconfig.json .
 
 # Définir des variables d'environnement pour indiquer où se trouve le backend
 ENV API_URL=http://backend:9428
+
+# Expose port 9323 for accessing test results (if necessary)
+EXPOSE 9323
 
 # Exécutez vos tests e2e
 CMD ["npm", "run", "test:e2e"]

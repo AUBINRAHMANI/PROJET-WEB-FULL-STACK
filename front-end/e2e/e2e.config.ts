@@ -1,5 +1,6 @@
-export const testUrl = 'http://localhost:8080';
-export const GestionUrl= 'http://localhost:8080/user-management';
-export const testUrlGameInstance='http://localhost:8080/gameinstance';
-export const testUrlCalibrage='http://localhost:8080/calibrage';
+const baseUrl = process.env["API_URL"] || 'http://localhost:4200';
 
+export const testUrl = baseUrl;
+export const GestionUrl = `${baseUrl}/user-management`;
+export const testUrlGameInstance = `${baseUrl}/gameinstance`;
+export const testUrlCalibrage = `${baseUrl}/calibrage`;

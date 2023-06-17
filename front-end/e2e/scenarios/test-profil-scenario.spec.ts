@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
-import {UserManagementFixture} from "../../src/app/user-management/user-management.fixture";
-import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
+import {UserManagementFixture} from "src/app/user-management/user-management.fixture";
+import {ConnexionFixture} from "src/app/connexion/connexion.fixture";
 
 
 

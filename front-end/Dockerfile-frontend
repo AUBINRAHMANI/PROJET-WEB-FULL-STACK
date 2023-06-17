@@ -10,8 +10,11 @@ COPY package*.json ./
 # Installer les dépendances
 RUN npm install
 
-# Copier le reste des fichiers dans le répertoire de travail
-COPY . .
+# Copier les fichiers source de l'application dans le répertoire de travail
+COPY src ./src
+COPY angular.json .
+COPY tsconfig.app.json .
+COPY tsconfig.json .
 
 # Construire l'application Angular
 RUN npm run build
@@ -36,8 +39,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Utiliser l'utilisateur nginx pour exécuter Nginx
 USER nginx
 
-# Exposer le port 8080
-EXPOSE 8080
+# Exposer le port 80
+EXPOSE 80
 
 # Démarrer Nginx
 CMD ["nginx", "-g", "daemon off;"]

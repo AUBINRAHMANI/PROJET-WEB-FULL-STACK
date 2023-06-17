@@ -22,7 +22,7 @@
     "nom": "Ferry",
     "prenom": "Marry",
     "score": [],
-    "stade": 0,
+    "stade": 1,
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   },
@@ -32,30 +32,6 @@
     "prenom": "Pierre",
     "score": [],
     "stade": 3,
-    "droit": false,
-    "image": "https://www.w3schools.com/howto/img_avatar.png"
-  },
-  {
-    "id": 1686992688269,
-    "nom": "Jean",
-    "prenom": "Rene",
-    "stade": -1,
-    "droit": false,
-    "image": "https://www.w3schools.com/howto/img_avatar.png"
-  },
-  {
-    "id": 1686992789264,
-    "nom": "LE BARBARE",
-    "prenom": "HUZOG",
-    "stade": -1,
-    "droit": false,
-    "image": "https://www.w3schools.com/howto/img_avatar.png"
-  },
-  {
-    "id": 1686992795617,
-    "nom": "Jean",
-    "prenom": "Rene",
-    "stade": -1,
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   }

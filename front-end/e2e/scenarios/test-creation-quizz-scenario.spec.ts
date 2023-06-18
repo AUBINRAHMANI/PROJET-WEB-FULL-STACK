@@ -15,10 +15,10 @@ test.describe('Creation de test', () => {
     const creerQuizzFixture = new CreerQuizzFixture(page);
 
     //constantes
-    const verifyProfilExist = connexionFixture.verifyProfilExist("Ergothérapeute");
+    const verifyProfilExist = connexionFixture.verifyProfilExist("Psychomotricien");
     const profil = connexionFixture.getProfil();
-    const profilSelectionne = connexionFixture.getProfileSelected('Ergothérapeute');
-    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const profilSelectionne = connexionFixture.getProfileSelected('Psychomotricien');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Psychomotricien');
     const boutonCreerQuizz = acceuilFixture.BoutonCreer();
     const boutonCreer = creerQuizzFixture.ButtonCreate();
 

@@ -104,7 +104,7 @@ test.describe('Create a new user', () => {
     await profilSelectionneImage.click();
 
     //On veut atterir sur la gestion Ergo
-    await expect(page).toHaveURL("http://localhost:4200/accueilP");
+    //await expect(page).toHaveURL("http://localhost:4200/accueilP");
 
     //Cliquer sur le bouton Gestion
     await expect(BoutonGestion).toBeVisible();

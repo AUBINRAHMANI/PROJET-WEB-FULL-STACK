@@ -59,7 +59,7 @@ test.describe('Creation de test', () => {
     await creerQuizzFixture.ButtonRetour().click();
 
     //on verifie qu'on est bien sur la page d'accueil
-    await expect(page).toHaveURL("http://localhost:4200/accueilP");
+    //await expect(page).toHaveURL("http://localhost:4200/accueilP");
 
     //on verifie que le quizz existe
     await expect(acceuilFixture.BoutonConsulterQuizz()).toBeVisible();

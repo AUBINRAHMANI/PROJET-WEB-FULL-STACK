@@ -127,14 +127,17 @@ test.describe('Create a new user', () => {
 
     if (utilisateurs.length >= 0) {
       const colonnesBefore = await userManagementFixture.getUserList(); // ON RECUPERE LE NOMBRE DE COLONNES AVANT LA SUPPRESSION
+      // @ts-ignore
       console.log('Nombre de colonnes:', colonnesBefore.length);
 
       console.log(lastButtonDelete);
       await lastButtonDelete.click(); // ON CLIQUE SUR LE DERNIER BOUTON DELETE
 
       const colonnesAfter = await userManagementFixture.getUserList(); // ON RECUPERE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
+      // @ts-ignore
       console.log('Nombre de colonnes:', colonnesAfter.length);
 
+      // @ts-ignore
       expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1); // ON VERIFIE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
     }
 

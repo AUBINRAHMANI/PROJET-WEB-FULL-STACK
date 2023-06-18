@@ -2,16 +2,23 @@ FROM node:latest AS backend-build
 
 WORKDIR /app
 
+# Copier les fichiers package.json et installer les dépendances
 COPY package*.json ./
-
 RUN npm install
 
+# Copier les autres fichiers
 COPY . .
 
+# Copiez le script et rendez-le exécutable
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
+# Créer un nouvel utilisateur et changer les autorisations
 RUN useradd -m myuser && chown -R myuser /app
 USER myuser
 
-
+# Exposer le port pour l'application
 EXPOSE 9428
 
-CMD [ "npm", "run", "dev" ]
+# Utilisez le script comme commande de démarrage
+CMD ["/app/start.sh"]

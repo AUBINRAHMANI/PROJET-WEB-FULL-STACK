@@ -7,17 +7,17 @@
   <div class="quiz-answers">
     <h2>Réponses données</h2>
     <ul class="answer-list">
-      <li class="answer-item" *ngFor="let answer of gameInstance?.answersGiven">
+      <li class="answer-item" *ngFor="let answer of gameInstance?.answersGiven;let i = index">
         <div class="question-info">
-          <p class="question-id">Question {{answer.question.id}}</p>
+          <p class="question-id">Question {{i+1}}</p>
           <p class="question-label">{{answer.question.label}}</p>
         </div>
         <div class="answer-info">
           <p class="answer-value">{{answer.givenAnswer.value}}</p>
           <div class="answer-status" [ngClass]="{'correct': answer.givenAnswer.isCorrect, 'incorrect': !answer.givenAnswer.isCorrect}">
             <span class="sr-only">{{answer.givenAnswer.isCorrect ? 'Correcte' : 'Incorrecte'}}</span>
-            <i class="fas fa-check-circle" *ngIf="answer.givenAnswer.isCorrect"></i>
-            <i class="fas fa-times-circle" *ngIf="!answer.givenAnswer.isCorrect"></i>
+            <i class="fas fa-check-circle" *ngIf="this.areBothTrue(true,answer.givenAnswer.isCorrect)"></i>
+            <i class="fas fa-times-circle" *ngIf="!this.areBothTrue(true,answer.givenAnswer.isCorrect)"></i>
           </div>
         </div>
       </li>

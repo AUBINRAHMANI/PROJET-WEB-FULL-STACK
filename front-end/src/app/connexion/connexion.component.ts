@@ -40,6 +40,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   selectUser(user: Utilisateur){
+    console.log("user a un stade de "+user.stade);
     if(user.droit){
       this.router.navigate(['/accueilP']);
     }

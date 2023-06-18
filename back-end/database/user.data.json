@@ -18,6 +18,15 @@
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   },
   {
+    "id": 2,
+    "nom": "Ferry",
+    "prenom": "Marry",
+    "score": [],
+    "stade": 1,
+    "droit": false,
+    "image": "https://www.w3schools.com/howto/img_avatar.png"
+  },
+  {
     "id": 3,
     "nom": "Durcit",
     "prenom": "Pierre",
@@ -26,10 +35,22 @@
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"
   },
+
   {
-    "id": 1686935491565,
-    "nom": "LE BARBARE",
-    "prenom": "HUZOG",
+    "id": 4,
+    "nom": "Durkov",
+    "prenom": "Pierras",
+    "score": [],
+    "stade": -1,
+    "droit": false,
+    "image": "https://www.w3schools.com/howto/img_avatar.png"
+  },
+
+  {
+    "id": 4,
+    "nom": "salos",
+    "prenom": "pullos",
+    "score": [],
     "stade": -1,
     "droit": false,
     "image": "https://www.w3schools.com/howto/img_avatar.png"

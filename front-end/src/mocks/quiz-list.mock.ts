@@ -319,7 +319,7 @@ const QUIZ_DESSERT: Quiz = {
 
 const QUIZ_LANGUES_ETRANGERES: Quiz = {
   id: '6',
-  name: 'Les langues',
+  name: 'Devine la bonne langue',
   theme: 'Langues',
   questions: QUESTION_LANGUES_ETRANGERES,
 };

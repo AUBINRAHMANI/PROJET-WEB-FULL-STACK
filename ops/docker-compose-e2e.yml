@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../back-end
+      dockerfile: Dockerfile-backend
+    ports:
+      - "9428:9428"
+    volumes:
+      - backend-data:/app/data
+    networks:
+      - app-network
+    environment:
+      - ENVIRONMENT=test
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ../front-end
+      dockerfile: Dockerfile-frontend
+    ports:
+      - "${FRONTEND_PORT_MAPPING:-8080:80}"
+    volumes:
+      - frontend-data:/usr/share/nginx/html
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+    environment:
+      - API_URL=http://backend:9428
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  tests:
+    build:
+      context: ../front-end
+      dockerfile: Dockerfile-tests
+    depends_on:
+      - frontend
+    volumes:
+      - test-results:/app/test-results
+    networks:
+      - app-network
+    ports:
+      - "9323:9323"
+    environment:
+      - API_URL=http://frontend:80
+
+
+
+networks:
+  app-network:
+
+volumes:
+  backend-data:
+  frontend-data:
+  test-results:

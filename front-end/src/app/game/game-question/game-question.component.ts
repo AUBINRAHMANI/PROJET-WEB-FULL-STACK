@@ -33,8 +33,11 @@ export class GameQuestionComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    console.log("Question and minus");
+  }
+  ngOnChanges():void{
+    console.log("CurrentQuestion");
     console.log(this.currentQuestion);
+    console.log("CurrentQuestionMinus");
     console.log(this.currentQuestionMinus);
   }
 
@@ -45,7 +48,9 @@ export class GameQuestionComponent implements OnInit {
     this.answerSelected.emit({ question, answer });
   }
   isAnswerCorrect(answer: Answer): boolean {
-    return answer.isCorrect;
+    if(answer!=undefined)
+       return answer.isCorrect;
+    return false;
   }
   onContainerClick(event: MouseEvent) {
     const targetElement = event.target as HTMLElement;

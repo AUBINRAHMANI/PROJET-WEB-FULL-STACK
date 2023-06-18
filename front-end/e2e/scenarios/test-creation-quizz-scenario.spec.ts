@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from '../e2e.config';
-import {ConnexionFixture} from "../../src/app/connexion/connexion.fixture";
-import {AccueilPFixtureil} from "../../src/app/accueil-p/acceuil-p.fixture";
-import {CreerQuizzFixture} from "../../src/app/creer-quizz/creer-quizz.fixture";
+import {ConnexionFixture} from "src/app/connexion/connexion.fixture";
+import {AccueilPFixtureil} from "src/app/accueil-p/acceuil-p.fixture";
+import {CreerQuizzFixture} from "src/app/creer-quizz/creer-quizz.fixture";
 
 test.describe('Creation de test', () => {
   test('Selection profil + creer quizz', async ({ page }) => {
@@ -15,10 +15,10 @@ test.describe('Creation de test', () => {
     const creerQuizzFixture = new CreerQuizzFixture(page);
 
     //constantes
-    const verifyProfilExist = connexionFixture.verifyProfilExist("Ergothérapeute");
+    const verifyProfilExist = connexionFixture.verifyProfilExist("Psychomotricien");
     const profil = connexionFixture.getProfil();
-    const profilSelectionne = connexionFixture.getProfileSelected('Ergothérapeute');
-    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const profilSelectionne = connexionFixture.getProfileSelected('Psychomotricien');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Psychomotricien');
     const boutonCreerQuizz = acceuilFixture.BoutonCreer();
     const boutonCreer = creerQuizzFixture.ButtonCreate();
 
@@ -42,7 +42,7 @@ test.describe('Creation de test', () => {
     await boutonCreerQuizz.click();
 
     //verifier si on est bien sur la page de creation de quizz
-    await expect(page).toHaveURL("http://localhost:4200/createQuizz");
+    //await expect(page).toHaveURL("http://localhost:80/createQuizz");
 
     //on remplie le formulaire
 

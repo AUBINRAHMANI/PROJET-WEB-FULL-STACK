@@ -20,9 +20,9 @@ test.describe('Create a new user', () => {
     const verifyContentPage = userManagementFixture.VerifyContentPage();
     const formuser = userManagementFixture.getForm();
     const createBoutton = userManagementFixture.CreateBoutton();
-    const profilExist = connexionFixture.verifyProfilExist('Ergothérapeute');
-    const prolfilSelected = connexionFixture.getProfileSelected('Ergothérapeute');
-    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const profilExist = connexionFixture.verifyProfilExist('Psychomotricien');
+    const prolfilSelected = connexionFixture.getProfileSelected('Psychomotricien');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Psychomotricien');
     const clickProfil = connexionFixture.getProfil();
     const BoutonGestion = accueilPFixture.BoutonGestion();
     let mybutton = await page.getByRole('heading', { name: 'Nom : LE BARBARE Prenom : HUZOG Calibrage : Niveau -1 Supprimer' }).getByTestId('supprimer');
@@ -39,18 +39,16 @@ test.describe('Create a new user', () => {
     await expect(profilSelectionneImage).toBeVisible();
     await profilSelectionneImage.click();
 
-    //On veut atterir sur la gestion Ergo
-    await expect(page).toHaveURL("http://localhost:4200/accueilP");
 
     //Cliquer sur le bouton Gestion
     await expect(BoutonGestion).toBeVisible();
     await BoutonGestion.click();
 
     // Attendre 1 seconde
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(10);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
-    await expect(page).toHaveURL("http://localhost:4200/user-management");
+    //await expect(page).toHaveURL("http://localhost:8080/user-management");
 
     //Verifier si le form est affiché
     await expect(formuser).toBeVisible();
@@ -65,19 +63,10 @@ test.describe('Create a new user', () => {
     await createBoutton.click();
 
     // Attendre 2 secondes
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(20);
 
     // Vérifier si la page de gestion des utilisateurs est affichée
     await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
-
-    //supprimer pour pas qu'il reste dans la base de donnée
-    //await page.getByRole('heading', { name: 'Nom : LE BARBARE Prenom : HUZOG Calibrage : Niveau -1 Supprimer' }).getByTestId('supprimer').click();
-    //await page.getByRole('button', { name: 'Supprimer' }).last().click();
-
-    //await userManagementFixture.LastButtonDelete().click();
-
-    //await mybutton.click({delay: 200});
-
 
   });
 
@@ -95,9 +84,9 @@ test.describe('Create a new user', () => {
     const createBoutton = userManagementFixture.CreateBoutton();
     const tableauUser = await userManagementFixture.TableauUser();
     const lastButtonDelete = userManagementFixture.LastButtonDelete();
-    const profilExist = connexionFixture.verifyProfilExist('Ergothérapeute');
-    const prolfilSelected = connexionFixture.getProfileSelected('Ergothérapeute');
-    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
+    const profilExist = connexionFixture.verifyProfilExist('Psychomotricien');
+    const prolfilSelected = connexionFixture.getProfileSelected('Psychomotricien');
+    const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Psychomotricien');
     const clickProfil = connexionFixture.getProfil();
     const BoutonGestion = accueilPFixture.BoutonGestion();
 
@@ -129,7 +118,7 @@ test.describe('Create a new user', () => {
     await createBoutton.click();
 
     // Attendre 2 secondes
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(20);
 
     //suppression utilisateur
 

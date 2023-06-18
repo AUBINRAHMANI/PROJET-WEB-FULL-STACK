@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./back-end
+      context: ../back-end
       dockerfile: Dockerfile-backend
     ports:
       - "9428:9428"
@@ -21,7 +21,7 @@ services:
 
   frontend:
     build:
-      context: ./front-end
+      context: ../front-end
       dockerfile: Dockerfile-frontend
     ports:
       - "${FRONTEND_PORT_MAPPING:-8080:80}"

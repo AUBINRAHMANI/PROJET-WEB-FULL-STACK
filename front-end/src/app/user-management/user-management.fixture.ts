@@ -33,7 +33,7 @@ export class UserManagementFixture extends E2EComponentFixture {
   }
 
   TableauUser(){
-    return this.page.$$('.utilisateur');
+      return this.page.$$('.utilisateur');
   }
 
   ButtonDelete(){

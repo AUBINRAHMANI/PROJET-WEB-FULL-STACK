@@ -12,7 +12,7 @@ test.describe('Creation de test', () => {
     //creation des fixtures
     const connexionFixture = new ConnexionFixture(page);
     const acceuilFixture = new AccueilPFixtureil(page);
-    const creerQuizzFixture = new CreerQuizzFixture(page);
+      const creerQuizzFixture = new CreerQuizzFixture(page);
 
     //constantes
     const verifyProfilExist = connexionFixture.verifyProfilExist("Ergothérapeute");

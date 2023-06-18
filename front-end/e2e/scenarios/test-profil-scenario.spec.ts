@@ -25,9 +25,10 @@ test.describe('Create a new user', () => {
     const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
     const clickProfil = connexionFixture.getProfil();
     const BoutonGestion = accueilPFixture.BoutonGestion();
+    let mybutton = await page.getByRole('heading', { name: 'Nom : LE BARBARE Prenom : HUZOG Calibrage : Niveau -1 Supprimer' }).getByTestId('supprimer');
 
 
-    //SELECTIONNER L'ERGOTHERAPEUTE
+      //SELECTIONNER L'ERGOTHERAPEUTE
     await expect(profilExist).toBeVisible();
     await profilExist.click();
 
@@ -70,8 +71,12 @@ test.describe('Create a new user', () => {
     await expect(userManagementFixture.VerifyUserExist('HUZOG')).toBeVisible();
 
     //supprimer pour pas qu'il reste dans la base de donnée
-    await page.getByRole('button', { name: 'Supprimer' }).last().click();
+    //await page.getByRole('heading', { name: 'Nom : LE BARBARE Prenom : HUZOG Calibrage : Niveau -1 Supprimer' }).getByTestId('supprimer').click();
+    //await page.getByRole('button', { name: 'Supprimer' }).last().click();
+
     //await userManagementFixture.LastButtonDelete().click();
+
+    //await mybutton.click({delay: 200});
 
 
   });
@@ -95,6 +100,7 @@ test.describe('Create a new user', () => {
     const profilSelectionneImage = connexionFixture.getProfileSelectedImage('Ergothérapeute');
     const clickProfil = connexionFixture.getProfil();
     const BoutonGestion = accueilPFixture.BoutonGestion();
+
 
     await page.goto(testUrl);
     //SELECTIONNER L'ERGOTHERAPEUTE
@@ -131,13 +137,13 @@ test.describe('Create a new user', () => {
     console.log('Nombre de utilisateurs:', utilisateurs.length);  // ON VERIFIE SI LE TABLEAU EST VIDE
 
     if (utilisateurs.length >= 0) {
-      const colonnesBefore =  getUserList; // ON RECUPERE LE NOMBRE DE COLONNES AVANT LA SUPPRESSION
+      const colonnesBefore = await userManagementFixture.getUserList(); // ON RECUPERE LE NOMBRE DE COLONNES AVANT LA SUPPRESSION
       console.log('Nombre de colonnes:', colonnesBefore.length);
 
       console.log(lastButtonDelete);
       await lastButtonDelete.click(); // ON CLIQUE SUR LE DERNIER BOUTON DELETE
 
-      const colonnesAfter = getUserList; // ON RECUPERE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
+      const colonnesAfter = await userManagementFixture.getUserList(); // ON RECUPERE LE NOMBRE DE COLONNES APRES LA SUPPRESSION
       console.log('Nombre de colonnes:', colonnesAfter.length);
 
       expect((colonnesAfter.length)).toBe(colonnesBefore.length - 1); // ON VERIFIE LE NOMBRE DE COLONNES APRES LA SUPPRESSION

@@ -22,6 +22,10 @@ export class CreerQuizzFixture extends E2EComponentFixture {
     return this.page.getByRole('button', { name: 'Creer' });
   }
 
+  ButtonRetour(){
+    return this.page.getByRole('button', { name: 'Retour' });
+  }
+
 
 
 

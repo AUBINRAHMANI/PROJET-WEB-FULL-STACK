@@ -12,7 +12,7 @@ test.describe('Creation de test', () => {
     //creation des fixtures
     const connexionFixture = new ConnexionFixture(page);
     const acceuilFixture = new AccueilPFixtureil(page);
-      const creerQuizzFixture = new CreerQuizzFixture(page);
+    const creerQuizzFixture = new CreerQuizzFixture(page);
 
     //constantes
     const verifyProfilExist = connexionFixture.verifyProfilExist("Ergothérapeute");
@@ -53,6 +53,20 @@ test.describe('Creation de test', () => {
     //on verifie qu'il existe le bouton creer
     await expect(boutonCreer).toBeVisible();
     await boutonCreer.click();
+
+    //on verifie que le bouton retour existe
+    await expect(creerQuizzFixture.ButtonRetour()).toBeVisible();
+    await creerQuizzFixture.ButtonRetour().click();
+
+    //on verifie qu'on est bien sur la page d'accueil
+    await expect(page).toHaveURL("http://localhost:4200/accueilP");
+
+    //on verifie que le quizz existe
+    await expect(acceuilFixture.BoutonConsulterQuizz()).toBeVisible();
+    await acceuilFixture.BoutonConsulterQuizz().click();
+
+    await expect(page.getByText('Test')).toBeVisible();
+
 
 
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { GameService } from '../../service/game.service';
 import { Quiz } from '../../models/quiz.model';
@@ -13,9 +14,10 @@ import {Question} from "../../models/question.model";
 })
 export class CreerQuizzComponent implements OnInit {
 
-    public quizForm: FormGroup;
+  public quizForm: FormGroup;
 
-    constructor(public formBuilder: FormBuilder, public quizService: GameService) {
+
+    constructor(public formBuilder: FormBuilder, public quizService: GameService, private router: Router){
       this.quizForm = this.formBuilder.group({
         name: [''],
         theme: [''],
@@ -31,5 +33,10 @@ export class CreerQuizzComponent implements OnInit {
 
       this.quizService.addQuiz(quizToCreate);
     }
+
+  RetourAcceuil(){
+    this.router.navigate(['/accueilP']);
+  }
+
 
 }

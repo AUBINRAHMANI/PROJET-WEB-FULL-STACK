@@ -1,7 +1,8 @@
 # PROJET FULL STACK 
 
 ## SUJET : 
-#### Implementer un Quizz permetant de rendre la vie meilleure aux personnes atteintes de la Maladie de Parkinson
+
+#### Implémenter un Quiz permettant de rendre la vie meilleure aux personnes atteintes de la Maladie de Parkinson
 
 - Avec une équipe de trois, nous avons fait du Full Stack afin de créer un site pour rendre la vie des patients en EHPAD atteints de la maladie de Parkinson meilleure au quotidien.
   Ce site propose donc des quiz ludiques aux patients afin de stimuler son cerveau et de pouvoir s'amuser au maximum, ainsi que de reconnaître son stade dans l'évolution de sa maladie.
